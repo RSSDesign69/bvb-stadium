@@ -1,0 +1,30 @@
+# Archives and quarantined source material never belong in this repository.
+*.[zZ][iI][pP]
+*.7z
+*.rar
+*.tar
+*.gz
+*.tgz
+*.bz2
+*.xz
+reference-inputs/
+reference-zip/
+reference-source/
+extracted/
+__MACOSX/
+signal-iduna-park-reference-imagery/
+ssstwitter.com_*
+Screenshot*
+
+# Generated output, local dependencies, and credentials.
+node_modules/
+dist/
+coverage/
+.cache/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log

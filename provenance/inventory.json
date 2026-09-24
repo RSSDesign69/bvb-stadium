@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "authored_on": "2026-09-24",
+  "author": "Original project work authored by Codex for the user",
+  "files": [
+    {
+      "path": ".githooks/pre-commit",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": ".gitignore",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "README.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "docs/behavior-spec.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "REF-VIDEO",
+        "REF-SCREENSHOT",
+        "VENUE-PLAN",
+        "VENUE-PRICES",
+        "IMG-AERIAL-STADIUM",
+        "IMG-INTERIOR-PANORAMA"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "docs/clean-room.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "docs/reference-observations.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "REF-VIDEO",
+        "REF-SCREENSHOT",
+        "IMG-AERIAL-STADIUM",
+        "IMG-INTERIOR-PANORAMA",
+        "VENUE-PLAN",
+        "VENUE-PRICES",
+        "VENUE-VISIT",
+        "VENUE-SOUTH",
+        "IMAGERY-MANIFEST"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "docs/task-1-completion.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Original record of work and verification performed on 2026-09-24"
+    },
+    {
+      "path": "docs/task-2-handoff.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "package.json",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "provenance/README.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "provenance/dependencies.json",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "provenance/inputs.json",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "REF-VIDEO",
+        "REF-SCREENSHOT",
+        "IMAGERY-MANIFEST",
+        "IMG-STADIUM-SCHEMATIC",
+        "IMG-AERIAL-STADIUM",
+        "IMG-AERIAL-ROOF-ANGLE",
+        "IMG-INTERIOR-PANORAMA",
+        "IMG-INTERIOR-STANDS",
+        "IMG-INTERIOR-SOUTH-VIEW",
+        "IMG-SOUTH-STAND-MATCHDAY",
+        "VENUE-PLAN",
+        "VENUE-PRICES",
+        "VENUE-VISIT",
+        "VENUE-SOUTH"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "provenance/inventory.json",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    },
+    {
+      "path": "scripts/audit_clean_room.py",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Independently authored; external reference records contain provenance metadata only"
+    }
+  ]
+}

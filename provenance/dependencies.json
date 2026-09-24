@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "installed": [],
+  "production_assets": [],
+  "planned": [
+    {
+      "name": "react",
+      "upstream": "https://github.com/facebook/react",
+      "purpose": "UI components",
+      "status": "planned-not-installed",
+      "version": null,
+      "license": null,
+      "review": "Verify exact version, upstream license, dependencies, and notices at installation"
+    },
+    {
+      "name": "react-dom",
+      "upstream": "https://github.com/facebook/react",
+      "purpose": "Browser rendering",
+      "status": "planned-not-installed",
+      "version": null,
+      "license": null,
+      "review": "Verify exact version, upstream license, dependencies, and notices at installation"
+    },
+    {
+      "name": "typescript",
+      "upstream": "https://github.com/microsoft/TypeScript",
+      "purpose": "Typed app and place schema",
+      "status": "planned-not-installed",
+      "version": null,
+      "license": null,
+      "review": "Verify exact version, upstream license, dependencies, and notices at installation"
+    },
+    {
+      "name": "vite",
+      "upstream": "https://github.com/vitejs/vite",
+      "purpose": "Local development and bundling",
+      "status": "planned-not-installed",
+      "version": null,
+      "license": null,
+      "review": "Verify exact version, upstream license, dependencies, and notices at installation"
+    },
+    {
+      "name": "three",
+      "upstream": "https://github.com/mrdoob/three.js",
+      "purpose": "Original 3D scene",
+      "status": "planned-not-installed",
+      "version": null,
+      "license": null,
+      "review": "Verify exact version, upstream license, dependencies, and notices at installation"
+    }
+  ],
+  "foundation_tools": [
+    {
+      "name": "Python 3 standard library",
+      "purpose": "Original audit script; JSON and SHA-256 metadata",
+      "redistributed": false
+    },
+    {
+      "name": "Git",
+      "purpose": "Isolated local repository and history auditing",
+      "redistributed": false
+    },
+    {
+      "name": "FFmpeg / FFprobe",
+      "location": "../bankrate-motion-study/node_modules/@remotion/compositor-darwin-arm64/",
+      "purpose": "Existing workspace executable used only to inspect external video metadata and extract temporary review frames",
+      "redistributed": false
+    },
+    {
+      "name": "Pillow",
+      "location": "Codex bundled Python runtime",
+      "purpose": "Temporary reference contact sheets outside repository",
+      "redistributed": false
+    }
+  ]
+}

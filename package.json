@@ -1,0 +1,12 @@
+{
+  "name": "terrace-atlas",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Independent stadium exploration concept — clean-room foundation",
+  "license": "UNLICENSED",
+  "scripts": {
+    "check": "python3 scripts/audit_clean_room.py"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

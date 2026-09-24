@@ -1,4 +1,4 @@
-# Terrace Atlas
+# 3D Stadium
 
 An independent stadium exploration concept, beginning with Signal Iduna Park in Dortmund. Explore the architecture, compare illustrative places, and preview the pitch from a generated viewpoint.
 

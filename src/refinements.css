@@ -28,7 +28,6 @@ h1,
 h2,
 h3,
 h4,
-.guide-card-name,
 .brand strong {
   font-family: var(--font-area-display);
 }
@@ -76,8 +75,6 @@ h4,
 .viewer-topline,
 .side-step,
 .browse-label,
-.guide-card-top,
-.guide-card-note,
 .footer-brand {
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -148,20 +145,12 @@ h4,
   letter-spacing: 0.03em;
 }
 
-.guide-card,
 .result-item,
 .stand-switcher button,
 .camera-buttons button,
 .secondary-button,
 .filter-reset {
   transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
-}
-
-.guide-card:hover,
-.guide-card.is-active,
-.guide-card:focus-visible {
-  background: #292918;
-  box-shadow: inset 0 -3px var(--yellow-400);
 }
 
 .result-item.is-selected {
@@ -190,7 +179,6 @@ h4,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .guide-card,
   .result-item,
   .stand-switcher button,
   .camera-buttons button,

@@ -11,7 +11,19 @@ def digest(path):
 
 def main():
     inventory = {item['path']: item for item in json.loads((ROOT / 'provenance/inventory.json').read_text())['files']}
-    expected_public = {'credits.html', 'THIRD_PARTY_NOTICES.txt', 'media/terrace-atlas-demo.webm'}
+    expected_public = {
+        'credits.html',
+        'THIRD_PARTY_NOTICES.txt',
+        'media/terrace-atlas-demo.webm',
+        'bvb-09-logo.svg',
+        'fonts/area-inktrap-bold.otf',
+        'fonts/area-inktrap-medium.otf',
+        'fonts/area-inktrap-regular.otf',
+        'fonts/area-inktrap-semibold.otf',
+        'fonts/area-normal-black.otf',
+        'fonts/area-normal-bold.otf',
+        'fonts/iFonts-License.txt',
+    }
     public = ROOT / 'public'
     actual_public = {p.relative_to(public).as_posix() for p in public.rglob('*') if p.is_file()}
     if actual_public != expected_public:

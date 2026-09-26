@@ -81,6 +81,17 @@
       "notes": "Independently authored; external reference records contain provenance metadata only"
     },
     {
+      "path": "docs/impeccable-remediation-task-list.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Execution-ready remediation backlog derived from the 2026-09-26 Impeccable critique."
+    },
+    {
       "path": "docs/portfolio-release.md",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -293,6 +304,17 @@
       "notes": "Unmodified MIT license texts from installed runtime packages, with original headings; redistributed as required notices."
     },
     {
+      "path": "public/bvb-09-logo.svg",
+      "kind": "club-brand-asset",
+      "origin": "third-party",
+      "license": "Trademarked club crest; concept-identification use only",
+      "source_ids": [
+        "BVB-CREST"
+      ],
+      "sha256": "dec9b5fdc254cf4dbdc4901dc994f1ecd3356a9f59e5d89ac8f501fdbe5ed8e4",
+      "notes": "Unmodified SVG downloaded from Borussia Dortmund's public website; used only in the navigation of a clearly labeled independent concept."
+    },
+    {
       "path": "public/credits.html",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -301,7 +323,70 @@
         "TASK-BRIEF"
       ],
       "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio.",
-      "sha256": "de16a3ec2e2d0868c2492028625835f577930aa46deb07951cab7b1e61755243"
+      "sha256": "5283a7e962c648fe94270d5e9e67afc3a2b362253084c6a4ea76d2d1e781af1f"
+    },
+    {
+      "path": "public/fonts/area-inktrap-bold.otf",
+      "kind": "font-asset",
+      "origin": "third-party",
+      "license": "Demo for Personal Use",
+      "source_ids": ["AREA-FONT-TRIAL"],
+      "sha256": "7a4585cb51a86f18527d071b4cde5e1a062f2a5d5cf3799f42634a8e4ec0c3e3",
+      "notes": "User-supplied Area trial font; filename shortened without modifying the file."
+    },
+    {
+      "path": "public/fonts/area-inktrap-medium.otf",
+      "kind": "font-asset",
+      "origin": "third-party",
+      "license": "Demo for Personal Use",
+      "source_ids": ["AREA-FONT-TRIAL"],
+      "sha256": "491a0ddd1ee57d6339ab468d70da6258e98e920abb1964d1b1ff43e76bc696a9",
+      "notes": "User-supplied Area trial font; filename shortened without modifying the file."
+    },
+    {
+      "path": "public/fonts/area-inktrap-regular.otf",
+      "kind": "font-asset",
+      "origin": "third-party",
+      "license": "Demo for Personal Use",
+      "source_ids": ["AREA-FONT-TRIAL"],
+      "sha256": "89efd3fac3a348434a9b0137e705c9a1facaa636afe9d0d67a41a224824ffd58",
+      "notes": "User-supplied Area trial font; filename shortened without modifying the file."
+    },
+    {
+      "path": "public/fonts/area-inktrap-semibold.otf",
+      "kind": "font-asset",
+      "origin": "third-party",
+      "license": "Demo for Personal Use",
+      "source_ids": ["AREA-FONT-TRIAL"],
+      "sha256": "766f49faeeca23a9550a588eef3282ddd081d0f6a21fa4ec131b2c4bc057a1b2",
+      "notes": "User-supplied Area trial font; filename shortened without modifying the file."
+    },
+    {
+      "path": "public/fonts/area-normal-black.otf",
+      "kind": "font-asset",
+      "origin": "third-party",
+      "license": "Demo for Personal Use",
+      "source_ids": ["AREA-FONT-TRIAL"],
+      "sha256": "99319b9087604e5340620c5c34e182d8146e3dc7bc63c5b6eb440ff15e5eb44d",
+      "notes": "User-supplied Area trial font; filename shortened without modifying the file."
+    },
+    {
+      "path": "public/fonts/area-normal-bold.otf",
+      "kind": "font-asset",
+      "origin": "third-party",
+      "license": "Demo for Personal Use",
+      "source_ids": ["AREA-FONT-TRIAL"],
+      "sha256": "c64250b75a0b88194529cad91a1695b6bb2aaeafa975242485ec8eeb9a84da7a",
+      "notes": "User-supplied Area trial font; filename shortened without modifying the file."
+    },
+    {
+      "path": "public/fonts/iFonts-License.txt",
+      "kind": "font-license-notice",
+      "origin": "third-party",
+      "license": "Demo for Personal Use",
+      "source_ids": ["AREA-FONT-TRIAL"],
+      "sha256": "e217845cf871ec990fdd54b93eeb30cf54de7faf8a0162d00d57ffee56aa766e",
+      "notes": "Unmodified license notice included in the user-supplied archive."
     },
     {
       "path": "public/media/terrace-atlas-demo.webm",
@@ -397,6 +482,17 @@
       "notes": "Original generated-data filtering and local demo-group rules for Task 7."
     },
     {
+      "path": "src/fonts.css",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "AREA-FONT-TRIAL"
+      ],
+      "notes": "Original self-hosted font-face mapping for the user-supplied Area files."
+    },
+    {
       "path": "src/main.tsx",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -436,6 +532,17 @@
         "TASK-BRIEF"
       ],
       "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative."
+    },
+    {
+      "path": "src/refinements.css",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original UI refinements implementing the intentional-design review."
     },
     {
       "path": "src/stadium/layout.ts",

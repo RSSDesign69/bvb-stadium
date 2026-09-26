@@ -110,7 +110,7 @@ export default function StadiumExplorer({stand,onStand,standRequest}:{stand:Stan
   };
   const activePreview=view.mode!=='overview';
   return <div className="explorer">
-    <div className="viewer-topline"><span>ORIGINAL 3D MODEL <span className="muted">/ ILLUSTRATIVE PLACES</span></span><label className="roof-toggle"><input type="checkbox" checked={!activePreview&&cutaway} disabled={activePreview} onChange={e=>{setCutaway(e.target.checked);engine.current?.setCutaway(e.target.checked);}}/>Roof cutaway</label></div>
+    <div className="viewer-topline"><span>Original 3D model <span className="muted">· Illustrative places</span></span><label className="roof-toggle"><input type="checkbox" checked={!activePreview&&cutaway} disabled={activePreview} onChange={e=>{setCutaway(e.target.checked);engine.current?.setCutaway(e.target.checked);}}/>Roof cutaway</label></div>
     <div className="atmosphere-controls" role="group" aria-label="Match-day atmosphere">
       <label><input type="checkbox" checked={atmosphere.enabled} onChange={e=>setAtmosphere(a=>({...a,enabled:e.target.checked}))}/>Match-day atmosphere</label>
       <button type="button" disabled={!atmosphere.enabled||reduced} aria-pressed={atmosphere.paused} onClick={()=>setAtmosphere(a=>({...a,paused:!a.paused}))}>{atmosphere.paused?'Resume atmosphere':'Pause atmosphere'}</button>
@@ -124,7 +124,7 @@ export default function StadiumExplorer({stand,onStand,standRequest}:{stand:Stan
         <div className="scene-host" ref={host}/>
         {!ready&&!error&&<div className="scene-message" role="status">Building the ground…</div>}
         {error&&<div className="scene-message" role="alert"><h3>Explore by place</h3><p>{error}</p><button className="primary-button" onClick={()=>{if(loadFailed.current)window.location.reload();else setAttempt(a=>a+1);}}>Retry 3D ↗</button></div>}
-        <div className="scene-caption"><span className="scene-badge">{view.mode==='preview'?'ILLUSTRATIVE VIEW':view.mode==='flying'?'ENTERING THE STAND':view.mode==='returning'?'RETURNING TO OVERVIEW':cutaway?'ROOF CUTAWAY':'FULL ROOF'}</span><span>{activePreview?`Roof and barriers shown · ${!atmosphere.enabled||atmosphere.clearView?'crowd hidden':'simulated crowd'} · sightlines unverified`:'Four stands. One ground.'}</span></div>
+        <div className="scene-caption"><span className="scene-badge">{view.mode==='preview'?'Illustrative view':view.mode==='flying'?'Entering the stand':view.mode==='returning'?'Returning to overview':cutaway?'Roof cutaway':'Full roof'}</span><span>{activePreview?`Roof and barriers shown · ${!atmosphere.enabled||atmosphere.clearView?'crowd hidden':'simulated crowd'} · sightlines unverified`:'Four stands. One ground.'}</span></div>
         <div className="orientation"><MiniMap place={selected} view={view} filteredStand={filters.stand}/></div>
         {hovered&&view.mode==='overview'&&<div className="hover-card"><strong>{STANDS[hovered.stand].name} · {describePlace(hovered)}</strong><span>{hovered.availability==='available'?'Available in demo':'Unavailable in demo'} · €{hovered.demoPrice} demo</span></div>}
         {activePreview&&<button className="back-to-stadium" onClick={()=>command('back')}>← Back to stadium <kbd>Esc</kbd></button>}
@@ -137,7 +137,7 @@ export default function StadiumExplorer({stand,onStand,standRequest}:{stand:Stan
       <p className="scene-footnote">{results.length.toLocaleString()} matching illustrative places · Nonmatching places are dimmed in the scene · No measured seat data</p>
     </div>
     <aside className="place-panel" aria-label="Place explorer">
-      <div className="side-step"><span>FIND A DEMO PLACE</span><span>01—04</span></div>
+      <div className="side-step"><span>Find a demo place</span><span>Step 01 of 04</span></div>
       <h3>{selected?STANDS[selected.stand].localName:'Inside the ground.'}</h3>
       <p className="place-lead">Generated places and fictional EUR prices. No live inventory or ticket purchase.</p>
       <div className="discovery-filters" aria-label="Filter illustrative places">
@@ -153,12 +153,12 @@ export default function StadiumExplorer({stand,onStand,standRequest}:{stand:Stan
       {results.length===0?<div className="results-empty"><strong>No places match these filters.</strong><p>Try another stand, category, quantity, or price.</p><button type="button" className="secondary-button" onClick={()=>setFilters(DEFAULT_FILTERS)}>Reset all filters <span>↗</span></button></div>:<>
         <div className="result-list" role="group" aria-label="Matching illustrative places">{results.slice(page*pageSize,(page+1)*pageSize).map(p=><button type="button" key={p.id} className={`result-item ${selectedId===p.id?'is-selected':''}`} aria-pressed={selectedId===p.id} onClick={()=>applySelection(p.id,true)}><span><strong>{STANDS[p.stand].name} · {describePlace(p)}</strong><small>{p.tier} · {p.kind==='seat'?'seated':'standing area'} · €{p.demoPrice}/person</small></span><em>{selectedId===p.id?'Selected':p.availability==='available'?'Available':'Unavailable'}</em></button>)}</div>
         {pageCount>1&&<div className="result-pages"><button type="button" disabled={page===0} onClick={()=>setPage(n=>n-1)}>Previous</button><span>Page {page+1} of {pageCount.toLocaleString()}</span><button type="button" disabled={page>=pageCount-1} onClick={()=>setPage(n=>n+1)}>Next</button></div>}
-        {candidate&&block&&section&&row&&<><div className="browse-label">BROWSE MATCHING PLACES</div><div className="place-fields">
+        {candidate&&block&&section&&row&&<><div className="browse-label">Browse matching places</div><div className="place-fields">
           <label>Demo block<select value={block.id} onChange={e=>focusBlock(e.target.value)}>{blocks.map(b=><option value={b.id} key={b.id}>{b.label}</option>)}</select></label>
           <label>Tier in block<select value={section.id} onChange={e=>{const next=results.find(p=>p.sectionId===e.target.value);if(next)setCandidateId(next.id);}}>{sections.map(s=><option key={s.id} value={s.id}>{s.tier==='terrace'?'Standing terrace':s.tier==='upper'?'Upper tier':'Lower tier'}</option>)}</select></label>
           <div className="row-place-fields"><label>{block.stand==='south'?'Terrace band':'Row'}<select value={row.id} onChange={e=>{const next=results.find(p=>p.rowId===e.target.value);if(next)setCandidateId(next.id);}}>{rows.map(r=><option key={r.id} value={r.id}>{block.stand==='south'?`Sample band ${r.number}`:`Row ${r.number}`}</option>)}</select></label>
           <label>{block.stand==='south'?'Sample position':'Seat'}<select value={candidate.id} onChange={e=>setCandidateId(e.target.value)}>{places.map(p=><option key={p.id} value={p.id}>{p.kind==='seat'?`Seat ${p.seatNumber}`:'Area centre'}{p.availability==='unavailable'?' · unavailable':''}</option>)}</select></label></div>
-        </div><button className="secondary-button" onClick={()=>applySelection(candidate.id,true)}>Select this {candidate.kind==='seat'?'place':'area'} <span>↗</span></button><div className="sample-buttons" role="group" aria-label="Representative viewpoints"><span>QUICK VIEWS</span>{(['low','middle','high'] as const).map(level=><button key={level} onClick={()=>sample(level)}>{level}</button>)}</div></>}
+        </div><button className="secondary-button" onClick={()=>applySelection(candidate.id,true)}>Select this {candidate.kind==='seat'?'place':'area'} <span>↗</span></button><div className="sample-buttons" role="group" aria-label="Representative viewpoints"><span>Quick views</span>{(['low','middle','high'] as const).map(level=><button key={level} onClick={()=>sample(level)}>{level}</button>)}</div></>}
       </>}
       {selected?<div className="selected-details">
         <div className="selected-title"><span className="selection-dot"/><h4>{describePlace(selected)}</h4></div>

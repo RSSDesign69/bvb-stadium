@@ -1,0 +1,190 @@
+:root {
+  font-family: var(--font-area);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-area);
+}
+
+h1,
+h2,
+h3,
+h4,
+.guide-card-name,
+.brand strong {
+  font-family: var(--font-area-display);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.brand-logo {
+  display: block;
+  width: 50px;
+  height: 50px;
+  flex: none;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand strong {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.brand small {
+  margin-top: 4px;
+  color: #aeb0a9;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.header-edition,
+.header-about,
+.section-kicker,
+.view-indicator,
+.viewer-topline,
+.side-step,
+.browse-label,
+.sample-buttons > span,
+.guide-card-top,
+.guide-card-note,
+.footer-brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.header-about,
+.primary-button {
+  text-transform: none;
+}
+
+.intro {
+  gap: 48px;
+}
+
+.intro-context {
+  max-width: none;
+  margin: 0;
+  color: var(--yellow-400);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+}
+
+.intro h1 {
+  margin: 18px 0 20px;
+  font-weight: 900;
+}
+
+.intro-copy > p:last-child {
+  max-width: 620px;
+  margin: 0;
+  color: #c9cac4;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.55;
+}
+
+.intro-facts {
+  min-width: 250px;
+  margin: 0;
+  border-top: 1px solid #44463e;
+}
+
+.intro-facts div {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #30322d;
+}
+
+.intro-facts dt {
+  color: var(--yellow-400);
+  font-family: var(--font-area-display);
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.intro-facts dd {
+  margin: 0;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.primary-button {
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.guide-card,
+.result-item,
+.stand-switcher button,
+.camera-buttons button,
+.secondary-button,
+.filter-reset,
+.demo-add {
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.guide-card:hover,
+.guide-card.is-active,
+.guide-card:focus-visible {
+  background: #292918;
+  box-shadow: inset 0 -3px var(--yellow-400);
+}
+
+.result-item.is-selected {
+  box-shadow: inset 3px 0 var(--yellow-400);
+}
+
+@media (max-width: 1023px) {
+  .intro-facts {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand strong {
+    font-size: 12px;
+  }
+
+  .brand small {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide-card,
+  .result-item,
+  .stand-switcher button,
+  .camera-buttons button,
+  .secondary-button,
+  .filter-reset,
+  .demo-add {
+    transition: none;
+  }
+}

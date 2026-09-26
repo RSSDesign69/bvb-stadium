@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Area Inktrap";
+  src: url("/fonts/area-inktrap-regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Area Inktrap";
+  src: url("/fonts/area-inktrap-medium.otf") format("opentype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Area Inktrap";
+  src: url("/fonts/area-inktrap-semibold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Area Inktrap";
+  src: url("/fonts/area-inktrap-bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Area Normal";
+  src: url("/fonts/area-normal-bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Area Normal";
+  src: url("/fonts/area-normal-black.otf") format("opentype");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+
+:root {
+  --font-area: "Area Inktrap", sans-serif;
+  --font-area-display: "Area Normal", "Area Inktrap", sans-serif;
+}

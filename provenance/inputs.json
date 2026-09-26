@@ -352,6 +352,29 @@
       "distribution": "licensed-runtime-dependency"
     },
     {
+      "id": "BVB-CREST",
+      "kind": "brand-asset",
+      "source_page": "https://www.bvb.de/content/dam/bvbweb/en/matches/football/profis/teams/157.svg",
+      "author": "Borussia Dortmund",
+      "license": "Trademarked club crest; no general reuse license asserted",
+      "reviewed_on": "2026-09-26",
+      "review_status": "Downloaded from the club's public website at the user's explicit request",
+      "permitted_use": "Identify Borussia Dortmund as the subject of this clearly labeled independent concept",
+      "distribution": "concept-identification-only"
+    },
+    {
+      "id": "AREA-FONT-TRIAL",
+      "kind": "user-supplied-font-archive",
+      "location": "area-font-family.zip",
+      "sha256": "9901222bf67683ebb7d51de21ba08a87c017e4ae8afba82b2c601967a041eb83",
+      "author": "Blaze Type; archive supplied by user",
+      "license": "Demo for Personal Use",
+      "reviewed_on": "2026-09-26",
+      "review_status": "Included license inspected; selected font files extracted and renamed without modification",
+      "permitted_use": "Personal-use concept demo only; replace before commercial publication",
+      "distribution": "personal-use-demo"
+    },
+    {
       "id": "UNREVIEWED-AERIAL-BACKGROUND",
       "kind": "unreviewed-external-image",
       "location": "Signal Iduna Park aerial imagery background.jpg",

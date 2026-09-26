@@ -10,6 +10,28 @@ const output=path.resolve('.cache/qa');fs.mkdirSync(output,{recursive:true});
 const report={date:new Date().toISOString(),engines:[],accessibility:[],performance:null};
 const mode=(p,value)=>p.waitForFunction(v=>document.querySelector('.scene-host')?.dataset.mode===v,value);
 const stats=p=>p.locator('.scene-host').evaluate(el=>({...el.dataset}));
+// Task 3/4 audits: 44×44 targets and a 12px floor for text on the explorer surface.
+async function auditSurface(page,label){
+ return page.evaluate(()=>{
+  const issues=[],visible=e=>{const r=e.getBoundingClientRect(),c=getComputedStyle(e);return r.width>0&&r.height>0&&c.visibility!=='hidden'&&e.checkVisibility()&&!e.closest('[hidden],[inert]');};
+  const roots=[...document.querySelectorAll('.explorer,.site-header,.disclosure-bar')];
+  const inRoots=e=>roots.some(r=>r.contains(e));
+  for(const e of document.querySelectorAll('button,a[href],select,summary,input:not([type=hidden]),[tabindex="0"]')){
+   if(!inRoots(e)||!visible(e)||e.matches('.scene-frame,.sr-only'))continue;
+   let t=e;if(e.matches('input[type=checkbox]'))t=e.closest('label')||e;
+   const r=t.getBoundingClientRect();
+   if(r.width<43.5||r.height<43.5)issues.push(`target ${t.tagName.toLowerCase()}.${t.className||''} "${(t.textContent||t.getAttribute('aria-label')||'').trim().slice(0,30)}" ${Math.round(r.width)}×${Math.round(r.height)}`);
+  }
+  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+  for(let n;n=walker.nextNode();){
+   const e=n.parentElement;if(!n.textContent.trim()||!inRoots(e)||!visible(e)||e.closest('svg,.sr-only,option'))continue;
+   const size=parseFloat(getComputedStyle(e).fontSize);
+   if(size<12)issues.push(`text ${size}px "${n.textContent.trim().slice(0,30)}" in ${e.tagName.toLowerCase()}.${e.className||''}`);
+  }
+  if(document.documentElement.scrollWidth>innerWidth)issues.push('horizontal overflow');
+  return issues;
+ }).then(issues=>assert.deepEqual([...new Set(issues)],[],`Density audit: ${label}`));
+}
 async function axe(page,state){
  const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
  report.accessibility.push({state,violations:result.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))});
@@ -33,14 +55,17 @@ async function axe(page,state){
    await page.getByRole('button',{name:'Resume atmosphere',exact:true}).click();await page.locator('.scene-frame').scrollIntoViewIfNeeded();
    await page.waitForFunction(t=>document.querySelector('.scene-host').dataset.matchTime!==t,stopped);
    // Out-of-view animation does not consume continuous rendering work.
-   await page.locator('.site-footer').scrollIntoViewIfNeeded();await page.waitForTimeout(100);
+   // A short viewport at the document end guarantees the scene is fully off-screen.
+   await page.setViewportSize({width:1440,height:500});await page.evaluate(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'instant'}));await page.waitForTimeout(150);
+   assert.equal(await page.locator('.scene-frame').evaluate(e=>e.getBoundingClientRect().bottom<0),true,'Scene is off-screen');
    const offscreen=(await stats(page)).matchTime;await page.waitForTimeout(250);assert.equal((await stats(page)).matchTime,offscreen);
+   await page.setViewportSize({width:1440,height:1050});
    await page.emulateMedia({reducedMotion:'reduce'});await page.locator('.scene-frame').scrollIntoViewIfNeeded();
    assert.equal(await page.getByRole('button',{name:'Pause atmosphere',exact:true}).isDisabled(),true);
    const reduced=(await stats(page)).matchTime;await page.waitForTimeout(150);assert.equal((await stats(page)).matchTime,reduced);
    for(const stand of ['South','West','North','East']){
     await page.locator('.stand-switcher').getByRole('button',{name:`${stand} stand`}).click();
-    await page.getByRole('button',{name:'middle',exact:true}).click();await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
+    await page.getByRole('button',{name:'Middle view'}).click();await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
     assert.match(await page.locator('.scene-caption').textContent(),/crowd hidden/);
     assert.match(await page.locator('.sightline-note').textContent(),/not verified/);
     await page.waitForFunction(()=>document.querySelector('.scene-host').dataset.renderMode==='preview'&&document.querySelector('.scene-host').dataset.crowdVisible==='false');
@@ -59,10 +84,45 @@ async function axe(page,state){
     await page.keyboard.press('Tab');assert.equal(await page.locator(':focus').getAttribute('aria-label'),'Close about dialog');await axe(page,'about modal');
     await page.keyboard.press('Escape');assert.equal(await about.evaluate(e=>e===document.activeElement),true);
     // Empty results remain accessible and offer recovery.
+    await page.getByRole('button',{name:'Change place',exact:true}).click();await page.locator('.advanced-places summary').click();
     await page.locator('.discovery-filters').getByLabel('Stand',{exact:true}).selectOption('south');
     await page.locator('.discovery-filters').getByLabel('Category',{exact:true}).selectOption('sideline');await page.locator('.results-empty').waitFor();await axe(page,'empty results');
-    await page.getByRole('button',{name:'Reset all filters'}).click();
+    await page.getByRole('button',{name:/Reset filters/}).click();
+    // Progressive flow at desktop and narrow widths: Preview stays reachable, targets and text stay usable.
+    await page.setViewportSize({width:1440,height:900});await page.reload();await mode(page,'overview');
+    await page.locator('.explorer').evaluate(e=>e.scrollIntoView());
+    await page.locator('.stand-switcher').getByRole('button',{name:'West stand'}).click();await page.getByRole('button',{name:'Middle view'}).click();
+    const inView=async loc=>{const b=await loc.boundingBox();return b&&b.y>=0&&b.y+b.height<=900;};
+    assert.ok(await inView(page.getByRole('button',{name:'Preview this view'})),'Preview visible at 1440×900');
+    assert.ok(await inView(page.locator('.sightline-note')),'Sightline note visible with Preview');
+    await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
+    assert.ok(await inView(page.getByRole('button',{name:'Save viewpoint'})),'Save visible in Preview at 1440×900');
+    await page.getByRole('button',{name:'Change place',exact:true}).click();await page.locator('.advanced-places summary').click();
+    await page.evaluate(()=>window.scrollBy({top:600,behavior:'instant'}));await page.waitForTimeout(150);
+    const stuck=await page.locator('.scene-frame').boundingBox();assert.ok(stuck.y>=0&&stuck.y<400,'Scene stays in view while the place rail scrolls');
+    for(const width of [320,390,768]){
+     await page.setViewportSize({width,height:844});await page.reload();await mode(page,'overview');
+     await auditSurface(page,`${width}px choose stand`);
+     await page.locator('.stand-switcher').getByRole('button',{name:'West stand'}).click();
+     assert.equal(await page.locator('.advanced-places').evaluate(d=>d.open),false,'Advanced collapsed by default');
+     assert.equal(await page.locator('.result-pages,.place-fields,.discovery-filters').evaluateAll(els=>els.filter(e=>e.checkVisibility()).length),0,'No exact-place controls in the novice stage');
+     await auditSurface(page,`${width}px choose place`);
+     await page.locator('.advanced-places summary').click();await auditSurface(page,`${width}px advanced`);await page.locator('.advanced-places summary').click();
+     await page.getByRole('button',{name:'Middle view'}).click();await page.waitForTimeout(150);
+     const preview=await page.getByRole('button',{name:'Preview this view'}).boundingBox();
+     assert.ok(preview&&preview.y>=0&&preview.y+preview.height<=844,`Preview visible after selection at ${width}px`);
+     await auditSurface(page,`${width}px review`);
+     // Mobile reading order: scene → stand/view choice → review → atmosphere.
+     const order=await page.evaluate(()=>['.scene-frame','.stand-switcher','.place-panel','.atmosphere-controls'].map(s=>document.querySelector(s).getBoundingClientRect().top+scrollY));
+     assert.deepEqual(order,[...order].sort((a,b)=>a-b),`Narrow order at ${width}px: ${order}`);
+     await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
+     await page.getByRole('button',{name:'Save viewpoint'}).click();await page.getByRole('button',{name:'Remove saved viewpoint'}).waitFor();
+     await auditSurface(page,`${width}px preview and saved`);
+     if(width===390)await axe(page,'mobile saved viewpoint');
+    }
     // 200% text enlargement and a narrow viewport must reflow without horizontal scrolling.
+    await page.setViewportSize({width:640,height:900});await page.reload();await mode(page,'overview');
+    await page.locator('.stand-switcher').getByRole('button',{name:'West stand'}).click();await page.getByRole('button',{name:'Middle view'}).click();
     await page.setViewportSize({width:640,height:900});
     // Use actual computed font sizes rather than recursive percentage compounding.
     await page.evaluate(()=>{const items=[...document.querySelectorAll('body *:not(canvas):not(svg *)')].map(e=>[e,parseFloat(getComputedStyle(e).fontSize)]);for(const [e,size] of items)e.style.fontSize=`${size*2}px`;});
@@ -95,7 +155,7 @@ async function axe(page,state){
     await loading.route('**/src/viewer/engine.ts*',async route=>{await gate;await route.abort();});await loading.goto(base,{waitUntil:'domcontentloaded'});
     await loading.getByRole('status').filter({hasText:'Building the ground'}).waitFor();await axe(loading,'engine loading');release();
     await loading.getByRole('button',{name:'Retry 3D'}).waitFor();await axe(loading,'engine load error');await loading.unroute('**/src/viewer/engine.ts*');
-    await loading.getByRole('button',{name:'Select this place'}).click();assert.ok(await loading.locator('.place-id').textContent());
+    await loading.locator('.stand-switcher').getByRole('button',{name:'West stand'}).click();await loading.locator('.advanced-places summary').click();await loading.getByRole('button',{name:'Select this place'}).click();assert.ok(await loading.locator('.place-id').textContent());
     // A failed dynamic import is cached by the browser; a fresh import attempt needs a reload.
     await loading.getByRole('button',{name:'Retry 3D'}).click();
     await mode(loading,'overview');

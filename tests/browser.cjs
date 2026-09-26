@@ -11,6 +11,9 @@ const output=path.resolve('.cache/qa');fs.mkdirSync(output,{recursive:true});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  const mode=async expected=>page.waitForFunction(mode=>document.querySelector('.scene-host')?.dataset.mode===mode,expected);
  const frame=page.locator('.scene-frame');
+ const labels={low:'Lower view',middle:'Middle view',high:'Upper view'};
+ const changePlace=async p=>{const b=p.getByRole('button',{name:'Change place',exact:true});if(await b.count())await b.click({timeout:5000}).catch(async e=>{if(await p.locator('.place-panel').getAttribute('data-stage')!=='2')throw e;});};
+ const exactPlace=async p=>{await changePlace(p);if(!await p.locator('.advanced-places').evaluate(d=>d.open))await p.locator('.advanced-places summary').click();await p.getByRole('button',{name:'Select this place'}).click();};
  await page.goto(base);await mode('overview');await frame.scrollIntoViewIfNeeded();
  await frame.screenshot({path:path.join(output,'overview-cutaway.png')});
  const stats=await page.locator('.scene-host').evaluate(el=>({...el.dataset}));
@@ -34,7 +37,7 @@ const output=path.resolve('.cache/qa');fs.mkdirSync(output,{recursive:true});
   await page.locator('.stand-switcher').getByRole('button',{name:`${stand} stand`}).click();
   const sampleIds=new Set();
   for(const level of ['low','middle','high']){
-   await page.getByRole('button',{name:level,exact:true}).click();const id=await page.locator('.place-id').textContent();
+   await changePlace(page);await page.getByRole('button',{name:labels[level]}).click();const id=await page.locator('.place-id').textContent();
    assert.ok(!sampleIds.has(id),`${stand} ${level} must be a distinct sample`);sampleIds.add(id);
    if(stand==='South'){assert.match(id,/AREA/);assert.match(await page.locator('.selected-details').textContent(),/unassigned/);}
    await page.getByRole('button',{name:'Preview this view'}).click();await mode('preview');
@@ -49,7 +52,7 @@ const output=path.resolve('.cache/qa');fs.mkdirSync(output,{recursive:true});
  console.log('PASS 12 low/middle/high previews across four stands, map direction, keyboard, Escape and focus restoration');
  // Cancel a flight while it is in progress, then change selection mid-flight.
  await page.getByRole('button',{name:'Preview this view'}).click();await page.keyboard.press('Escape');await mode('overview');
- await page.getByRole('button',{name:'Preview this view'}).click();await page.getByRole('button',{name:'low',exact:true}).click();await mode('overview');
+ await page.getByRole('button',{name:'Preview this view'}).click();await changePlace(page);await page.getByRole('button',{name:labels.low}).click();await mode('overview');
  console.log('PASS interrupted flights and reselection');
  await page.emulateMedia({reducedMotion:'reduce'});
  const started=Date.now();await page.getByRole('button',{name:'Preview this view'}).click();await mode('preview');assert.ok(Date.now()-started<1200,'Reduced-motion preview must skip flight');
@@ -62,19 +65,19 @@ const output=path.resolve('.cache/qa');fs.mkdirSync(output,{recursive:true});
  }
  const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true,reducedMotion:'reduce'});
  const phone=await mobile.newPage();phone.on('pageerror',e=>errors.push(e.message));await phone.goto(base);await phone.waitForFunction(()=>document.querySelector('.scene-host')?.dataset.mode==='overview');
- await phone.locator('.stand-switcher').getByRole('button',{name:'South stand'}).tap();await phone.getByRole('button',{name:'middle',exact:true}).tap();await phone.getByRole('button',{name:'Preview this view'}).tap();
- await phone.waitForFunction(()=>document.querySelector('.scene-host')?.dataset.mode==='preview');await phone.getByRole('button',{name:'Turn right',exact:true}).tap();
+ await phone.locator('.stand-switcher').getByRole('button',{name:'South stand'}).tap();await phone.getByRole('button',{name:labels.middle}).tap();await phone.getByRole('button',{name:'Preview this view'}).tap();
+ await phone.waitForFunction(()=>document.querySelector('.scene-host')?.dataset.mode==='preview');await phone.locator('.camera-look summary').tap();await phone.getByRole('button',{name:'Turn right',exact:true}).tap();
  await phone.locator('.scene-frame').screenshot({path:path.join(output,'mobile-standing-preview.png')});await phone.getByRole('button',{name:/Back to stadium/}).tap();
  const mobileStats=await phone.locator('.scene-host').evaluate(el=>({...el.dataset}));assert.ok(Number(mobileStats.triangles)<350000);
  console.log('PASS responsive widths and emulated touch preview/return',mobileStats);
  // Context loss must leave the data explorer usable and allow a fresh renderer.
  await page.setViewportSize({width:1440,height:1050});
  await page.locator('.scene-host canvas').evaluate(c=>c.dispatchEvent(new Event('webglcontextlost',{cancelable:true})));
- await page.getByRole('button',{name:'Retry 3D'}).waitFor();await page.getByRole('button',{name:'Select this place'}).click();
+ await page.getByRole('button',{name:'Retry 3D'}).waitFor();await exactPlace(page);
  await page.getByRole('button',{name:'Retry 3D'}).click();await mode('overview');
  const unavailable=await browser.newPage({viewport:{width:390,height:844}});
  await unavailable.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/.test(type)?null:original.call(this,type,...args);};});
- await unavailable.goto(base);await unavailable.getByRole('button',{name:'Retry 3D'}).waitFor();await unavailable.getByRole('button',{name:'Select this place'}).click();assert.ok(await unavailable.locator('.place-id').textContent());
+ await unavailable.goto(base);await unavailable.getByRole('button',{name:'Retry 3D'}).waitFor();await unavailable.locator('.stand-switcher').getByRole('button',{name:'West stand'}).click();await exactPlace(unavailable);assert.ok(await unavailable.locator('.place-id').textContent());
  assert.equal(await unavailable.getByRole('button',{name:'Preview this view'}).isDisabled(),true);
  assert.deepEqual(errors,[]);console.log('PASS WebGL failure/context loss, retry, and no uncaught browser errors');
  console.log('Screenshots:',output);await browser.close();

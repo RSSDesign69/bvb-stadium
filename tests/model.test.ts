@@ -23,6 +23,26 @@ test('stable hierarchy, unique IDs, finite eye positions, and honest standing se
   assert.equal(seen.size,DEMO.places.length);
 });
 
+test('structural picks retain their authored stand, including end-stand edges',()=>{
+  const stadium=buildStadium(true);
+  try{
+    stadium.group.updateMatrixWorld(true);
+    const ray=new THREE.Raycaster();
+    const standAt=(x:number,z:number)=>{
+      ray.set(new THREE.Vector3(x,100,z),new THREE.Vector3(0,-1,0));
+      const hit=ray.intersectObjects(stadium.solids,false)[0];
+      assert.ok(hit&&hit.instanceId!==undefined);
+      return hit.object.userData.stands[hit.instanceId];
+    };
+    assert.equal(standAt(0,90),'south');
+    assert.equal(standAt(0,-90),'north');
+    assert.equal(standAt(-70,0),'west');
+    assert.equal(standAt(70,0),'east');
+    assert.equal(standAt(44,-70),'north');
+    assert.equal(standAt(0,0),null);
+  }finally{stadium.dispose();}
+});
+
 test('demo quantity uses consecutive available seats or a single unassigned standing area',()=>{
   const seated=DEMO.places.find(p=>p.kind==='seat'&&demoGroup(p,4));
   assert.ok(seated&&seated.kind==='seat');

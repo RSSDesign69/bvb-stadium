@@ -6,13 +6,13 @@ import type { AtmosphereSettings } from '../atmosphere/settings';
 import { buildStadium } from '../stadium/model';
 import { BLOCK_BY_ID, PLACE_BY_ID } from '../places/demo';
 import { STANDS, world } from '../stadium/layout';
-import type { Place, Vec3 } from '../places/schema';
+import type { Place, StandId, Vec3 } from '../places/schema';
 import { HOME, HOME_TARGET, previewRoute, returnRoute, routePoint } from './camera';
 import type { Flight, Pose } from './camera';
 export type ViewMode='overview'|'flying'|'preview'|'returning';
 export interface ViewState { mode:ViewMode; position:Vec3; direction:Vec3; fov:number }
 export type Command='left'|'right'|'up'|'down'|'in'|'out'|'reset'|'back';
-export interface Events { onSelect:(id:string)=>void; onHover:(id:string|null)=>void; onView:(state:ViewState)=>void; onError:(message:string)=>void }
+export interface Events { onSelect:(id:string)=>void; onStand?:(stand:StandId)=>void; onHover:(id:string|null)=>void; onView:(state:ViewState)=>void; onError:(message:string)=>void }
 const tuple=(v:THREE.Vector3):Vec3=>[v.x,v.y,v.z];
 const visible=(o:THREE.Object3D):boolean=>o.visible&&(!o.parent||visible(o.parent));
 export class StadiumEngine {
@@ -114,7 +114,17 @@ export class StadiumEngine {
   };
   private pointerUp=(e:PointerEvent)=>{
     this.touches.delete(e.pointerId);
-    if(this.down&&!this.down.moved&&this.mode==='overview'&&performance.now()-this.down.time<650){const p=this.pick(e);if(p)this.events.onSelect(p.id);}
+    if(this.down&&!this.down.moved&&this.mode==='overview'&&performance.now()-this.down.time<650){
+      const p=this.pick(e);
+      if(p)this.events.onSelect(p.id);
+      else {
+        // pick() has positioned the ray. Read the authored stand for the hit instance;
+        // pitch, shared corners and other unassigned structures do not choose a stand.
+        const hit=this.ray.intersectObjects(this.stadium.solids.filter(visible),false)[0];
+        const stand=hit?.instanceId===undefined?null:hit.object.userData.stands?.[hit.instanceId] as StandId|null;
+        if(stand)this.events.onStand?.(stand);
+      }
+    }
     this.down=null;
   };
   private pointerCancel=()=>{this.down=null;this.touches.clear();};

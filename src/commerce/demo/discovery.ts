@@ -54,7 +54,7 @@ export function filterDemoPlaces(filters: DiscoveryFilters): Place[] {
 }
 
 export function unavailableReason(place: Place, quantity: number): string {
-  if (place.availability === 'unavailable') return 'This place is unavailable in the demo. No selection was added.';
-  if (place.kind === 'standing-area') return 'This sample area cannot support that demo quantity. No space is reserved or assigned.';
+  if (place.availability === 'unavailable') return 'This place is unavailable in the demo.';
+  if (place.kind === 'standing-area') return 'This sample area cannot support that quantity. No space is reserved or assigned.';
   return `This generated row does not have ${quantity} consecutive available seats starting here.`;
 }

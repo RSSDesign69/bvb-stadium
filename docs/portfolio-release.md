@@ -23,7 +23,7 @@ Review the full recording and text alternative in `public/credits.html`; then up
 
 ## Portfolio copy
 
-“Terrace Atlas is an independent, interactive stadium concept inspired by Signal Iduna Park. Explore four distinct stands, compare generated places, preview illustrative viewpoints and try a local demo selection. Built with TypeScript, React and Three.js using original procedural geometry and match-day visuals. Places, views, prices and availability are illustrative. No tickets are sold.”
+“Terrace Atlas is an independent, interactive stadium concept inspired by Signal Iduna Park. Explore four distinct stands, choose representative or exact generated places, preview illustrative viewpoints and save one viewpoint locally. Built with TypeScript, React and Three.js using original procedural geometry and match-day visuals. Places, views, prices and availability are illustrative. No tickets are sold.”
 
 Do not describe this as an official viewer, exact seat preview, live inventory system or ticket purchase experience. The app, credits page, video and README retain the independent-concept framing. A generated place count is a software dataset count, not stadium capacity. Automated synthetic sightline tests do not validate real-world views.
 
@@ -37,4 +37,4 @@ See `task-10-completion.md` for current verification and `tasks-8-9-completion.m
 
 Serve `site/` as static files over HTTPS at the domain root. No backend, environment secrets, accounts or analytics are required. Preserve `THIRD_PARTY_NOTICES.txt`, `credits.html` and `media/`; configure WebM as `video/webm`. Serve index/credits with revalidation and hashed JS/CSS with long-lived caching. If deploying under a subpath, first configure Vite's base and repeat link/asset checks at that path; the present artifact targets `/`.
 
-After upload, verify the visible disclosure, credits/notices/video links, WebGL rendering, one seated and one standing preview, return controls and demo selection on the public URL. Check that only the allowlisted site files are exposed. Keep the previous artifact for rollback. Publication status must only be updated after an actual deployment and public smoke check.
+After upload, verify the visible disclosure, credits/notices/video links, WebGL rendering, one seated and one standing preview, return controls and the saved viewpoint on the public URL. Check that only the allowlisted site files are exposed. Keep the previous artifact for rollback. Publication status must only be updated after an actual deployment and public smoke check.

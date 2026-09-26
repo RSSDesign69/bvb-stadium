@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import { DEMO } from '../places/demo';
-import type { Place, Vec3 } from '../places/schema';
+import type { Place, StandId, Vec3 } from '../places/schema';
 import { STANDS, STAND_ORDER, tiers, world, rowDepth, rowFloor } from './layout';
 
-type Batch = { geometry: THREE.BufferGeometry; material: THREE.Material; matrices: THREE.Matrix4[]; roof:boolean };
+type Batch = { geometry: THREE.BufferGeometry; material: THREE.Material; matrices: THREE.Matrix4[]; stands:(StandId|null)[]; roof:boolean };
 export interface PickGroup { mesh:THREE.InstancedMesh; places:Place[] }
 export function buildStadium(compact=false){
   const group=new THREE.Group(); group.name='Original Dortmund concept';
@@ -22,9 +22,10 @@ export function buildStadium(compact=false){
   };
   const boxGeometry=new THREE.BoxGeometry(1,1,1),beamGeometry=new THREE.CylinderGeometry(1,1,1,6);
   const batches=new Map<string,Batch>();
+  let currentStand:StandId|null=null;
   const dummy=new THREE.Object3D(); const Y=new THREE.Vector3(0,1,0);
   function record(key:string,geometry:THREE.BufferGeometry,material:THREE.Material,isRoof:boolean){
-    let b=batches.get(key);if(!b){b={geometry,material,matrices:[],roof:isRoof};batches.set(key,b);}dummy.updateMatrix();b.matrices.push(dummy.matrix.clone());
+    let b=batches.get(key);if(!b){b={geometry,material,matrices:[],stands:[],roof:isRoof};batches.set(key,b);}dummy.updateMatrix();b.matrices.push(dummy.matrix.clone());b.stands.push(currentStand);
   }
   function box(position:Vec3,size:Vec3,material:keyof typeof materials='concrete',yaw=0,isRoof=false){
     dummy.position.set(...position);dummy.rotation.set(0,yaw,0);dummy.scale.set(...size);record(`box-${material}-${isRoof}`,boxGeometry,materials[material],isRoof);
@@ -52,6 +53,7 @@ export function buildStadium(compact=false){
     for(let i=0;i<5;i++)line([[-3.66,i*.48,z+sign*1.8],[3.66,i*.48,z+sign*1.8]],0x879f92);
   }
   for(const stand of STAND_ORDER){
+    currentStand=stand;
     const config=STANDS[stand],yaw=Math.atan2(config.out[0],config.out[2]);
     const local=(u:number,d:number,y:number)=>world(stand,u,d,y);
     for(const tier of tiers(stand)){
@@ -102,6 +104,7 @@ export function buildStadium(compact=false){
       box(local(u,inner,38.8),[3,.2,1],'white',yaw,true);
     }
   }
+  currentStand=null;
   // Four connected terraced corners, authored as radial segments, not an oval bowl.
   for(const sx of [-1,1])for(const sz of [-1,1]){
     for(const tier of tiers('north'))for(let r=0;r<tier.rows;r++){
@@ -145,6 +148,7 @@ export function buildStadium(compact=false){
   }
   for(const batch of batches.values()){
     const mesh=new THREE.InstancedMesh(batch.geometry,batch.material,batch.matrices.length);
+    mesh.userData.stands=batch.stands;
     batch.matrices.forEach((matrix,i)=>mesh.setMatrixAt(i,matrix));mesh.computeBoundingSphere();
     (batch.roof?roof:group).add(mesh);solids.push(mesh);
   }

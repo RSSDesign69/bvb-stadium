@@ -4,6 +4,16 @@
   "author": "Original project work authored by Codex for the user",
   "files": [
     {
+      "path": ".claude/launch.json",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Local dev-server launch configuration for browser preview verification; no external material."
+    },
+    {
       "path": ".githooks/pre-commit",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -41,7 +51,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Independently authored; external reference records contain provenance metadata only"
+      "notes": "Independently authored; external reference records contain provenance metadata only. Task 6 updates the description to the four-stage flow and saved viewpoint."
     },
     {
       "path": "docs/behavior-parity.md",
@@ -99,7 +109,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio."
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 replaces demo-selection wording with saved-viewpoint wording."
     },
     {
       "path": "docs/reference-observations.md",
@@ -128,6 +138,16 @@
         "TASK-BRIEF"
       ],
       "notes": "Original record of work and verification performed on 2026-09-24"
+    },
+    {
+      "path": "docs/explorer-flow-spec.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Original four-stage architectural seat-view interaction specification for the 2026-09-26 remediation."
     },
     {
       "path": "docs/task-10-completion.md",
@@ -322,7 +342,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio.",
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the walkthrough description to a locally saved viewpoint.",
       "sha256": "5283a7e962c648fe94270d5e9e67afc3a2b362253084c6a4ea76d2d1e781af1f"
     },
     {
@@ -330,7 +350,9 @@
       "kind": "font-asset",
       "origin": "third-party",
       "license": "Demo for Personal Use",
-      "source_ids": ["AREA-FONT-TRIAL"],
+      "source_ids": [
+        "AREA-FONT-TRIAL"
+      ],
       "sha256": "7a4585cb51a86f18527d071b4cde5e1a062f2a5d5cf3799f42634a8e4ec0c3e3",
       "notes": "User-supplied Area trial font; filename shortened without modifying the file."
     },
@@ -339,7 +361,9 @@
       "kind": "font-asset",
       "origin": "third-party",
       "license": "Demo for Personal Use",
-      "source_ids": ["AREA-FONT-TRIAL"],
+      "source_ids": [
+        "AREA-FONT-TRIAL"
+      ],
       "sha256": "491a0ddd1ee57d6339ab468d70da6258e98e920abb1964d1b1ff43e76bc696a9",
       "notes": "User-supplied Area trial font; filename shortened without modifying the file."
     },
@@ -348,7 +372,9 @@
       "kind": "font-asset",
       "origin": "third-party",
       "license": "Demo for Personal Use",
-      "source_ids": ["AREA-FONT-TRIAL"],
+      "source_ids": [
+        "AREA-FONT-TRIAL"
+      ],
       "sha256": "89efd3fac3a348434a9b0137e705c9a1facaa636afe9d0d67a41a224824ffd58",
       "notes": "User-supplied Area trial font; filename shortened without modifying the file."
     },
@@ -357,7 +383,9 @@
       "kind": "font-asset",
       "origin": "third-party",
       "license": "Demo for Personal Use",
-      "source_ids": ["AREA-FONT-TRIAL"],
+      "source_ids": [
+        "AREA-FONT-TRIAL"
+      ],
       "sha256": "766f49faeeca23a9550a588eef3282ddd081d0f6a21fa4ec131b2c4bc057a1b2",
       "notes": "User-supplied Area trial font; filename shortened without modifying the file."
     },
@@ -366,7 +394,9 @@
       "kind": "font-asset",
       "origin": "third-party",
       "license": "Demo for Personal Use",
-      "source_ids": ["AREA-FONT-TRIAL"],
+      "source_ids": [
+        "AREA-FONT-TRIAL"
+      ],
       "sha256": "99319b9087604e5340620c5c34e182d8146e3dc7bc63c5b6eb440ff15e5eb44d",
       "notes": "User-supplied Area trial font; filename shortened without modifying the file."
     },
@@ -375,7 +405,9 @@
       "kind": "font-asset",
       "origin": "third-party",
       "license": "Demo for Personal Use",
-      "source_ids": ["AREA-FONT-TRIAL"],
+      "source_ids": [
+        "AREA-FONT-TRIAL"
+      ],
       "sha256": "c64250b75a0b88194529cad91a1695b6bb2aaeafa975242485ec8eeb9a84da7a",
       "notes": "User-supplied Area trial font; filename shortened without modifying the file."
     },
@@ -384,7 +416,9 @@
       "kind": "font-license-notice",
       "origin": "third-party",
       "license": "Demo for Personal Use",
-      "source_ids": ["AREA-FONT-TRIAL"],
+      "source_ids": [
+        "AREA-FONT-TRIAL"
+      ],
       "sha256": "e217845cf871ec990fdd54b93eeb30cf54de7faf8a0162d00d57ffee56aa766e",
       "notes": "Unmodified license notice included in the user-supplied archive."
     },
@@ -396,8 +430,8 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio.",
-      "sha256": "553b60d3d28f388c0020f132f125192389a113ba5e6282915421e6d9b3d37e7d"
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Re-recorded 2026-09-26 (Task 6) to show the four-stage flow and locally saved viewpoint.",
+      "sha256": "d18de7b4c66a3b3deb94d441e88c3485cc7817ea241fcb43ff893f195934d5f9"
     },
     {
       "path": "scripts/audit_clean_room.py",
@@ -427,7 +461,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio."
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the recording script to the four-stage flow and saved viewpoint."
     },
     {
       "path": "scripts/test.mjs",
@@ -479,7 +513,7 @@
         "TASK-BRIEF",
         "DESIGN-BRIEF"
       ],
-      "notes": "Original generated-data filtering and local demo-group rules for Task 7."
+      "notes": "Original generated-data filtering and local demo-group rules for Task 7. Task 5 remediation updates unavailableReason messages to remove transactional language."
     },
     {
       "path": "src/fonts.css",
@@ -542,7 +576,7 @@
         "TASK-BRIEF",
         "DESIGN-BRIEF"
       ],
-      "notes": "Original UI refinements implementing the intentional-design review."
+      "notes": "Original UI refinements implementing the intentional-design review and Task 2 progressive-discovery disclosure and representative-view controls. Task 6 removes dead demo-basket selectors and styles the saved-viewpoint card."
     },
     {
       "path": "src/stadium/layout.ts",
@@ -570,7 +604,7 @@
         "IMG-INTERIOR-STANDS",
         "IMG-INTERIOR-SOUTH-VIEW"
       ],
-      "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative."
+      "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative. Task 2 remediation adds stand identity to structural instances for canvas discovery without altering geometry."
     },
     {
       "path": "src/styles.css",
@@ -581,7 +615,7 @@
         "TASK-BRIEF",
         "DESIGN-BRIEF"
       ],
-      "notes": "Original Task 2 shell"
+      "notes": "Original Task 2 shell. Task 6 removes unreachable legacy plan/toolbar/basket rules."
     },
     {
       "path": "src/viewer/StadiumExplorer.tsx",
@@ -594,7 +628,7 @@
         "REF-SCREENSHOT",
         "THREE-UPSTREAM"
       ],
-      "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative."
+      "notes": "Original implementation or validation for Tasks 3\u20136. Task 2 remediation implements the four-stage flow, representative choices, persistent Advanced disclosure and unified selection/navigation. Task 5 remediation replaces transactional language (demo basket) with saved-viewpoint feature, demotes price/availability from novice path, consolidates disclaimers. Geometry and data are illustrative. Task 6 makes Save viewpoint the stage-4 primary action, consolidates saved/remove controls, and lets View saved viewpoint relax hiding filters."
     },
     {
       "path": "src/viewer/camera.ts",
@@ -620,7 +654,7 @@
         "REF-SCREENSHOT",
         "THREE-UPSTREAM"
       ],
-      "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative."
+      "notes": "Original implementation or validation for Tasks 3\u20136. Task 2 remediation adds structural stand-click events alongside existing place picks. Geometry and data are illustrative."
     },
     {
       "path": "src/vite-env.d.ts",
@@ -651,7 +685,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original browser integration checks for Task 7 discovery and selection."
+      "notes": "Original browser integration checks for Task 7 discovery and selection, extended for Task 2 remediation: novice stages, Back/Edit focus, Advanced preservation, exact selectors, empty/unavailable states and WebGL recovery. Task 5 remediation updates test assertions for saved-viewpoint feature replacing demo basket. Task 6 adds saved-viewpoint reopen/remove coverage."
     },
     {
       "path": "tests/model.test.ts",
@@ -661,7 +695,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative."
+      "notes": "Original implementation or validation for Tasks 3\u20136. Task 2 remediation adds structural stand-picking regression coverage. Geometry and data are illustrative."
     },
     {
       "path": "tests/quality.browser.cjs",
@@ -671,7 +705,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Tasks 8\u20139 implementation, validation, or completion record. No reference code or media imported."
+      "notes": "Original Tasks 8\u20139 implementation, validation, or completion record. No reference code or media imported. Task 6 adds instant-scroll off-screen checks, mobile ordering, stage-4 target/axe audits and Preview/Save visibility."
     },
     {
       "path": "tests/release.browser.cjs",

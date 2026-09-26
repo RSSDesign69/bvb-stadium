@@ -2,7 +2,7 @@
 
 An independent stadium exploration concept, beginning with Signal Iduna Park in Dortmund. Explore the architecture, compare illustrative places, and preview the pitch from a generated viewpoint.
 
-**Tasks 1–10 implemented; portfolio release prepared locally at concept fidelity:** original four-stand 3D model, 19,304 generated seats, 60 unassigned standing-area samples, navigation, first-person previews, discovery filters, local demo selection, and optional original match-day atmosphere. Every place, price, availability state, and sightline is illustrative.
+**Tasks 1–10 implemented; portfolio release prepared locally at concept fidelity:** original four-stand 3D model, 19,304 generated seats, 60 unassigned standing-area samples, navigation, first-person previews, a four-stage stand → place → review → preview flow, an Advanced exact-place mode, one locally saved viewpoint, and optional original match-day atmosphere. Every place, price, availability state, and sightline is illustrative.
 
 ## Run the viewer
 
@@ -47,7 +47,7 @@ This directory is its own Git repository inside a larger workspace. Run Git comm
 
 “Independent stadium concept. Places, views, prices, and availability are illustrative. No tickets are sold.”
 
-Use the stand, tier, category, people, and demo-price filters to narrow generated places. Select one from the result list, block controls, or stadium; then choose **Preview this view** or **Add to demo selection**. The selection is local only and reserves nothing. Drag to orbit or look, use the labeled zoom/direction buttons, and press Escape to return. Roof cutaway applies only in overview. Reduced motion skips flights and stops match-day animation. Atmosphere can be paused or switched off; Clear-view preview hides decorative crowd/players while retaining physical structure. The [portfolio release guide](docs/portfolio-release.md) covers the demo video, credits, reproducible package and deployment handoff. See the separate [venue-grade and ticketing proposal](docs/venue-grade-proposal.md). No public deployment has been performed. Physical-device, manual screen-reader, Safari/WebKit, and venue-grade sightline validation are not claimed.
+Choose a stand, then one of three representative views, review the place, and choose **Preview this view**; then **Save viewpoint** to keep it for this visit. Open **Choose an exact place** for the stand, tier, category, people, and optional fictional demo-price filters, results, and block/row/seat controls. The saved viewpoint lives only in the page, is not persisted, and reserves nothing. Drag to orbit or look, use the labeled zoom/direction buttons, and press Escape to return. Roof cutaway applies only in overview. Reduced motion skips flights and stops match-day animation. Atmosphere can be paused or switched off; Clear-view preview hides decorative crowd/players while retaining physical structure. The [portfolio release guide](docs/portfolio-release.md) covers the demo video, credits, reproducible package and deployment handoff. See the separate [venue-grade and ticketing proposal](docs/venue-grade-proposal.md). No public deployment has been performed. Physical-device, manual screen-reader, Safari/WebKit, and venue-grade sightline validation are not claimed.
 
 ## Prepare the portfolio artifact
 

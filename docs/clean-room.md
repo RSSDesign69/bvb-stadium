@@ -10,7 +10,7 @@ The reference ZIP was neither located nor opened during this task. No archive, e
 
 Use the external video and screenshot only to describe user-visible interactions in original language. Do not bundle either media file, traced UI assets, thumbnails, or extracted frames. Temporary review frames were created outside the project under `/tmp/terrace-atlas-reference-review/`.
 
-The curated imagery pack remains a sibling directory outside this Git root. Its manifest metadata is recorded here, but its media is not imported. Read photos for architectural features; create new geometry from independent parameters. Do not sample or project a photo into a texture. Photo-derived production assets require a separate license and attribution review.
+At Task 1 the curated imagery pack was a sibling directory outside the Git root. After the workspace was reorganized, it resides in the ignored `signal-iduna-park-reference-imagery/` directory; it is still untracked and excluded from the app build. Its manifest metadata is recorded here, but its media is not imported. Read photos for architectural features; create new geometry from independent parameters. Do not sample or project a photo into a texture. Photo-derived production assets require a separate license and attribution review.
 
 ## Evidence used
 

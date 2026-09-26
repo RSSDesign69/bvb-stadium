@@ -75,6 +75,13 @@ def main():
             check_blob(f'working/{path}', p.read_bytes(), excluded_hashes)
 
     staged = git('ls-files', '--stage', '-z').decode().split('\0')
+    # Review the staged snapshot against its own registry, without replacing a
+    # contributor's existing staged work merely to audit unstaged development.
+    staged_paths = {r.split('\t', 1)[1] for r in staged if r}
+    index_inventory = inventory
+    if 'provenance/inventory.json' in staged_paths:
+        staged_manifest = json.loads(git('show', ':provenance/inventory.json'))
+        index_inventory = {entry['path']: entry for entry in staged_manifest['files']}
     index_count = 0
     for record in filter(None, staged):
         meta, path = record.split('\t', 1)
@@ -85,12 +92,9 @@ def main():
             continue
         if prohibited(path):
             ERRORS.add(f'index/{path}: prohibited path')
-        if path not in inventory:
+        if path not in index_inventory:
             ERRORS.add(f'index/{path}: missing provenance entry')
         check_blob(f'index/{path}', git('cat-file', 'blob', oid), excluded_hashes)
-        if path.startswith('provenance/') and (ROOT / path).is_file():
-            if git('cat-file', 'blob', oid) != (ROOT / path).read_bytes():
-                ERRORS.add(f'index/{path}: stage the updated provenance before committing')
 
     # Inspect every historical tree, so renames cannot hide prohibited old paths.
     commits = git('rev-list', '--all').decode().splitlines()

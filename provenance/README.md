@@ -4,8 +4,10 @@
 
 `inventory.json` enumerates every authored repository file and its provenance. Original files use the project restriction `UNLICENSED`; this does not assign a third-party license or grant redistribution rights. No broad open-source license has been selected by the owner.
 
-`dependencies.json` records zero installed packages, planned package sources, and the tools used for the foundation. The app currently ships no dependencies, textures, images, models, fonts, audio, or place datasets. Tooling used only to inspect external media is not an application dependency.
+`dependencies.json` records the direct and transitive packages resolved for the React/Vite/Three.js viewer and its test tooling. The app ships no external textures, images, models, fonts, audio, or place datasets. Tooling used only to inspect external media is not an application dependency.
 
 For future third-party assets, add a file inventory entry with `origin: third-party`, source IDs, author, exact license, SHA-256, attribution text, modification disclosure, and allowed distribution. For generated geometry/data, record the original generator and source assumptions; label output illustrative. For dependencies, capture all lockfile-resolved packages, not just top-level names.
 
 The manifests are review records, not proof of rights. Unknown permission means do not bundle the asset. Keep research facts, user-visible observations, and original design choices distinguishable.
+
+The app generates its own geometry and demo data. External research files now reside in ignored paths within the reorganized workspace; they remain untracked and excluded from the production bundle. Task 1 paths/hashes are retained as historical metadata where applicable.

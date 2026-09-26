@@ -44,4 +44,4 @@ The official [ticket price page](https://www.bvb.de/de/en/tickets/ticket-informa
 
 ## Implementation parity tracking
 
-Every V/S item above is **observed, not yet implemented**. During Tasks 5–9 record a build revision, device/browser, action, result, and local evidence for each applicable item. Keyboard, reduced motion, loading/error states, and performance need independent tests even though not demonstrated in the reference. Check behavior against this log; do not match the reference's styling, source, geometry, or commercial claims.
+Tasks 8–9 now record implementation and validation in the [written behavior parity checklist](behavior-parity.md) and [quality completion record](tasks-8-9-completion.md). These map every V/S observation to the original build and explicitly document differences, test evidence, and remaining limitations. Keyboard, reduced motion, loading/error states, and performance were independently checked rather than inferred from the video.

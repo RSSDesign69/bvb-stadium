@@ -1,0 +1,52 @@
+// Record the actual production UI; no reference footage or simulated frames.
+const { chromium } = require('@playwright/test');
+const fs = require('node:fs/promises');
+const path = require('node:path');
+(async () => {
+  const browser = await chromium.launch({ channel: process.env.TEST_BROWSER || 'chrome', args: ['--enable-webgl', '--ignore-gpu-blocklist'] });
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1050 }, recordVideo: { dir: '.cache/demo', size: { width: 1440, height: 1050 } } });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  const pause = () => page.waitForTimeout(2400);
+  const mode = value => page.waitForFunction(v => document.querySelector('.scene-host')?.dataset.mode === v, value);
+  try {
+    await page.goto(process.env.TEST_URL || 'http://127.0.0.1:4173');
+    await mode('overview');
+    await pause();
+    await page.locator('.scene-frame').scrollIntoViewIfNeeded();
+    await pause();
+    await page.getByLabel('Roof cutaway').uncheck();
+    await pause();
+    await page.getByLabel('Roof cutaway').check();
+    await page.locator('.stand-switcher').getByRole('button', { name: 'West stand' }).click();
+    await page.getByRole('button', { name: 'middle', exact: true }).click();
+    await pause();
+    await page.getByRole('button', { name: 'Preview this view' }).click();
+    await mode('preview');
+    await pause();
+    await page.getByRole('button', { name: 'Turn left', exact: true }).click();
+    await pause();
+    await page.keyboard.press('Escape');
+    await mode('overview');
+    await page.locator('.stand-switcher').getByRole('button', { name: 'South stand' }).click();
+    await page.getByRole('button', { name: 'middle', exact: true }).click();
+    await pause();
+    await page.getByRole('button', { name: 'Preview this view' }).click();
+    await mode('preview');
+    await pause();
+    await page.keyboard.press('Escape');
+    await mode('overview');
+    await page.getByRole('button', { name: /^Add to demo selection/ }).click();
+    await page.locator('.demo-confirmation').scrollIntoViewIfNeeded();
+    await pause();
+    await page.getByRole('button', { name: 'Reset stadium', exact: true }).click();
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await pause();
+    if (errors.length) throw new Error(errors.join('\n'));
+    await context.close();
+    await fs.mkdir('public/media', { recursive: true });
+    await page.video().saveAs(path.resolve('public/media/terrace-atlas-demo.webm'));
+    console.log('Recorded public/media/terrace-atlas-demo.webm');
+  } finally { await browser.close(); }
+})().catch(e => { console.error(e); process.exitCode = 1; });

@@ -5,26 +5,29 @@
     {
       "id": "TASK-BRIEF",
       "kind": "user-provided-brief",
-      "location": "../signal-iduna-park-3d-viewer-task-list.md",
-      "sha256": "9786ae0d2c98480f83a599a9b87a227930d9afe63f7eba8712268e44ef8c4d09",
+      "location": "signal-iduna-park-3d-viewer-task-list.md",
+      "sha256": "661313c7f6a14e494d96eb91c5f7b4f6c6ad05663ce42e34218bae1ed1b0a6f7",
       "author": "User-provided document; authorship not independently verified",
       "license": "No publication license established",
       "reviewed_on": "2026-09-24",
       "review_status": "read",
       "permitted_use": "Authorized Task 1 scope; behavior summary only, no ZIP inspection",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../signal-iduna-park-3d-viewer-task-list.md",
+      "task_1_sha256": "9786ae0d2c98480f83a599a9b87a227930d9afe63f7eba8712268e44ef8c4d09"
     },
     {
       "id": "DESIGN-BRIEF",
       "kind": "user-provided-brief",
-      "location": "../borussia-dortmund-design-system.md",
+      "location": "borussia-dortmund-design-system.md",
       "sha256": "fe1bca0560ec0cefd46930da511aa332e0262eb4f5e295939b6a3df1216681be",
       "author": "User-provided document; authorship not independently verified",
       "license": "No publication license established",
       "reviewed_on": "2026-09-24",
       "review_status": "read",
       "permitted_use": "Observed palette, square controls, typography direction; original components to be authored",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../borussia-dortmund-design-system.md"
     },
     {
       "id": "REF-VIDEO",
@@ -55,18 +58,19 @@
     {
       "id": "IMAGERY-MANIFEST",
       "kind": "reference-metadata",
-      "location": "../signal-iduna-park-reference-imagery/manifest.json",
+      "location": "signal-iduna-park-reference-imagery/manifest.json",
       "sha256": "52203a45627c318370520d8cbdb3a8a33da56a4c91ac5a57b1e5dc9027f37dae",
       "license": "Source metadata supplied by user; individual media terms recorded separately",
       "reviewed_on": "2026-09-24",
       "review_status": "read; all seven local hashes matched",
       "permitted_use": "Provenance metadata only",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../signal-iduna-park-reference-imagery/manifest.json"
     },
     {
       "id": "IMG-STADIUM-SCHEMATIC",
       "kind": "modeling-reference",
-      "location": "../signal-iduna-park-reference-imagery/stadium-schematic.svg",
+      "location": "signal-iduna-park-reference-imagery/stadium-schematic.svg",
       "file": "stadium-schematic.svg",
       "purpose": "block layout schematic",
       "commons_title": "File:Schema Signal Iduna Park.svg",
@@ -86,12 +90,13 @@
       "review_status": "hash verified; metadata only",
       "license_verification": "Transcribed from curated manifest; source page must be rechecked before publication",
       "permitted_use": "Architectural observation; no texture sampling or reproduction",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../signal-iduna-park-reference-imagery/stadium-schematic.svg"
     },
     {
       "id": "IMG-AERIAL-STADIUM",
       "kind": "modeling-reference",
-      "location": "../signal-iduna-park-reference-imagery/aerial-stadium.jpg",
+      "location": "signal-iduna-park-reference-imagery/aerial-stadium.jpg",
       "file": "aerial-stadium.jpg",
       "purpose": "aerial exterior and roof",
       "commons_title": "File:Signal iduna park stadium dortmund 2.jpg",
@@ -111,12 +116,13 @@
       "review_status": "hash verified; visually inspected",
       "license_verification": "Transcribed from curated manifest; source page must be rechecked before publication",
       "permitted_use": "Architectural observation; no texture sampling or reproduction",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../signal-iduna-park-reference-imagery/aerial-stadium.jpg"
     },
     {
       "id": "IMG-AERIAL-ROOF-ANGLE",
       "kind": "modeling-reference",
-      "location": "../signal-iduna-park-reference-imagery/aerial-roof-angle.jpg",
+      "location": "signal-iduna-park-reference-imagery/aerial-roof-angle.jpg",
       "file": "aerial-roof-angle.jpg",
       "purpose": "roof and site context",
       "commons_title": "File:Dortmund Blick vom Florianturm auf den Signal Iduna Park 1.jpg",
@@ -136,12 +142,13 @@
       "review_status": "hash verified; metadata only",
       "license_verification": "Transcribed from curated manifest; source page must be rechecked before publication",
       "permitted_use": "Architectural observation; no texture sampling or reproduction",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../signal-iduna-park-reference-imagery/aerial-roof-angle.jpg"
     },
     {
       "id": "IMG-INTERIOR-PANORAMA",
       "kind": "modeling-reference",
-      "location": "../signal-iduna-park-reference-imagery/interior-panorama.jpg",
+      "location": "signal-iduna-park-reference-imagery/interior-panorama.jpg",
       "file": "interior-panorama.jpg",
       "purpose": "interior bowl panorama",
       "commons_title": "File:Signal Iduna Park Panorama.jpg",
@@ -161,12 +168,13 @@
       "review_status": "hash verified; visually inspected",
       "license_verification": "Transcribed from curated manifest; source page must be rechecked before publication",
       "permitted_use": "Architectural observation; no texture sampling or reproduction",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../signal-iduna-park-reference-imagery/interior-panorama.jpg"
     },
     {
       "id": "IMG-INTERIOR-STANDS",
       "kind": "modeling-reference",
-      "location": "../signal-iduna-park-reference-imagery/interior-stands.jpg",
+      "location": "signal-iduna-park-reference-imagery/interior-stands.jpg",
       "file": "interior-stands.jpg",
       "purpose": "stands and pitch",
       "commons_title": "File:IMAG0206BorussiaDortmundStadium.jpg",
@@ -183,15 +191,16 @@
       "attribution_required": "true",
       "restrictions": "",
       "reviewed_on": "2026-09-24",
-      "review_status": "hash verified; metadata only",
+      "review_status": "hash verified; visually inspected for Tasks 3–6; qualitative architectural comparison only",
       "license_verification": "Transcribed from curated manifest; source page must be rechecked before publication",
       "permitted_use": "Architectural observation; no texture sampling or reproduction",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../signal-iduna-park-reference-imagery/interior-stands.jpg"
     },
     {
       "id": "IMG-INTERIOR-SOUTH-VIEW",
       "kind": "modeling-reference",
-      "location": "../signal-iduna-park-reference-imagery/interior-south-view.jpg",
+      "location": "signal-iduna-park-reference-imagery/interior-south-view.jpg",
       "file": "interior-south-view.jpg",
       "purpose": "view toward the south stand",
       "commons_title": "File:Dortmund Signal Iduna Park 4 defish.jpg",
@@ -208,15 +217,16 @@
       "attribution_required": "true",
       "restrictions": "",
       "reviewed_on": "2026-09-24",
-      "review_status": "hash verified; metadata only",
+      "review_status": "hash verified; visually inspected for Tasks 3–6; qualitative architectural comparison only",
       "license_verification": "Transcribed from curated manifest; source page must be rechecked before publication",
       "permitted_use": "Architectural observation; no texture sampling or reproduction",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../signal-iduna-park-reference-imagery/interior-south-view.jpg"
     },
     {
       "id": "IMG-SOUTH-STAND-MATCHDAY",
       "kind": "modeling-reference",
-      "location": "../signal-iduna-park-reference-imagery/south-stand-matchday.jpg",
+      "location": "signal-iduna-park-reference-imagery/south-stand-matchday.jpg",
       "file": "south-stand-matchday.jpg",
       "purpose": "Yellow Wall crowd and scale",
       "commons_title": "File:2012-02-26 Dortmund01 (6791756854).jpg",
@@ -236,7 +246,8 @@
       "review_status": "hash verified; metadata only",
       "license_verification": "Transcribed from curated manifest; source page must be rechecked before publication",
       "permitted_use": "Architectural observation; no texture sampling or reproduction",
-      "distribution": "external-only"
+      "distribution": "external-only",
+      "task_1_location": "../signal-iduna-park-reference-imagery/south-stand-matchday.jpg"
     },
     {
       "id": "VENUE-PLAN",
@@ -290,6 +301,65 @@
       "review_status": "not located, opened, extracted, or used",
       "license": "Irrelevant: prohibited by task scope",
       "permitted_use": "None, including extracted or renamed contents",
+      "distribution": "external-only"
+    },
+    {
+      "id": "THREE-UPSTREAM",
+      "kind": "software-dependency",
+      "name": "three",
+      "version": "0.186.1",
+      "source_page": "https://github.com/mrdoob/three.js",
+      "license": "MIT",
+      "reviewed_on": "2026-09-24",
+      "review_status": "installed package metadata and license inspected",
+      "permitted_use": "Use library APIs and redistribute under its license; preserve notices",
+      "distribution": "licensed-runtime-dependency"
+    },
+    {
+      "id": "REACT-UPSTREAM",
+      "kind": "software-dependency",
+      "name": "react",
+      "version": "19.3.0",
+      "source_page": "https://github.com/react/react.git",
+      "license": "MIT",
+      "reviewed_on": "2026-09-24",
+      "review_status": "installed package metadata and license inspected",
+      "permitted_use": "Use library APIs and redistribute under its license; preserve notices",
+      "distribution": "licensed-runtime-dependency"
+    },
+    {
+      "id": "REACT-DOM-UPSTREAM",
+      "kind": "software-dependency",
+      "name": "react-dom",
+      "version": "19.3.0",
+      "source_page": "https://github.com/react/react.git",
+      "license": "MIT",
+      "reviewed_on": "2026-09-24",
+      "review_status": "installed package metadata and license inspected",
+      "permitted_use": "Use library APIs and redistribute under its license; preserve notices",
+      "distribution": "licensed-runtime-dependency"
+    },
+    {
+      "id": "SCHEDULER-UPSTREAM",
+      "kind": "software-dependency",
+      "name": "scheduler",
+      "version": "0.28.0",
+      "source_page": "https://github.com/react/react.git",
+      "license": "MIT",
+      "reviewed_on": "2026-09-24",
+      "review_status": "installed package metadata and license inspected",
+      "permitted_use": "Use library APIs and redistribute under its license; preserve notices",
+      "distribution": "licensed-runtime-dependency"
+    },
+    {
+      "id": "UNREVIEWED-AERIAL-BACKGROUND",
+      "kind": "unreviewed-external-image",
+      "location": "Signal Iduna Park aerial imagery background.jpg",
+      "sha256": "da561a864d70903a776f4f11e2eefe25a950bbaba284be34945891237838bfaa",
+      "author": "Unknown",
+      "license": "Not established",
+      "review_status": "Appeared in workspace during final checks; not used in this implementation",
+      "permitted_use": "None until provenance and intended use are reviewed",
       "distribution": "external-only"
     }
   ]

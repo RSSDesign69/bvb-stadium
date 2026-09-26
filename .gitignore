@@ -15,6 +15,8 @@ __MACOSX/
 signal-iduna-park-reference-imagery/
 ssstwitter.com_*
 Screenshot*
+borussia-dortmund-design-system.md
+signal-iduna-park-3d-viewer-task-list.md
 
 # Generated output, local dependencies, and credentials.
 node_modules/
@@ -28,3 +30,6 @@ __pycache__/
 .env.*
 !.env.example
 *.log
+
+# Unreviewed external image; not a licensed application asset.
+Signal Iduna Park aerial imagery background.jpg

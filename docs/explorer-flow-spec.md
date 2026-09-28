@@ -40,9 +40,9 @@ Stage 2 contains a native `<details>/<summary>` disclosure explicitly labelled *
 
 ## Synchronization rules
 
-- Maintain one canonical selected-place identifier. The scene canvas, stand switcher, representative-view choices, Advanced results, exact selectors, review content, minimap, and Preview all read or update that selection; none owns a competing selection.
+- Maintain one canonical selected-place identifier. The scene canvas, side-panel stand selector, representative-view choices, Advanced results, exact selectors, review content, minimap, and Preview all read or update that selection; none owns a competing selection.
 - A canvas place click selects that place and enters Review. A canvas click on a stand with no place selects/focuses that stand and enters Choose place.
-- A stand-switcher choice and a scene stand choice have identical effects: set the stand, clear an incompatible place, reset incompatible tier to all, focus that stand, and show Choose place.
+- A side-panel stand-card choice and a scene stand choice have identical effects: set the stand, clear an incompatible place, reset incompatible tier to all, focus that stand, and show Choose place.
 - A representative view chooses the corresponding available sample for the committed stand and enters Review. When an exact sample is absent under active filters, choose the nearest matching generated sample within that stand and make no claim that it is measured or exact.
 - An Advanced result or exact-selector confirmation chooses the same canonical place and enters Review. Changing a filter that excludes the selected place clears that selection and returns to Choose place with a concise live announcement. Pagination changes only the visible result slice, never the selected place.
 - Review and Preview descriptions always resolve from the canonical place identifier. The minimap highlights its stand; camera preview uses its illustrative position/direction. An unavailable demo marker remains inspectable, but must not imply a purchasable option.

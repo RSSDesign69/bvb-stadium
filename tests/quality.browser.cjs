@@ -10,6 +10,7 @@ const output=path.resolve('.cache/qa');fs.mkdirSync(output,{recursive:true});
 const report={date:new Date().toISOString(),engines:[],accessibility:[],performance:null};
 const mode=(p,value)=>p.waitForFunction(v=>document.querySelector('.scene-host')?.dataset.mode===v,value);
 const stats=p=>p.locator('.scene-host').evaluate(el=>({...el.dataset}));
+const chooseStand=async(p,name)=>{const change=p.getByRole('button',{name:'Change stand',exact:true});if(await change.isVisible().catch(()=>false))await change.click();await p.locator('.stand-selector').getByRole('button',{name,exact:true}).click();};
 // Task 3/4 audits: 44×44 targets and a 12px floor for text on the explorer surface.
 async function auditSurface(page,label){
  return page.evaluate(()=>{
@@ -64,7 +65,7 @@ async function axe(page,state){
    assert.equal(await page.getByRole('button',{name:'Pause atmosphere',exact:true}).isDisabled(),true);
    const reduced=(await stats(page)).matchTime;await page.waitForTimeout(150);assert.equal((await stats(page)).matchTime,reduced);
    for(const stand of ['South','West','North','East']){
-    await page.locator('.stand-switcher').getByRole('button',{name:`${stand} stand`}).click();
+    await chooseStand(page,`${stand} stand`);
     await page.getByRole('button',{name:'Middle view'}).click();await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
     assert.match(await page.locator('.sightline-note').textContent(),/not verified/);
     await page.waitForFunction(()=>document.querySelector('.scene-host').dataset.renderMode==='preview'&&document.querySelector('.scene-host').dataset.crowdVisible==='false');
@@ -89,7 +90,7 @@ async function axe(page,state){
     // Progressive flow at desktop and narrow widths: Preview stays reachable, targets and text stay usable.
     await page.setViewportSize({width:1440,height:900});await page.reload();await mode(page,'overview');
     await page.locator('.explorer').evaluate(e=>e.scrollIntoView());
-    await page.locator('.stand-switcher').getByRole('button',{name:'West stand'}).click();await page.getByRole('button',{name:'Middle view'}).click();
+    await chooseStand(page,'West stand');await page.getByRole('button',{name:'Middle view'}).click();
     const inView=async loc=>{const b=await loc.boundingBox();return b&&b.y>=0&&b.y+b.height<=900;};
     assert.ok(await inView(page.getByRole('button',{name:'Preview this view'})),'Preview visible at 1440×900');
     assert.ok(await inView(page.locator('.sightline-note')),'Sightline note visible with Preview');
@@ -101,7 +102,7 @@ async function axe(page,state){
     for(const width of [320,390,768]){
      await page.setViewportSize({width,height:844});await page.reload();await mode(page,'overview');
      await auditSurface(page,`${width}px choose stand`);
-     await page.locator('.stand-switcher').getByRole('button',{name:'West stand'}).click();
+     await chooseStand(page,'West stand');
      assert.equal(await page.locator('.advanced-places').evaluate(d=>d.open),false,'Advanced collapsed by default');
      assert.equal(await page.locator('.result-pages,.place-fields,.discovery-filters').evaluateAll(els=>els.filter(e=>e.checkVisibility()).length),0,'No exact-place controls in the novice stage');
      await auditSurface(page,`${width}px choose place`);
@@ -111,7 +112,7 @@ async function axe(page,state){
      assert.ok(preview&&preview.y>=0&&preview.y+preview.height<=844,`Preview visible after selection at ${width}px`);
      await auditSurface(page,`${width}px review`);
      // Mobile reading order: scene → stand/view choice → review → atmosphere.
-     const order=await page.evaluate(()=>['.scene-frame','.stand-switcher','.place-panel','.atmosphere-controls'].map(s=>document.querySelector(s).getBoundingClientRect().top+scrollY));
+     const order=await page.evaluate(()=>['.scene-frame','.place-panel','.atmosphere-controls'].map(s=>document.querySelector(s).getBoundingClientRect().top+scrollY));
      assert.deepEqual(order,[...order].sort((a,b)=>a-b),`Narrow order at ${width}px: ${order}`);
      await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
      await page.getByRole('button',{name:'Save viewpoint'}).click();await page.getByRole('button',{name:'Remove saved viewpoint'}).waitFor();
@@ -120,7 +121,7 @@ async function axe(page,state){
     }
     // 200% text enlargement and a narrow viewport must reflow without horizontal scrolling.
     await page.setViewportSize({width:640,height:900});await page.reload();await mode(page,'overview');
-    await page.locator('.stand-switcher').getByRole('button',{name:'West stand'}).click();await page.getByRole('button',{name:'Middle view'}).click();
+    await chooseStand(page,'West stand');await page.getByRole('button',{name:'Middle view'}).click();
     await page.setViewportSize({width:640,height:900});
     // Use actual computed font sizes rather than recursive percentage compounding.
     await page.evaluate(()=>{const items=[...document.querySelectorAll('body *:not(canvas):not(svg *)')].map(e=>[e,parseFloat(getComputedStyle(e).fontSize)]);for(const [e,size] of items)e.style.fontSize=`${size*2}px`;});
@@ -153,7 +154,7 @@ async function axe(page,state){
     await loading.route('**/src/viewer/engine.ts*',async route=>{await gate;await route.abort();});await loading.goto(base,{waitUntil:'domcontentloaded'});
     await loading.getByRole('status').filter({hasText:'Building the ground'}).waitFor();await axe(loading,'engine loading');release();
     await loading.getByRole('button',{name:'Retry 3D'}).waitFor();await axe(loading,'engine load error');await loading.unroute('**/src/viewer/engine.ts*');
-    await loading.locator('.stand-switcher').getByRole('button',{name:'West stand'}).click();await loading.locator('.advanced-places summary').click();await loading.getByRole('button',{name:'Select this place'}).click();assert.ok(await loading.locator('.place-id').textContent());
+    await chooseStand(loading,'West stand');await loading.locator('.advanced-places summary').click();await loading.getByRole('button',{name:'Select this place'}).click();assert.ok(await loading.locator('.place-id').textContent());
     // A failed dynamic import is cached by the browser; a fresh import attempt needs a reload.
     await loading.getByRole('button',{name:'Retry 3D'}).click();
     await mode(loading,'overview');

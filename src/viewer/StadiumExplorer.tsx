@@ -8,22 +8,31 @@ import type { Command, StadiumEngine, ViewState } from './engine';
 import { DEFAULT_ATMOSPHERE } from '../atmosphere/settings';
 const INITIAL_VIEW:ViewState={mode:'overview',position:[170,155,195],direction:[-.5,-.5,-.6],fov:43};
 
+const MAP_STANDS:Record<StandId,{x:number;y:number;width:number;height:number;labelX:number;labelY:number}>={
+  west:{x:26,y:65,width:30,height:130,labelX:9,labelY:133},
+  east:{x:164,y:65,width:30,height:130,labelX:211,labelY:133},
+  north:{x:65,y:25,width:90,height:33,labelX:110,labelY:13},
+  south:{x:65,y:203,width:90,height:33,labelX:110,labelY:255},
+};
+
+function StadiumPlan({markedStand,position,direction,ariaLabel,className=''}:{markedStand:StandId|'all';position?:Place['position'];direction?:Place['direction'];ariaLabel?:string;className?:string}){
+  const x=position?110+position[0]:110,z=position?130+position[2]:130;
+  return <svg className={`mini-map ${className}`.trim()} viewBox="0 0 220 260" role={ariaLabel?'img':undefined} aria-label={ariaLabel} aria-hidden={ariaLabel?undefined:true}>
+    <rect className="stadium-plan__shell" x="16" y="17" width="188" height="226" rx="32"/>
+    {STAND_ORDER.map(stand=>{const shape=MAP_STANDS[stand];return <rect key={stand} className={`stadium-plan__stand ${markedStand===stand?'is-highlighted':''}`} x={shape.x} y={shape.y} width={shape.width} height={shape.height}/>;})}
+    <rect className="stadium-plan__pitch" x="76" y="77.5" width="68" height="105"/>
+    <path className="stadium-plan__pitch-line" d="M76 130H144"/><circle className="stadium-plan__pitch-line" cx="110" cy="130" r="9"/>
+    {STAND_ORDER.map(stand=>{const shape=MAP_STANDS[stand];return <text key={stand} className="stadium-plan__direction" x={shape.labelX} y={shape.labelY} textAnchor="middle">{STANDS[stand].name.charAt(0)}</text>;})}
+    {position&&direction&&<g className="stadium-plan__viewpoint"><line x1={x} y1={z} x2={x+direction[0]*22} y2={z+direction[2]*22}/><circle cx={x} cy={z} r="4"/></g>}
+  </svg>;
+}
+
 function MiniMap({place,view,filteredStand}:{place:Place|null;view:ViewState;filteredStand:StandId|'all'}){
   const preview=view.mode!=='overview';const position=preview?view.position:place?.position;
   const direction=preview?view.direction:place?.direction??view.direction;
   const markedStand=place?.stand??filteredStand;
-  const x=position?110+position[0]:110,z=position?130+position[2]:130;
-  return <svg className="mini-map" viewBox="0 0 220 260" role="img" aria-label={`Stadium orientation. North is up.${place?` Selected ${STANDS[place.stand].name}.`:filteredStand!=='all'?` Filtered to ${STANDS[filteredStand].name}.`:''}${preview?' Arrow shows viewing direction.':''}`}>
-    <rect x="16" y="17" width="188" height="226" rx="32" fill="#293435" stroke="#85918b"/>
-    <rect x="26" y="65" width="30" height="130" fill={markedStand==='west'?'#ffd900':'#48554c'}/>
-    <rect x="164" y="65" width="30" height="130" fill={markedStand==='east'?'#ffd900':'#48554c'}/>
-    <rect x="65" y="25" width="90" height="33" fill={markedStand==='north'?'#ffd900':'#48554c'}/>
-    <rect x="65" y="203" width="90" height="33" fill={markedStand==='south'?'#ffd900':'#84741c'}/>
-    <rect x="76" y="77.5" width="68" height="105" fill="#34674a" stroke="#b8cab3"/>
-    <path d="M76 130H144" stroke="#b8cab3"/><circle cx="110" cy="130" r="9" fill="none" stroke="#b8cab3"/>
-    <text x="110" y="13" textAnchor="middle">N</text><text x="110" y="255" textAnchor="middle">S</text><text x="9" y="133" textAnchor="middle">W</text><text x="211" y="133" textAnchor="middle">E</text>
-    {position&&<g><line x1={x} y1={z} x2={x+direction[0]*22} y2={z+direction[2]*22} stroke="#6df9e8" strokeWidth="3"/><circle cx={x} cy={z} r="4" fill="#6df9e8" stroke="#102c29"/></g>}
-  </svg>;
+  const ariaLabel=`Stadium orientation. North is up.${place?` Selected ${STANDS[place.stand].name}.`:filteredStand!=='all'?` Filtered to ${STANDS[filteredStand].name}.`:''}${preview?' Arrow shows viewing direction.':''}`;
+  return <StadiumPlan markedStand={markedStand} position={position} direction={direction} ariaLabel={ariaLabel}/>;
 }
 function useMedia(query:string){
   const [matches,setMatches]=useState(()=>window.matchMedia(query).matches);
@@ -211,12 +220,12 @@ export default function StadiumExplorer({stand,onStand,standRequest}:{stand:Stan
         <span className="camera-hint">{activePreview?'Drag to look · scroll to zoom':'Drag to orbit · click a place'}</span>
         <div className="camera-buttons">{narrow?<>{cameraButtons(['in','out','reset'])}<details className="camera-look"><summary>Look around</summary><div className="camera-buttons">{cameraButtons(['left','right','up','down'])}</div></details></>:cameraButtons(['left','right','up','down','in','out','reset'])}</div>
       </div>
-      <div className="stand-switcher" aria-label="Focus a stand">{STAND_ORDER.map(s=><button key={s} className={filters.stand===s?'is-active':''} onClick={()=>onStand(s)} aria-pressed={filters.stand===s}>{STANDS[s].name}<span aria-hidden="true">↗</span></button>)}</div>
       <p className="scene-footnote">{results.length.toLocaleString()} matching illustrative places · Nonmatching places are dimmed in the scene · No measured seat data</p>
     </div></div>
     <aside className="place-panel" aria-label="Place explorer" data-stage={stage}>
       <h3 ref={heading} tabIndex={-1}>{stage===1?'Choose a stand':stage===2?filters.stand==='all'?'Choose a place.':STANDS[filters.stand].name:selected?STANDS[selected.stand].name:'Explore a stadium view.'}</h3>
       {stage!==3&&<p className="place-lead">{stage===1?'Use the stand buttons or choose a stand in the scene to begin.':stage===2?'Choose a representative view, or explore an exact illustrative place.':'Explore the view. Use Back to return to your place review.'}</p>}
+      <div className="stand-selector" role="group" aria-label="Choose a stand" hidden={stage!==1}>{STAND_ORDER.map(s=><button type="button" key={s} onClick={()=>onStand(s)} aria-pressed={filters.stand===s}><StadiumPlan markedStand={s} className="stand-card-map"/><span>{STANDS[s].name}</span></button>)}</div>
       {stage===2&&flowNavigation}
       <div ref={choices} hidden={stage!==2}>
       {recommendations.length>0?<div className="representative-views" role="group" aria-label="Representative viewpoints">{recommendations.map(({level,place,label})=><button key={level} type="button" aria-pressed={selectedId===place.id} onClick={()=>applySelection(place.id,true)}><strong>{label}</strong><span>{place.tier==='terrace'?'Standing terrace':`${place.tier} tier`} · {describePlace(place)}</span></button>)}</div>:<p className="place-lead">{filters.stand==='all'?'Choose a stand for representative views, or use the exact-place controls.':'No representative views match your filters. Adjust or reset them in Choose an exact place.'}</p>}

@@ -16,6 +16,82 @@
 .advanced-places > .panel-disclosure { margin: 0 0 16px; }
 .place-panel h3:focus { outline: none; }
 
+/* The stage-one selector pairs each stand name with the same orientation model used in the scene. */
+.stand-selector {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.stand-selector[hidden] {
+  display: none;
+}
+
+.stand-selector button {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  min-height: 140px;
+  padding: 7px 7px 10px;
+  border: 1px solid var(--color-border);
+  background: var(--surface-raised);
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.stand-selector button:hover,
+.stand-selector button[aria-pressed="true"] {
+  border-color: var(--color-brand);
+  background: color-mix(in srgb, var(--color-brand) 8%, var(--color-surface));
+}
+
+.stand-card-map {
+  width: 100%;
+  height: 104px;
+}
+
+.stadium-plan__shell {
+  fill: var(--surface-raised);
+  stroke: var(--color-border);
+}
+
+.stadium-plan__stand {
+  fill: var(--color-border);
+}
+
+.stadium-plan__stand.is-highlighted {
+  fill: var(--color-brand);
+}
+
+.stadium-plan__pitch {
+  fill: var(--color-surface);
+  stroke: var(--color-text-muted);
+}
+
+.stadium-plan__pitch-line {
+  fill: none;
+  stroke: var(--color-text-muted);
+}
+
+.stadium-plan__direction {
+  fill: var(--color-text);
+}
+
+.stadium-plan__viewpoint line {
+  stroke: var(--color-text);
+  stroke-width: 3;
+}
+
+.stadium-plan__viewpoint circle {
+  fill: var(--color-text);
+  stroke: var(--color-bg);
+}
+
 body,
 button,
 input,
@@ -147,7 +223,7 @@ h4,
 }
 
 .result-item,
-.stand-switcher button,
+.stand-selector button,
 .camera-buttons button,
 .secondary-button,
 .filter-reset {
@@ -175,7 +251,7 @@ h4,
 
 @media (prefers-reduced-motion: reduce) {
   .result-item,
-  .stand-switcher button,
+  .stand-selector button,
   .camera-buttons button,
   .secondary-button,
   .filter-reset {
@@ -230,7 +306,6 @@ h4,
   .scene-column, .scene-sticky { display: contents; }
   .scene-frame { order: 1; }
   .camera-controls { order: 2; }
-  .stand-switcher { order: 3; }
   .place-panel { order: 4; }
   .scene-footnote { order: 5; background: #172426; }
   .camera-controls { flex-direction: row; flex-wrap: wrap; }
@@ -243,7 +318,8 @@ h4,
 }
 @media (max-width: 480px) {
   .scene-footnote { font-size: 12px; }
-  .stand-switcher button { min-height: 48px; }
+  .stand-selector { gap: 16px; margin-top: 24px; }
+  .stand-selector button { min-height: 132px; }
 }
 .brand { min-height: 44px; }
 @media (max-width: 767px) {

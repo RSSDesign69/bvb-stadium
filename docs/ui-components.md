@@ -25,6 +25,14 @@ This document records the visual and interaction contract for reusable interface
 - Disabled controls remain visibly subdued and must not respond to pointer input.
 - Dialog buttons participate in the existing focus trap; Escape closes the dialog and restores focus to **About this concept**.
 
+### Stand selection cards
+
+- The four stand choices live in the **Choose a stand** side panel, not in a horizontal toolbar beneath the camera controls.
+- Each card pairs its name from the shared `STANDS` data with a compact top-down stadium plan. The relevant stand is highlighted so location is understandable before selection.
+- Cards use a two-column grid, a `140px` minimum height, and the standard project surfaces, borders, text, and brand tokens. No Figma-exported font or literal color is used.
+- The active stand uses `aria-pressed` and the brand-colored border. The stadium plan is decorative inside the already named button; the larger scene orientation map retains its descriptive accessible label.
+- On narrow screens the cards remain a two-column group inside the panel, with reduced gap rather than becoming a horizontal scroller.
+
 ## Dialog heading hierarchy
 
 The About dialog begins directly with **An independent concept.** The former **About the project** eyebrow is intentionally omitted so the dialog title occupies the first content position. The close button remains at the top right and the heading reserves sufficient inline space to avoid overlap.

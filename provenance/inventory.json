@@ -607,6 +607,18 @@
       "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative. Task 2 remediation adds stand identity to structural instances for canvas discovery without altering geometry."
     },
     {
+      "path": "src/stadium/surroundings.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "IMG-AERIAL-STADIUM",
+        "IMG-AERIAL-ROOF-ANGLE"
+      ],
+      "notes": "Original procedural, illustrative terrain and geometry informed by user-supplied aerial views and existing exterior research. No reference image pixels or third-party media are bundled."
+    },
+    {
       "path": "src/styles.css",
       "kind": "project-source-or-documentation",
       "origin": "original",

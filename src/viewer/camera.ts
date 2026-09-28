@@ -1,5 +1,5 @@
 import type { Vec3 } from '../places/schema';
-export const HOME:Vec3=[170,155,195];
+export const HOME:Vec3=[235,205,270];
 export const HOME_TARGET:Vec3=[0,8,0];
 export type Pose={position:Vec3; target:Vec3; fov:number};
 export type Flight={points:Vec3[]; destination:Pose; elapsed:number; duration:number};

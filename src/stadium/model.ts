@@ -11,7 +11,7 @@ export function buildStadium(compact=false){
   const pickGroups:PickGroup[]=[];const solids:THREE.Object3D[]=[];
   const materials={
     concrete:new THREE.MeshStandardMaterial({color:0x727873,roughness:1}),
-    edge:new THREE.MeshStandardMaterial({color:0x303c3c,roughness:.8}),
+    edge:new THREE.MeshStandardMaterial({color:0x505955,roughness:.8}),
     yellow:new THREE.MeshStandardMaterial({color:0xf6c900,roughness:.68}),
     steel:new THREE.MeshStandardMaterial({color:0x939d9b,metalness:.4,roughness:.6}),
     roof:new THREE.MeshStandardMaterial({color:0xb4bab5,metalness:.35,roughness:.7,side:THREE.DoubleSide}),

@@ -4,6 +4,7 @@ import { buildMatchday } from '../atmosphere/matchday';
 import { DEFAULT_ATMOSPHERE, shouldAnimate } from '../atmosphere/settings';
 import type { AtmosphereSettings } from '../atmosphere/settings';
 import { buildStadium } from '../stadium/model';
+import { buildSurroundings } from '../stadium/surroundings';
 import { BLOCK_BY_ID, PLACE_BY_ID } from '../places/demo';
 import { STANDS, world } from '../stadium/layout';
 import type { Place, StandId, Vec3 } from '../places/schema';
@@ -17,7 +18,7 @@ const tuple=(v:THREE.Vector3):Vec3=>[v.x,v.y,v.z];
 const visible=(o:THREE.Object3D):boolean=>o.visible&&(!o.parent||visible(o.parent));
 export class StadiumEngine {
   private scene=new THREE.Scene();private camera=new THREE.PerspectiveCamera(43,1,.08,1200);
-  private renderer:THREE.WebGLRenderer;private controls:OrbitControls;private stadium=buildStadium(window.innerWidth<700);
+  private renderer:THREE.WebGLRenderer;private controls:OrbitControls;private stadium=buildStadium(window.innerWidth<700);private surroundings=buildSurroundings(window.innerWidth<700);
   private mode:ViewMode='overview';private flight:Flight|null=null;private saved:Pose|null=null;
   private selected:Place|null=null;private raf=0;private previous=0;private lastEmit=0;private dirty=true;private disposed=false;
   private cutaway=true;private reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -40,10 +41,10 @@ export class StadiumEngine {
     this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.25;
     const canvas=this.renderer.domElement;canvas.setAttribute('aria-label','Interactive stadium. Drag to orbit; scroll to zoom. Use the labeled camera and place controls for keyboard navigation.');
     canvas.setAttribute('role','img');host.appendChild(canvas);
-    this.scene.add(this.stadium.group);this.scene.add(new THREE.HemisphereLight(0xd6e8f0,0x444333,2.7));
+    this.scene.add(this.surroundings.root);this.scene.add(this.stadium.group);this.scene.add(new THREE.HemisphereLight(0xd6e8f0,0x444333,2.7));
     const sun=new THREE.DirectionalLight(0xfff2ce,3.1);sun.position.set(-70,140,80);this.scene.add(sun);
     this.camera.position.set(...HOME);this.controls=new OrbitControls(this.camera,canvas);this.controls.target.set(...HOME_TARGET);
-    this.controls.enablePan=false;this.controls.enableDamping=false;this.controls.minDistance=150;this.controls.maxDistance=450;
+    this.controls.enablePan=false;this.controls.enableDamping=false;this.controls.minDistance=150;this.controls.maxDistance=550;
     this.controls.minPolarAngle=.18;this.controls.maxPolarAngle=1.05;this.controls.rotateSpeed=.65;
     this.controls.addEventListener('change',this.request);this.controls.update();
     this.stadium.roof.visible=!this.cutaway;
@@ -205,12 +206,12 @@ export class StadiumEngine {
     if(command==='left')sphere.theta+=.16;if(command==='right')sphere.theta-=.16;
     if(command==='up')sphere.phi-=.1;if(command==='down')sphere.phi+=.1;
     if(command==='in')sphere.radius*=.85;if(command==='out')sphere.radius*=1.15;
-    sphere.phi=THREE.MathUtils.clamp(sphere.phi,.18,1.05);sphere.radius=THREE.MathUtils.clamp(sphere.radius,150,450);
+    sphere.phi=THREE.MathUtils.clamp(sphere.phi,.18,1.05);sphere.radius=THREE.MathUtils.clamp(sphere.radius,150,550);
     this.camera.position.copy(this.controls.target).add(new THREE.Vector3().setFromSpherical(sphere));this.controls.update();this.request();
   }
   dispose(){
     this.disposed=true;cancelAnimationFrame(this.raf);this.resize.disconnect();this.intersection.disconnect();document.removeEventListener('visibilitychange',this.visibilityChanged);this.controls.dispose();this.reduce.removeEventListener('change',this.motionChanged);
     const c=this.renderer.domElement;c.removeEventListener('pointerdown',this.pointerDown);c.removeEventListener('pointermove',this.pointerMove);c.removeEventListener('pointerup',this.pointerUp);c.removeEventListener('pointercancel',this.pointerCancel);c.removeEventListener('pointerleave',this.pointerLeave);c.removeEventListener('wheel',this.wheel);c.removeEventListener('webglcontextlost',this.contextLost);
-    this.matchday.dispose();this.stadium.dispose();this.renderer.dispose();c.remove();
+    this.matchday.dispose();this.stadium.dispose();this.surroundings.dispose();this.renderer.dispose();c.remove();
   }
 }

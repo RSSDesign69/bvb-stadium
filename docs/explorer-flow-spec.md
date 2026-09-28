@@ -10,7 +10,7 @@ The four stages are **Choose stand → Choose place → Review place → Preview
 |---|---|---|---|
 | 1. Choose stand | Entry: no stand has been committed in this flow, or the user chooses Edit stand. Exit: a stand is selected by its scene region or stand control. | Choose a stand (the selection itself advances). | View all stands; use the scene to explore. |
 | 2. Choose place | Entry: a stand is committed. Show at most three representative viewpoints for that stand, labelled by relative view (lower, middle, upper where available); do not require a generated-place list. Exit: choose a representative view or, in Advanced mode, choose an exact place. | Choose a representative view. | Change stand; disclose “Choose an exact place.” |
-| 3. Review place | Entry: a place has been chosen. Show its identifying description, stand/block location, type, and an explicit unverified-sightline note. Exit: preview or edit the place/stand. | Continue to Preview this view. | Change place; change stand. |
+| 3. Review place | Entry: a place has been chosen. Show its identifying description, stand/block location, and type. Exit: preview or edit the place/stand. | Continue to Preview this view. | Change place; change stand. |
 | 4. Preview or save | Entry: the selected place is framed in the scene, or a prior preview is reopened. Exit: return to review/discovery, or save/remove the viewpoint locally. | Preview this view when not yet previewing; otherwise Save viewpoint (or View saved viewpoint when one is saved). | Change place; return to stadium overview. |
 
 No stage may expose more than four peer decisions. Within Stage 2, representative views are capped at three and Advanced mode is one disclosure decision. Advanced controls are grouped inside that disclosure, not presented as peer choices in the novice stage. Within the final stage, preview, save, and navigation are actions on one reviewed viewpoint, not competing discovery choices.
@@ -29,7 +29,7 @@ No stage may expose more than four peer decisions. Within Stage 2, representativ
 
 1. Choose a stand.
 2. Choose one of up to three representative views for that stand.
-3. Review the selected illustrative place and its location/type/sightline disclosure.
+3. Review the selected illustrative place and its location/type.
 4. Preview the view, then optionally save that viewpoint.
 
 The novice path reaches Preview without pagination, price, quantity, block, row, seat, category, or availability controls. It never requires traversing the complete generated-place dataset.
@@ -41,7 +41,7 @@ Stage 2 contains a native `<details>/<summary>` disclosure explicitly labelled *
 ## Synchronization rules
 
 - Maintain one canonical selected-place identifier. The scene canvas, side-panel stand selector, representative-view choices, Advanced results, exact selectors, review content, minimap, and Preview all read or update that selection; none owns a competing selection.
-- A canvas place click selects that place and enters Review. A canvas click on a stand with no place selects/focuses that stand and enters Choose place.
+- A canvas place click is the direct-exploration shortcut: it selects that canonical place and immediately enters Preview. If the place sits outside active stand or Advanced filters, relax only the incompatible filters so the previewed place remains represented in the panel. A canvas click on a stand with no place selects/focuses that stand and enters Choose place.
 - A side-panel stand-card choice and a scene stand choice have identical effects: set the stand, clear an incompatible place, reset incompatible tier to all, focus that stand, and show Choose place.
 - A representative view chooses the corresponding available sample for the committed stand and enters Review. When an exact sample is absent under active filters, choose the nearest matching generated sample within that stand and make no claim that it is measured or exact.
 - An Advanced result or exact-selector confirmation chooses the same canonical place and enters Review. Changing a filter that excludes the selected place clears that selection and returns to Choose place with a concise live announcement. Pagination changes only the visible result slice, never the selected place.

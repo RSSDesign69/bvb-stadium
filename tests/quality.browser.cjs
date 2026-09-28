@@ -57,8 +57,8 @@ async function axe(page,state){
    await page.waitForFunction(t=>document.querySelector('.scene-host').dataset.matchTime!==t,stopped);
    // Out-of-view animation does not consume continuous rendering work.
    // A short viewport at the document end guarantees the scene is fully off-screen.
-   await page.setViewportSize({width:1440,height:500});await page.evaluate(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'instant'}));await page.waitForTimeout(150);
-   assert.equal(await page.locator('.scene-frame').evaluate(e=>e.getBoundingClientRect().bottom<0),true,'Scene is off-screen');
+   await page.setViewportSize({width:1440,height:500});await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);
+   assert.equal(await page.locator('.scene-frame').evaluate(e=>e.getBoundingClientRect().top>=innerHeight),true,'Scene is off-screen');
    const offscreen=(await stats(page)).matchTime;await page.waitForTimeout(250);assert.equal((await stats(page)).matchTime,offscreen);
    await page.setViewportSize({width:1440,height:1050});
    await page.emulateMedia({reducedMotion:'reduce'});await page.locator('.scene-frame').scrollIntoViewIfNeeded();
@@ -67,7 +67,7 @@ async function axe(page,state){
    for(const stand of ['South','West','North','East']){
     await chooseStand(page,`${stand} stand`);
     await page.getByRole('button',{name:'Middle view'}).click();await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
-    assert.match(await page.locator('.sightline-note').textContent(),/not verified/);
+    assert.equal(await page.locator('.selection-dot,.sightline-note,.review-more').count(),0);
     await page.waitForFunction(()=>document.querySelector('.scene-host').dataset.renderMode==='preview'&&document.querySelector('.scene-host').dataset.crowdVisible==='false');
     const clear=await stats(page);await page.getByLabel('Clear-view preview',{exact:true}).uncheck();await page.locator('.scene-frame').scrollIntoViewIfNeeded();
     await page.waitForFunction(n=>+document.querySelector('.scene-host').dataset.triangles>n,+clear.triangles);
@@ -93,7 +93,7 @@ async function axe(page,state){
     await chooseStand(page,'West stand');await page.getByRole('button',{name:'Middle view'}).click();
     const inView=async loc=>{const b=await loc.boundingBox();return b&&b.y>=0&&b.y+b.height<=900;};
     assert.ok(await inView(page.getByRole('button',{name:'Preview this view'})),'Preview visible at 1440×900');
-    assert.ok(await inView(page.locator('.sightline-note')),'Sightline note visible with Preview');
+    assert.equal(await page.locator('.selection-dot,.sightline-note,.review-more').count(),0);
     await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
     assert.ok(await inView(page.getByRole('button',{name:'Save viewpoint'})),'Save visible in Preview at 1440×900');
     await page.getByRole('button',{name:'Change place',exact:true}).click();await page.locator('.advanced-places summary').click();

@@ -120,13 +120,11 @@ test('sample eye rays toward centre and both goals remain clear of structural so
 });
 
 
-test('match-day motion respects pause, visibility, reduced motion and clear-view previews',()=>{
-  assert.equal(shouldAnimate(DEFAULT_ATMOSPHERE,false,true,false),true);
-  for(const settings of [{...DEFAULT_ATMOSPHERE,enabled:false},{...DEFAULT_ATMOSPHERE,paused:true}])assert.equal(shouldAnimate(settings,false,true,false),false);
-  assert.equal(shouldAnimate(DEFAULT_ATMOSPHERE,true,true,false),false);
-  assert.equal(shouldAnimate(DEFAULT_ATMOSPHERE,false,false,false),false);
-  assert.equal(shouldAnimate(DEFAULT_ATMOSPHERE,false,true,true),false);
-  assert.equal(shouldAnimate({...DEFAULT_ATMOSPHERE,clearView:false},false,true,true),true);
+test('match-day motion respects atmosphere, pause, visibility and reduced motion',()=>{
+  assert.equal(shouldAnimate(DEFAULT_ATMOSPHERE,false,true),true);
+  for(const settings of [{...DEFAULT_ATMOSPHERE,enabled:false},{...DEFAULT_ATMOSPHERE,paused:true}])assert.equal(shouldAnimate(settings,false,true),false);
+  assert.equal(shouldAnimate(DEFAULT_ATMOSPHERE,true,true),false);
+  assert.equal(shouldAnimate(DEFAULT_ATMOSPHERE,false,false),false);
 });
 
 test('original crowd is bounded and pitch activity stays inside the field',()=>{

@@ -42,7 +42,7 @@ git config --local core.hooksPath .githooks
 
 The hook runs the same audit before each commit. It checks working files, the Git index, historical paths, and reachable historical blobs. See the protocol for its limits. `npm run check` is an optional alias if Node/npm is installed.
 
-This directory is its own Git repository inside a larger workspace. Run Git commands from here. No remote is configured; nothing has been published.
+This directory is its own Git repository inside a larger workspace. Run Git commands from here. The source is published at [github.com/RSSDesign69/bvb-stadium](https://github.com/RSSDesign69/bvb-stadium) (`origin`, branch `main`). This publishes the source only; the site itself has not been deployed.
 
 ## Required product disclosure
 

@@ -1,6 +1,6 @@
 # Terrace Atlas portfolio release
 
-Prepared 2026-09-26 as a local static release candidate. No public deployment or Git remote is configured. The deployable artifact is `.cache/portfolio-release/site/`; only that directory should be uploaded to a static host at the domain root. `handoff/` and the checksum manifest are reviewer material, not runtime files. Never publish the workspace directory: it contains excluded external reference material.
+Prepared 2026-09-26 as a local static release candidate. The source is published on GitHub (`origin`: RSSDesign69/bvb-stadium, branch `main`); no public site deployment has been performed. The deployable artifact is `.cache/portfolio-release/site/`; only that directory should be uploaded to a static host at the domain root. `handoff/` and the checksum manifest are reviewer material, not runtime files. Never publish the workspace directory: it contains excluded external reference material.
 
 ## Reproduce
 

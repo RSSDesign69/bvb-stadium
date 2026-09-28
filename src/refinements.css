@@ -2,18 +2,12 @@
   font-family: var(--font-area);
 }
 
-/* Progressive discovery keeps exact controls in a persistent native disclosure. */
+/* Keep navigation compact so the 3D scene remains the primary place picker. */
 .flow-navigation { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 18px; }
 .flow-navigation button { min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--yellow-400); font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
-.representative-views { display: grid; gap: 8px; margin: 18px 0; }
-.representative-views button { display: grid; gap: 6px; width: 100%; min-height: 66px; padding: 14px; text-align: left; border: 1px solid #717d6b; background: #171d18; color: #f6f5ea; }
-.representative-views button:hover, .representative-views button[aria-pressed="true"] { background: #353722; border-color: var(--yellow-400); }
-.representative-views strong { font-size: 15px; }
-.representative-views span { color: #c5d1c2; font-size: 12px; }
-.advanced-places { margin-top: 18px; border-top: 1px solid #59604e; border-bottom: 1px solid #59604e; }
-.advanced-places summary { min-height: 48px; padding: 14px 0; color: var(--yellow-400); font-size: 13px; font-weight: 700; cursor: pointer; }
-.advanced-places summary:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
-.advanced-places > .panel-disclosure { margin: 0 0 16px; }
+.scene-selection-guide { display: grid; gap: 6px; margin-top: 18px; padding: 16px; border: 1px solid #596b62; background: #182321; }
+.scene-selection-guide strong { color: var(--yellow-400); font-size: 14px; }
+.scene-selection-guide span { color: #cbd5ce; font-size: 12px; line-height: 1.55; }
 .place-panel h3:focus { outline: none; }
 
 /* The stage-one selector pairs each stand name with the same orientation model used in the scene. */
@@ -146,8 +140,7 @@ h4,
 
 .header-about,
 .section-kicker,
-.browse-label,
-.footer-brand {
+.browse-label {
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -264,20 +257,27 @@ h4,
 .viewer-grid { align-items: stretch; }
 .scene-column { background: var(--surface); }
 .scene-sticky { background: #172426; }
-.review-summary { margin: 4px 0 14px; color: #dbe0d0; font-size: 14px; line-height: 1.45; }
+.review-summary { margin: 0 0 20px; color: #dbe0d0; font-size: 14px; line-height: 1.6; }
 .review-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; margin-bottom: 16px; }
 .review-actions .secondary-button { margin-top: 8px; }
-.saved-viewpoint-confirmation { margin: 16px 0 0; padding: 12px 14px; border-left: 3px solid #6df9e8; background: #1b2b2a; }
-.saved-viewpoint-confirmation strong { display: block; font-size: 15px; }
-.saved-viewpoint-confirmation p { margin: 6px 0 0; line-height: 1.5; color: #dbe0d0; }
-.saved-viewpoint-actions { display: grid; gap: 8px; margin-top: 12px; }
+.ticket-context { display: grid; grid-template-columns: minmax(88px, .8fr) minmax(0, 1.2fr); gap: 1px; margin: 0 0 20px; background: #4a554d; border: 1px solid #4a554d; }
+.ticket-context > label, .ticket-context > div { min-width: 0; padding: 10px 12px; background: #18201d; }
+.ticket-context > label { display: grid; grid-template-columns: 1fr auto; grid-row: span 2; align-items: center; gap: 8px; }
+.ticket-context span { display: block; color: #bfc9c1; font-size: 12px; line-height: 1.3; }
+.ticket-context strong { display: block; margin-top: 3px; color: #fffdf2; font-size: 15px; font-variant-numeric: tabular-nums; }
+.ticket-context select { min-width: 48px; min-height: 44px; padding: 7px; border: 1px solid #77847b; border-radius: 0; background: #101613; color: #fffdf2; font: 700 15px var(--font-area); }
+.saved-viewpoint-confirmation { position: relative; margin: 16px 0 0; padding: 14px 58px 14px 14px; border: 1px solid #52635b; background: #1b2b2a; }
+.saved-viewpoint-link { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: #fffdf2; font-family: var(--font-area-display); font-size: 15px; font-weight: 800; line-height: 1.35; text-align: left; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; }
+.saved-viewpoint-link:hover { color: var(--yellow-400); text-decoration-color: currentColor; }
+.saved-viewpoint-delete { position: absolute; top: 6px; right: 6px; display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; color: #d8dfda; }
+.saved-viewpoint-delete:hover { background: #2d3d38; color: #fff; }
+.saved-viewpoint-delete svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.saved-viewpoint-confirmation p { margin: 8px 0 0; line-height: 1.5; color: #dbe0d0; }
 .place-panel h3 { margin: 0 0 10px; scroll-margin-top: 12px; }
 .atmosphere-pause { margin-left: auto; }
-.selected-details .place-id { font: 12px/1.4 ui-monospace, monospace; margin: 4px 0 6px; }
-.sightline-note { margin: 0 0 14px; padding: 10px 12px; font-size: 13px; line-height: 1.5; }
-.review-more { border-top: 1px solid #59604e; }
-.review-more summary { min-height: 44px; padding: 10px 0; color: var(--yellow-400); font-size: 13px; font-weight: 700; cursor: pointer; }
-.review-more summary:focus-visible, .camera-look summary:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.selected-title h4 { margin: 0 0 14px; line-height: 1.25; }
+.selected-details .place-id { font: 12px/1.5 ui-monospace, monospace; margin: 0 0 14px; }
+.camera-look summary:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .camera-look { flex: 1 1 100%; }
 .camera-look summary { display: flex; align-items: center; min-height: 44px; padding: 0 4px; color: var(--yellow-400); font-size: 13px; font-weight: 700; cursor: pointer; }
 .camera-look .camera-buttons { padding-bottom: 8px; }
@@ -313,7 +313,6 @@ h4,
   .camera-buttons button { flex: 1 1 44px; width: auto; }
   .place-panel { padding: 18px 16px; }
   .place-panel h3 { font-size: 28px; }
-  .representative-views button { min-height: 72px; }
   .result-list { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 480px) {
@@ -328,3 +327,23 @@ h4,
 }
 .result-pages button, .browse-label, .filter-reset, .secondary-button { font-size: 12px; }
 .header-about { font-size: 14px; }
+
+/* Scene picking is the fast exploration path; keep its cue legible but compact. */
+.hover-card {
+  gap: 2px;
+  min-width: 205px;
+  padding: 14px 18px;
+  background: #111c1ef2;
+  border-color: #8da799;
+  box-shadow: 0 8px 24px #0006;
+  font-size: 14px;
+  line-height: 1.35;
+}
+.hover-card strong { font-size: 15px; }
+.hover-card .hover-card__place { color: #f5f5eb; }
+.hover-card .hover-card__action { margin-top: 5px; color: #d5ded5; font-size: 12px; }
+.hover-card__action b { color: var(--yellow-400); font-size: 14px; }
+
+@media (max-width: 480px) {
+  .hover-card { left: 10px; bottom: 14px; min-width: 0; padding: 12px 14px; }
+}

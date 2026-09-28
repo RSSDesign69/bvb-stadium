@@ -69,10 +69,9 @@ export class StadiumEngine {
       const target=new THREE.Vector3(...this.flight.destination.target);
       this.camera.lookAt(target);this.dirty=true;if(t===1)this.completeFlight();
     }
-    const preview=this.mode!=='overview';
     this.matchday.root.visible=this.atmosphere.enabled;
-    this.matchday.crowd.visible=this.matchday.activity.visible=!(preview&&this.atmosphere.clearView);
-    const animate=shouldAnimate(this.atmosphere,this.reduce.matches,this.pageVisible(),preview);
+    this.matchday.crowd.visible=this.matchday.activity.visible=true;
+    const animate=shouldAnimate(this.atmosphere,this.reduce.matches,this.pageVisible());
     if(animate){this.matchTime+=dt;this.matchday.update(this.matchTime);this.dirty=true;}
     this.host.dataset.atmosphere=animate?'running':this.atmosphere.enabled?'static':'off';
     this.host.dataset.matchTime=this.matchTime.toFixed(3);
@@ -99,8 +98,9 @@ export class StadiumEngine {
     const hit=hits[0];if(!hit||hit.instanceId===undefined)return null;
     const wall=this.ray.intersectObjects(this.stadium.solids.filter(visible),false)[0];
     if(wall&&wall.distance<hit.distance-.2)return null;
-    const place=this.stadium.pickGroups.find(g=>g.mesh===hit.object)?.places[hit.instanceId]??null;
-    return place&&(!this.allowedIds||this.allowedIds.has(place.id))?place:null;
+    // Discovery filters change visual emphasis, not what can be explored.
+    // Keep every rendered place hoverable and clickable across stand changes.
+    return this.stadium.pickGroups.find(g=>g.mesh===hit.object)?.places[hit.instanceId]??null;
   }
   private pointerDown=(e:PointerEvent)=>{
     this.touches.add(e.pointerId);

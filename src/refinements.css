@@ -61,19 +61,15 @@ h4,
 }
 
 .brand small {
-  margin-top: 4px;
+  margin-top: 8px;
   color: #aeb0a9;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.04em;
 }
 
-.header-edition,
 .header-about,
 .section-kicker,
-.view-indicator,
-.viewer-topline,
-.side-step,
 .browse-label,
 .footer-brand {
   font-weight: 700;
@@ -85,22 +81,56 @@ h4,
   text-transform: none;
 }
 
-.intro {
-  gap: 48px;
+.header-about {
+  align-self: center;
+  height: auto;
+  min-height: 44px;
+  padding: 9px 14px;
+  gap: 14px;
+  justify-content: center;
+  font-size: 14px;
 }
 
-.intro-context {
-  max-width: none;
-  margin: 0;
-  color: var(--yellow-400);
-  font-size: 13px;
+.header-about,
+.about-dialog .primary-button,
+.dialog-close {
   font-weight: 700;
-  letter-spacing: 0.035em;
+}
+
+.about-dialog h2 {
+  margin: 0 56px 28px 0;
+}
+
+.about-dialog .primary-button {
+  min-height: 44px;
+  padding: 9px 14px;
+  justify-content: center;
+  gap: 14px;
+  font-size: 14px;
+}
+
+.dialog-close {
+  width: auto;
+  height: auto;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 9px 14px;
+}
+
+.intro {
+  gap: 48px;
+  padding-top: clamp(64px, 8vw, 120px);
+  padding-bottom: clamp(64px, 8vw, 120px);
 }
 
 .intro h1 {
-  margin: 18px 0 20px;
+  margin: 0 0 clamp(36px, 4vw, 60px);
   font-weight: 900;
+}
+
+.intro h1 em {
+  display: inline-block;
+  margin-top: clamp(6px, 0.7vw, 10px);
 }
 
 .intro-copy > p:last-child {
@@ -109,35 +139,6 @@ h4,
   color: #c9cac4;
   font-size: clamp(16px, 1.4vw, 19px);
   line-height: 1.55;
-}
-
-.intro-facts {
-  min-width: 250px;
-  margin: 0;
-  border-top: 1px solid #44463e;
-}
-
-.intro-facts div {
-  display: grid;
-  grid-template-columns: 54px 1fr;
-  align-items: baseline;
-  gap: 16px;
-  padding: 12px 0;
-  border-bottom: 1px solid #30322d;
-}
-
-.intro-facts dt {
-  color: var(--yellow-400);
-  font-family: var(--font-area-display);
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-}
-
-.intro-facts dd {
-  margin: 0;
-  color: #aaa;
-  font-size: 12px;
 }
 
 .primary-button {
@@ -155,12 +156,6 @@ h4,
 
 .result-item.is-selected {
   box-shadow: inset 3px 0 var(--yellow-400);
-}
-
-@media (max-width: 1023px) {
-  .intro-facts {
-    display: none;
-  }
 }
 
 @media (max-width: 767px) {
@@ -200,7 +195,8 @@ h4,
 .saved-viewpoint-confirmation strong { display: block; font-size: 15px; }
 .saved-viewpoint-confirmation p { margin: 6px 0 0; line-height: 1.5; color: #dbe0d0; }
 .saved-viewpoint-actions { display: grid; gap: 8px; margin-top: 12px; }
-.place-panel h3 { scroll-margin-top: 12px; }
+.place-panel h3 { margin: 0 0 10px; scroll-margin-top: 12px; }
+.atmosphere-pause { margin-left: auto; }
 .selected-details .place-id { font: 12px/1.4 ui-monospace, monospace; margin: 4px 0 6px; }
 .sightline-note { margin: 0 0 14px; padding: 10px 12px; font-size: 13px; line-height: 1.5; }
 .review-more { border-top: 1px solid #59604e; }
@@ -215,7 +211,7 @@ h4,
 }
 
 /* Essential auxiliary text and touch targets (WCAG 2.5.5 / readable 12px minimum). */
-.viewer-topline, .side-step, .scene-badge, .scene-caption, .camera-hint, .scene-footnote,
+.camera-hint, .scene-footnote,
 .place-fields label, .discovery-filters label, .result-item small, .result-item em,
 .result-heading span, .result-pages, .panel-disclosure, .unavailable-note, .discovery-notice,
 .saved-viewpoint-confirmation p, .back-to-stadium, .back-to-stadium kbd, .availability-legend { font-size: 12px; }
@@ -229,7 +225,6 @@ h4,
 @media (max-width: 800px) {
   /* Scene → camera → stand/view choice → review → preview; atmosphere last. */
   .explorer { display: flex; flex-direction: column; }
-  .viewer-topline { order: 0; }
   .viewer-grid { order: 1; display: grid; grid-template-columns: minmax(0, 1fr); }
   .atmosphere-controls { order: 2; }
   .scene-column, .scene-sticky { display: contents; }
@@ -242,20 +237,18 @@ h4,
   .camera-buttons { width: 100%; }
   .camera-buttons button { flex: 1 1 44px; width: auto; }
   .place-panel { padding: 18px 16px; }
-  .place-panel h3 { font-size: 28px; margin-top: 16px; }
+  .place-panel h3 { font-size: 28px; }
   .representative-views button { min-height: 72px; }
   .result-list { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 480px) {
-  .scene-caption { font-size: 12px; }
-  .scene-footnote, .scene-badge { font-size: 12px; }
+  .scene-footnote { font-size: 12px; }
   .stand-switcher button { min-height: 48px; }
-  .viewer-topline { padding: 6px 12px; }
 }
 .brand { min-height: 44px; }
 @media (max-width: 767px) {
-  .header-about { font-size: 12px; gap: 8px; }
+  .header-about { font-size: 14px; gap: 14px; }
   .brand small { letter-spacing: 0; }
 }
 .result-pages button, .browse-label, .filter-reset, .secondary-button { font-size: 12px; }
-.header-edition, .header-about { font-size: 12px; }
+.header-about { font-size: 14px; }

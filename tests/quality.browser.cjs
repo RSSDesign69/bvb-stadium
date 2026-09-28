@@ -66,12 +66,10 @@ async function axe(page,state){
    for(const stand of ['South','West','North','East']){
     await page.locator('.stand-switcher').getByRole('button',{name:`${stand} stand`}).click();
     await page.getByRole('button',{name:'Middle view'}).click();await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
-    assert.match(await page.locator('.scene-caption').textContent(),/crowd hidden/);
     assert.match(await page.locator('.sightline-note').textContent(),/not verified/);
     await page.waitForFunction(()=>document.querySelector('.scene-host').dataset.renderMode==='preview'&&document.querySelector('.scene-host').dataset.crowdVisible==='false');
     const clear=await stats(page);await page.getByLabel('Clear-view preview',{exact:true}).uncheck();await page.locator('.scene-frame').scrollIntoViewIfNeeded();
     await page.waitForFunction(n=>+document.querySelector('.scene-host').dataset.triangles>n,+clear.triangles);
-    assert.match(await page.locator('.scene-caption').textContent(),/simulated crowd/);
     if(engine==='chrome'&&stand==='South'){await page.locator('.scene-frame').screenshot({path:path.join(output,'matchday-standing-crowd.png')});await axe(page,'standing preview with decorative crowd');}
     await page.getByLabel('Clear-view preview',{exact:true}).check();await page.keyboard.press('Escape');await mode(page,'overview');
    }

@@ -189,11 +189,11 @@ export default function StadiumExplorer({stand,onStand,standRequest}:{stand:Stan
   };
   const flowNavigation=stage>1?<nav className="flow-navigation" aria-label="Place navigation">{stage===4&&<button type="button" onClick={back}>Back to review</button>}<button type="button" onClick={()=>edit('stand')}>Change stand</button></nav>:null;
   return <div className="explorer">
-    <div className="viewer-topline"><span>Original 3D model <span className="muted">· Illustrative places</span></span><label className="roof-toggle"><input type="checkbox" checked={!activePreview&&cutaway} disabled={activePreview} onChange={e=>{setCutaway(e.target.checked);engine.current?.setCutaway(e.target.checked);}}/>Roof cutaway</label></div>
     <div className="atmosphere-controls" role="group" aria-label="Match-day atmosphere">
       <label><input type="checkbox" checked={atmosphere.enabled} onChange={e=>setAtmosphere(a=>({...a,enabled:e.target.checked}))}/>Match-day atmosphere</label>
-      <button type="button" disabled={!atmosphere.enabled||reduced} aria-pressed={atmosphere.paused} onClick={()=>setAtmosphere(a=>({...a,paused:!a.paused}))}>{atmosphere.paused?'Resume atmosphere':'Pause atmosphere'}</button>
+      <label className="roof-toggle"><input type="checkbox" checked={!activePreview&&cutaway} disabled={activePreview} onChange={e=>{setCutaway(e.target.checked);engine.current?.setCutaway(e.target.checked);}}/>Roof cutaway</label>
       <label><input type="checkbox" checked={atmosphere.clearView} onChange={e=>setAtmosphere(a=>({...a,clearView:e.target.checked}))}/>Clear-view preview</label>
+      <button className="atmosphere-pause" type="button" disabled={!atmosphere.enabled||reduced} aria-pressed={atmosphere.paused} onClick={()=>setAtmosphere(a=>({...a,paused:!a.paused}))}>{atmosphere.paused?'Resume atmosphere':'Pause atmosphere'}</button>
       <p>{reduced?'Motion paused by your reduced-motion preference. ':''}Decorative crowd and fictional match. Clear view hides crowd and players, not structures.</p>
     </div>
     <div className="viewer-grid"><div className="scene-column"><div className="scene-sticky">
@@ -203,7 +203,6 @@ export default function StadiumExplorer({stand,onStand,standRequest}:{stand:Stan
         <div className="scene-host" ref={host}/>
         {!ready&&!error&&<div className="scene-message" role="status">Building the ground…</div>}
         {error&&<div className="scene-message" role="alert"><h3>Explore by place</h3><p>{error}</p><button className="primary-button" onClick={()=>{if(loadFailed.current)window.location.reload();else setAttempt(a=>a+1);}}>Retry 3D ↗</button></div>}
-        <div className="scene-caption"><span className="scene-badge">{view.mode==='preview'?'Illustrative view':view.mode==='flying'?'Entering the stand':view.mode==='returning'?'Returning to overview':cutaway?'Roof cutaway':'Full roof'}</span><span>{activePreview?`Roof and barriers shown · ${!atmosphere.enabled||atmosphere.clearView?'crowd hidden':'simulated crowd'} · sightlines unverified`:'Four stands. One ground.'}</span></div>
         <div className="orientation"><MiniMap place={selected} view={view} filteredStand={filters.stand}/></div>
         {hovered&&view.mode==='overview'&&<div className="hover-card"><strong>{STANDS[hovered.stand].name} · {describePlace(hovered)}</strong><span>Illustrative viewpoint</span></div>}
         {activePreview&&<button className="back-to-stadium" onClick={()=>command('back')}>← Back to stadium <kbd>Esc</kbd></button>}
@@ -216,8 +215,7 @@ export default function StadiumExplorer({stand,onStand,standRequest}:{stand:Stan
       <p className="scene-footnote">{results.length.toLocaleString()} matching illustrative places · Nonmatching places are dimmed in the scene · No measured seat data</p>
     </div></div>
     <aside className="place-panel" aria-label="Place explorer" data-stage={stage}>
-      <div className="side-step"><span>{stageLabel}</span><span>Step {String(stage).padStart(2,'0')} of 04</span></div>
-      <h3 ref={heading} tabIndex={-1}>{stage===1?'Choose a stand.':stage===2?filters.stand==='all'?'Choose a place.':STANDS[filters.stand].name:selected?STANDS[selected.stand].name:'Explore a stadium view.'}</h3>
+      <h3 ref={heading} tabIndex={-1}>{stage===1?'Choose a stand':stage===2?filters.stand==='all'?'Choose a place.':STANDS[filters.stand].name:selected?STANDS[selected.stand].name:'Explore a stadium view.'}</h3>
       {stage!==3&&<p className="place-lead">{stage===1?'Use the stand buttons or choose a stand in the scene to begin.':stage===2?'Choose a representative view, or explore an exact illustrative place.':'Explore the view. Use Back to return to your place review.'}</p>}
       {stage===2&&flowNavigation}
       <div ref={choices} hidden={stage!==2}>

@@ -16,7 +16,7 @@
 @media(max-width:520px){.result-list{grid-template-columns:1fr}.discovery-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Original match-day controls stay outside the canvas at every viewport. */
-.atmosphere-controls{display:flex;align-items:center;gap:12px 22px;flex-wrap:wrap;padding:14px 18px;background:#182021;border:1px solid #394445;border-top:0;font-size:13px}
+.atmosphere-controls{display:flex;align-items:center;gap:12px 22px;flex-wrap:wrap;padding:14px 18px;background:#182021;border-bottom:1px solid #394445;font-size:13px}
 .atmosphere-controls label{display:flex;align-items:center;gap:9px;min-height:44px;color:#f7f5e9}
 .atmosphere-controls input{accent-color:#ffe500;width:18px;height:18px}
 .atmosphere-controls button{min-height:44px;padding:9px 14px;background:#293435;border:1px solid #8b9691;color:#fffdf2;font:inherit;cursor:pointer}

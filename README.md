@@ -29,6 +29,7 @@ The original product name is a working name, not a claim of trademark clearance.
 1. Read [the behavior specification](docs/behavior-spec.md) and [the observation log](docs/reference-observations.md).
 2. Follow [the clean-room protocol](docs/clean-room.md) and [provenance instructions](provenance/README.md).
 3. See the [Tasks 3–6 completion record](docs/tasks-3-6-completion.md) and [Task 7 completion record](docs/task-7-completion.md) for model and demo-commerce limits. See [Tasks 8–9](docs/tasks-8-9-completion.md) and the [video parity checklist](docs/behavior-parity.md) for atmosphere, QA evidence, and remaining validation limits.
+4. Use the [UI component reference](docs/ui-components.md) when changing shared controls, typography, spacing, or interaction states.
 
 ## Verify the foundation
 

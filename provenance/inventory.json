@@ -102,6 +102,16 @@
       "notes": "Execution-ready remediation backlog derived from the 2026-09-26 Impeccable critique."
     },
     {
+      "path": "docs/ui-components.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Original UI component reference documenting button proportions, typography, states, and dialog hierarchy."
+    },
+    {
       "path": "docs/portfolio-release.md",
       "kind": "project-source-or-documentation",
       "origin": "original",

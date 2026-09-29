@@ -363,7 +363,7 @@
         "REACT-DOM-UPSTREAM",
         "SCHEDULER-UPSTREAM"
       ],
-      "sha256": "f0a857fc6df090a83f6d966355bd3b03f628713a823ee929d603e12e91ceaf0a",
+      "sha256": "7169eab4abcf9f778ab44d7ff1586b8cbaa5dc32f7d903f390ec319ce0cb63e9",
       "notes": "Unmodified MIT license texts from installed runtime packages, with original headings; redistributed as required notices."
     },
     {
@@ -385,8 +385,8 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the walkthrough description to a locally saved viewpoint. The 2026-09-29 hero-animation update disables the broken fi/fl ligatures and adds a note that the animated hero and its poster are original and derived from the project\u2019s own model.",
-      "sha256": "ecac352c1ad779b1fbc742a79d157e4f571099dc19306c4bf2a25e26fe90fef1"
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the walkthrough description to a locally saved viewpoint. The 2026-09-28 re-recording updates the text alternative. The 2026-09-29 hero-animation update disables the broken fi/fl ligatures and adds a note that the animated hero and its poster are original and derived from the project\u2019s own model.",
+      "sha256": "1aab0d2ddee9498d20d86b70ce4cd27ce82ee522b87d202a55b56a402d3d19e2"
     },
     {
       "path": "public/fonts/area-inktrap-bold.otf",
@@ -486,8 +486,8 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Re-recorded 2026-09-26 (Task 6) to show the four-stage flow and locally saved viewpoint.",
-      "sha256": "d18de7b4c66a3b3deb94d441e88c3485cc7817ea241fcb43ff893f195934d5f9"
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Re-recorded 2026-09-26 (Task 6) to show the four-stage flow and locally saved viewpoint. Re-recorded 2026-09-28 for the stand-card selector and in-scene place picking; a pointer indicator is the only overlay.",
+      "sha256": "ed79b9260e036bd33b28b210fee6d76462e66847cc4011f13758da0970e3dfdd"
     },
     {
       "path": "scripts/audit_clean_room.py",
@@ -528,7 +528,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the recording script to the four-stage flow and saved viewpoint."
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the recording script to the four-stage flow and saved viewpoint. The 2026-09-28 update picks places in the scene from generated data and adds a pointer indicator."
     },
     {
       "path": "scripts/render-hero-poster.cjs",

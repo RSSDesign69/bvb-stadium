@@ -19,7 +19,7 @@ const assert = require('node:assert/strict');
   const notices=await page.request.get(new URL('THIRD_PARTY_NOTICES.txt',base).href);assert.equal(notices.status(),200);assert.match(await notices.text(),/MIT License/);
   for(const width of [390,768,1440]){await page.setViewportSize({width,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);}
   await page.setViewportSize({width:1440,height:1050});await page.screenshot({path:'.cache/demo/credits.png',fullPage:true});
-  await page.getByRole('link',{name:'Back to Terrace Atlas'}).click();
+  await page.getByRole('link',{name:'Back to BVB 3D Stadium'}).click();
   await page.waitForFunction(()=>document.querySelector('.scene-host')?.dataset.mode==='overview');
   assert.deepEqual(errors,[]);
   console.log('PASS production disclosure, credits, axe, responsive layout, video playback, notices and return link',metadata);

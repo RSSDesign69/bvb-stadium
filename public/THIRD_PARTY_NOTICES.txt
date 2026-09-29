@@ -1,4 +1,4 @@
-Terrace Atlas — third-party runtime notices
+BVB 3D Stadium — third-party runtime notices
 
 The following software is bundled in the browser application.
 Original application geometry, data and code remain UNLICENSED.

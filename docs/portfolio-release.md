@@ -17,7 +17,7 @@ Open http://127.0.0.1:4173. With Chrome installed and preview running, run `npm 
 
 ## Re-record the walkthrough
 
-Chrome must be installed. Install Playwright's isolated video recorder once with `PLAYWRIGHT_BROWSERS_PATH=.cache/browsers npx playwright install ffmpeg`. With the production preview running, run `npm run record:demo`. This writes `public/media/terrace-atlas-demo.webm`, a silent recording of the actual app. The camera flights are unmodified. Startup and interaction time depend on the host, so recordings are reproducible in behavior, not byte-identical.
+Chrome must be installed. Install Playwright's isolated video recorder once with `PLAYWRIGHT_BROWSERS_PATH=.cache/browsers npx playwright install ffmpeg`. With the production preview running, run `npm run record:demo`. This writes `public/media/terrace-atlas-demo.webm`, a silent recording of the actual app. Scene clicks target generated places projected from the app source, and a pointer indicator is the only overlay (headless video omits the system cursor). The camera flights are unmodified. Startup and interaction time depend on the host, so recordings are reproducible in behavior, not byte-identical.
 
 Review the full recording and text alternative in `public/credits.html`; then update its SHA-256 entry in `provenance/inventory.json` and run `npm run release` again. The video uses only original app visuals and device system fonts. No external footage or audio is included. The credits page uses native playback controls with no autoplay or preload; the viewer does not download the recording unless requested.
 

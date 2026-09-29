@@ -98,7 +98,7 @@ async function behaviour(browser) {
     const skip = await page.evaluate(() => window.__hero), idleAt = skip.phases.find(p => p.phase === 'idle').time;
     assert.equal((await data(page)).heroStart, 'skip'); assert.ok(!skip.phases.some(p => p.phase === 'build'), skip.phases.map(p => p.phase).join());
     assert.ok(idleAt < 1500, `idle at ${idleAt} ms`);
-    assert.equal(await page.evaluate(() => Number(getComputedStyle(document.querySelector('.intro')).getPropertyValue('--hero-underline'))), 1);
+    assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector('.hero-underline')).transform), 'matrix(1, 0, 0, 1, 0, 0)'); // underline at full width
     assert.deepEqual(errors, []);
     pass('session-skip reload', { idleMs: Math.round(idleAt), phases: skip.phases.map(p => p.phase) });
     await context.close();
@@ -155,8 +155,8 @@ async function behaviour(browser) {
     const { context, page, errors, requests } = await open(browser, { reducedMotion: 'reduce' });
     await phaseIs(page, ['static']); await page.waitForFunction(() => document.querySelector('.hero-art').dataset.heroPosterLoaded !== undefined);
     await sleep(1500);
-    const s = await page.evaluate(() => ({ canvas: document.querySelectorAll('canvas.hero-canvas').length, frame: document.querySelector('.hero-art').dataset.heroFrame ?? null, poster: getComputedStyle(document.querySelector('.hero-poster')).opacity, underline: ['none', 'matrix(1, 0, 0, 1, 0, 0)'].includes(getComputedStyle(document.querySelector('.intro h1 em'), '::after').transform) }));
-    assert.deepEqual(s, { canvas: 0, frame: null, poster: '1', underline: true }); // full width: reduced motion drops the transform
+    const s = await page.evaluate(() => ({ canvas: document.querySelectorAll('canvas.hero-canvas').length, frame: document.querySelector('.hero-art').dataset.heroFrame ?? null, poster: getComputedStyle(document.querySelector('.hero-poster')).opacity, underline: getComputedStyle(document.querySelector('.hero-underline')).transform }));
+    assert.deepEqual(s, { canvas: 0, frame: null, poster: '1', underline: 'matrix(1, 0, 0, 1, 0, 0)' }); // full width: the still state sets scaleX(1)
     assert.equal(await page.locator('.hero-controls').isVisible(), false); assert.equal(rendererRequested(requests), false);
     assert.deepEqual(errors, []);
     pass('reduced motion', s); await context.close();

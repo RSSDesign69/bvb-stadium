@@ -436,9 +436,6 @@ h4,
 
 /* Pause / replay: the art's only focusable content. Low emphasis, in the "Pause atmosphere" button's style. */
 .hero-controls { position: absolute; z-index: 2; right: 0; bottom: 0; display: flex; gap: 6px; pointer-events: auto; }
-/* Keep Replay available while the pause/play control is temporarily hidden. */
-.hero-controls { display: flex; }
-.hero-controls button:not(.hero-replay) { display: none; }
 .hero-controls button {
   display: inline-flex;
   align-items: center;

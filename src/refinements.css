@@ -353,10 +353,6 @@ h4,
 
 /* Hero art slot: copy leads, the decorative stadium sits right (≥ 960px) or stacks below (< 960px). */
 .intro {
-  --hero-glow-x: 50%;
-  --hero-glow-y: 50%;
-  --hero-pulse: 0;
-  --hero-underline: 0;
   position: relative;
   isolation: isolate;
   overflow: clip;
@@ -367,25 +363,22 @@ h4,
   background: #000;
 }
 .intro-copy { position: relative; z-index: 1; }
-/* Accent underline under "from every angle.": the timeline sweeps --hero-underline 0 → 1 over 5.9–6.6 s as
-   the pylons land. Absolutely positioned and transformed only, so the headline never moves. */
+/* Accent underline under the headline; the timeline animates this element's transform directly. */
 .intro h1 em { position: relative; }
-.intro h1 em::after {
-  content: "";
+.hero-underline {
   position: absolute;
   left: 0;
   right: 0;
   bottom: -.14em;
   height: 4px;
   background: var(--yellow-400);
-  transform: scaleX(var(--hero-underline));
+  transform: scaleX(0);
   transform-origin: left;
   pointer-events: none;
   will-change: transform; /* composited: the timeline rescales it every frame without repainting the headline */
 }
-@media (prefers-reduced-motion: reduce) { .intro h1 em::after { transform: none; } }
 /* Pause-to-settled and replay jump the timeline behind a 200 ms cross-fade; the underline eases with it. */
-.intro[data-hero-cut] h1 em::after { transition: transform .2s linear; }
+.intro[data-hero-cut] .hero-underline { transition: transform .2s linear; }
 .hero-art {
   position: relative;
   z-index: 0;
@@ -393,41 +386,39 @@ h4,
   aspect-ratio: 8 / 5;
   pointer-events: none;
 }
-/* The hero glow, centred on the art; --hero-pulse lifts it by up to 35% at the pylon flash. */
-.hero-art::before {
-  content: "";
+/* The About surface appears from the centered modal position and leaves a little faster. */
+.dialog-backdrop { opacity: 1; transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1); }
+.about-dialog {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+  transition: opacity 220ms cubic-bezier(0.23, 1, 0.32, 1), transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+@starting-style {
+  .dialog-backdrop { opacity: 0; }
+  .about-dialog { opacity: 0; transform: scale(.97); }
+}
+.dialog-backdrop[data-closing="true"] { opacity: 0; transition-duration: 140ms; }
+.dialog-backdrop[data-closing="true"] .about-dialog { opacity: 0; transform: scale(.97); transition-duration: 140ms; }
+@media (prefers-reduced-motion: reduce) {
+  .dialog-backdrop, .about-dialog { transition-duration: 100ms; }
+  .about-dialog, .dialog-backdrop[data-closing="true"] .about-dialog { transform: none; }
+}
+/* The static glow and its separately composited, animated highlight. */
+.hero-glow {
   position: absolute;
   z-index: -1;
-  left: var(--hero-glow-x);
-  top: var(--hero-glow-y);
+  left: 50%;
+  top: 50%;
   width: 135%;
   aspect-ratio: 1;
   translate: -50% -50%;
+  border-radius: 50%;
   background: radial-gradient(closest-side, #22241b, transparent);
-  filter: brightness(calc(1 + .35 * var(--hero-pulse)));
   pointer-events: none;
 }
-/* Where plus-lighter exists, the lift is an additive copy at 35% strength (#22241b × .35) whose opacity follows
-   the pulse. Over the hero black this equals the brightness filter, but only opacity changes per frame, so the
-   compositor never re-rasters the glow (the filter stalled frames during the accent). */
-@supports (mix-blend-mode: plus-lighter) {
-  .hero-art::before { filter: none; }
-  .hero-art::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: var(--hero-glow-x);
-    top: var(--hero-glow-y);
-    width: 135%;
-    aspect-ratio: 1;
-    translate: -50% -50%;
-    background: radial-gradient(closest-side, #0c0d09, transparent);
-    mix-blend-mode: plus-lighter;
-    opacity: var(--hero-pulse);
-    will-change: opacity;
-    pointer-events: none;
-  }
-}
+.hero-glow__highlight { position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(closest-side, #0c0d09, transparent); mix-blend-mode: screen; opacity: 0; will-change: opacity; pointer-events: none; }
+@supports (mix-blend-mode: plus-lighter) { .hero-glow__highlight { mix-blend-mode: plus-lighter; } }
 .hero-placeholder { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 .hero-placeholder__wide { display: none; }
 /* The WebGL canvas cross-fades over the placeholder on its first frame (150 ms), after which the
@@ -445,6 +436,9 @@ h4,
 
 /* Pause / replay: the art's only focusable content. Low emphasis, in the "Pause atmosphere" button's style. */
 .hero-controls { position: absolute; z-index: 2; right: 0; bottom: 0; display: flex; gap: 6px; pointer-events: auto; }
+/* Keep Replay available while the pause/play control is temporarily hidden. */
+.hero-controls { display: flex; }
+.hero-controls button:not(.hero-replay) { display: none; }
 .hero-controls button {
   display: inline-flex;
   align-items: center;
@@ -462,6 +456,7 @@ h4,
 .hero-controls button:hover { background: #293435; }
 .hero-controls svg { flex: none; width: 14px; height: 14px; fill: currentColor; }
 @media (prefers-reduced-motion: reduce) { .hero-controls { display: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-underline { transition: none !important; } }
 @media (max-width: 959px) {
   /* The 3:2 poster, scaled and cropped to the 8:5 slot's camera fit (sizes from HeroArt). */
   .hero-poster { inset: auto; left: calc(50% - var(--poster-w) / 2); top: calc(50% - var(--poster-h) / 2); width: var(--poster-w); height: var(--poster-h); }

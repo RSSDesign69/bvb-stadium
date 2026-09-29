@@ -190,10 +190,13 @@ export class HeroStage {
   private size = ''; private stale = true; // stale: the pose or the canvas changed since the last draw
   // Pointer parallax: target (tx, ty) in [-1, 1] across the hero section, followed by (x, y) with velocity (vx, vy).
   private pointer = { tx: 0, ty: 0, x: 0, y: 0, vx: 0, vy: 0 };
-  private section: HTMLElement; private css = { pulse: '', underline: '' };
+  private section: HTMLElement; private underline: HTMLElement; private glowHighlight: HTMLElement;
   private resize: ResizeObserver; private intersection: IntersectionObserver;
   constructor(private host: HTMLElement, private options: HeroOptions) {
     this.frozen = options.frozen; this.paused = options.paused; this.played = options.start !== 'build';
+    this.section = host.closest<HTMLElement>('.intro') ?? host;
+    this.underline = this.section.querySelector<HTMLElement>('.hero-underline')!;
+    this.glowHighlight = host.querySelector<HTMLElement>('.hero-glow__highlight')!;
     // Session-skip, pause-on-load and a late reduced-motion switch-off all start on the still pose.
     if (options.start !== 'build') this.clock = STATIC_T;
     if (options.start === 'skip' && !options.paused) this.accentAt = STATIC_T + FADE_MS / 1000;
@@ -225,7 +228,6 @@ export class HeroStage {
     const sun = new THREE.DirectionalLight(0xfff2ce, 2.6); sun.position.set(-70, 140, 80); this.scene.add(sun);
     host.appendChild(canvas);
     // Parallax listens on the whole hero section, not the canvas (which ignores the pointer).
-    this.section = host.closest<HTMLElement>('.intro') ?? host;
     this.section.addEventListener('pointermove', this.point); this.section.addEventListener('pointerleave', this.leave);
     this.resize = new ResizeObserver(this.fit); this.resize.observe(host);
     this.intersection = new IntersectionObserver(entries => { this.onscreen = entries[entries.length - 1].isIntersecting; this.wake(); }); this.intersection.observe(host);
@@ -357,12 +359,11 @@ export class HeroStage {
     const p = this.pointer, k = this.still ? 0 : s.parallax, c = this.camera;
     const basis = viewBasis(HERO_VIEW.azimuth + s.sway + k * p.x * IDLE.parallax.azimuth, HERO_VIEW.elevation - k * p.y * IDLE.parallax.elevation);
     c.position.set(...basis.dir).multiplyScalar(CAMERA_DISTANCE); c.up.set(...basis.up); c.lookAt(0, 0, 0);
-    // Glow pulse and the accent underline, on the hero section; written only when they change.
-    this.css.pulse = this.setVar('--hero-pulse', s.pulse.toFixed(3), this.css.pulse);
-    this.css.underline = this.setVar('--hero-underline', s.underline.toFixed(3), this.css.underline);
+    // Animate the actual elements so timeline updates do not invalidate styles across the whole hero section.
+    this.glowHighlight.style.opacity = s.pulse.toFixed(3);
+    this.underline.style.transform = `scaleX(${s.underline.toFixed(3)})`;
     this.host.dataset.heroT = t.toFixed(3);
   }
-  private setVar(name: string, value: string, previous: string) { if (value !== previous) this.section.style.setProperty(name, value); return value; }
   // ?hero-t only: re-render and encode the frame in the same task, so the drawing buffer is intact (poster script).
   private capture = (event: Event) => {
     const { type = 'image/webp', quality = .9 } = (event as CustomEvent).detail ?? {};

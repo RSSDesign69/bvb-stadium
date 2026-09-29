@@ -131,7 +131,10 @@ export function HeroArt() {
   const settledStart = plan.start !== 'build';
   useLayoutEffect(() => {
     const section = ref.current?.closest<HTMLElement>('.intro');
-    if (section && plan.frozen === null && (still || settledStart || fallback)) section.style.setProperty('--hero-underline', '1');
+    if (section && plan.frozen === null && (still || settledStart || fallback)) {
+      const underline = section.querySelector<HTMLElement>('.hero-underline');
+      if (underline) underline.style.transform = 'scaleX(1)';
+    }
   }, [still, settledStart, fallback, plan.frozen]);
   // Passive, and declared after the mount effect, so it runs after the stage's disposal has reset the phase.
   useEffect(() => {
@@ -146,6 +149,7 @@ export function HeroArt() {
   const replay = () => { setPaused(false); write(PAUSED, false); stage.current?.replay(); };
 
   return <div ref={ref} className="hero-art" data-hero-phase="placeholder" data-hero-poster={posterOn ? 'on' : undefined} data-hero-poster-loaded={posterLoaded || undefined} data-hero-start={plan.start}>
+    <span className="hero-glow" aria-hidden="true"><span className="hero-glow__highlight"/></span>
     <svg className="hero-placeholder" viewBox="0 0 1 1" preserveAspectRatio="none" focusable="false" aria-hidden="true">
       <Plinth layout="wide" aspect={SLOT_ASPECT.wide}/>
       <Plinth layout="stacked" aspect={SLOT_ASPECT.stacked}/>

@@ -825,7 +825,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative."
+      "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative. Updated for scene-only place choice: low/middle/high previews are picked through pointer hover and click in the 3D scene."
     },
     {
       "path": "tests/discovery.browser.cjs",
@@ -835,7 +835,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original browser integration checks for Task 7 discovery and selection, extended for Task 2 remediation: novice stages, Back/Edit focus, Advanced preservation, exact selectors, empty/unavailable states and WebGL recovery. Task 5 remediation updates test assertions for saved-viewpoint feature replacing demo basket. Task 6 adds saved-viewpoint reopen/remove coverage."
+      "notes": "Original browser integration checks for Task 7 discovery and selection, extended for Task 2 remediation: novice stages, Back/Edit focus, Advanced preservation, exact selectors, empty/unavailable states and WebGL recovery. Task 5 remediation updates test assertions for saved-viewpoint feature replacing demo basket. Task 6 adds saved-viewpoint reopen/remove coverage. Updated for scene-only place choice after the representative views and exact-place panel were removed: places, an exact row, unavailable places and saved viewpoints are reached through the scene, ticket quantity and saved-viewpoint link."
     },
     {
       "path": "tests/hero.browser.cjs",
@@ -877,7 +877,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Tasks 8\u20139 implementation, validation, or completion record. No reference code or media imported. Task 6 adds instant-scroll off-screen checks, mobile ordering, stage-4 target/axe audits and Preview/Save visibility."
+      "notes": "Original Tasks 8\u20139 implementation, validation, or completion record. No reference code or media imported. Task 6 adds instant-scroll off-screen checks, mobile ordering, stage-4 target/axe audits and Preview/Save visibility. Updated for scene-only place choice and always-visible preview crowd: previews are picked in the scene, and the empty-results and clear-view checks are replaced by choose-place and crowd-visible checks; narrow widths check Preview focus after returning from the preview."
     },
     {
       "path": "tests/release.browser.cjs",

@@ -11,6 +11,28 @@ const report={date:new Date().toISOString(),engines:[],accessibility:[],performa
 const mode=(p,value)=>p.waitForFunction(v=>document.querySelector('.scene-host')?.dataset.mode===v,value);
 const stats=p=>p.locator('.scene-host').evaluate(el=>({...el.dataset}));
 const chooseStand=async(p,name)=>{const change=p.getByRole('button',{name:'Change stand',exact:true});if(await change.isVisible().catch(()=>false))await change.click();await p.locator('.stand-selector').getByRole('button',{name,exact:true}).click();};
+// Places are chosen in the scene: hover the available place nearest a low/middle/high sample until the
+// hover card names it, then click, which opens its preview. The camera mirrors engine.focusBlock for the
+// stand's middle block, the framing a stand choice applies. `review` returns from that preview to Review.
+const pickInScene=async(p,stand,level='middle')=>{
+ await p.locator('.scene-frame').scrollIntoViewIfNeeded();
+ const candidates=await p.evaluate(async({stand,level})=>{
+  const {DEMO,describePlace,samplePlace}=await import('/src/places/demo.ts');const {STANDS,world}=await import('/src/stadium/layout.ts');
+  const T=await import('/node_modules/three/build/three.module.js');const box=document.querySelector('.scene-host').getBoundingClientRect();
+  const blocks=DEMO.blocks.filter(b=>b.stand===stand),block=blocks[Math.floor(blocks.length/2)],sample=samplePlace(block,level);
+  const camera=new T.PerspectiveCamera(43,box.width/box.height,.08,1200);camera.position.set(...world(stand,block.center*.6,170,135));camera.lookAt(...world(stand,block.center*.4,STANDS[stand].inner*.32,8));camera.updateMatrixWorld();
+  return DEMO.places.filter(p=>p.stand===stand&&p.availability==='available').map(p=>({p,d:Math.hypot(...p.eye.map((v,i)=>v-sample.eye[i]))})).sort((a,b)=>a.d-b.d)
+   .map(({p})=>{const v=new T.Vector3(p.position[0],p.position[1]+.54,p.position[2]).project(camera);return {id:p.id,label:`${STANDS[stand].name}${describePlace(p)}Click`,x:box.x+(v.x+1)*box.width/2,y:box.y+(1-v.y)*box.height/2};})
+   .filter(c=>c.x>box.left+8&&c.x<box.right-8&&c.y>box.top+8&&c.y<box.bottom-8).slice(0,30);
+ },{stand,level});
+ for(const c of candidates){
+  await p.mouse.move(c.x,c.y);
+  if(!await p.waitForFunction(label=>document.querySelector('.hover-card')?.textContent.startsWith(label),c.label,{timeout:1000}).then(()=>true,()=>false))continue;
+  await p.mouse.click(c.x,c.y);await mode(p,'preview');assert.equal(await p.locator('.place-id').textContent(),c.id);return c.id;
+ }
+ throw new Error(`No pickable ${level} place in the ${stand} stand`);
+};
+const review=async p=>{await p.locator('.scene-frame').press('Escape');await mode(p,'overview');await p.locator('.place-panel[data-stage="3"]').waitFor();};
 // Task 3/4 audits: 44×44 targets and a 12px floor for text on the explorer surface.
 async function auditSurface(page,label){
  return page.evaluate(()=>{
@@ -66,13 +88,12 @@ async function axe(page,state){
    const reduced=(await stats(page)).matchTime;await page.waitForTimeout(150);assert.equal((await stats(page)).matchTime,reduced);
    for(const stand of ['South','West','North','East']){
     await chooseStand(page,`${stand} stand`);
-    await page.getByRole('button',{name:'Middle view'}).click();await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
+    await pickInScene(page,stand.toLowerCase());
     assert.equal(await page.locator('.selection-dot,.sightline-note,.review-more').count(),0);
-    await page.waitForFunction(()=>document.querySelector('.scene-host').dataset.renderMode==='preview'&&document.querySelector('.scene-host').dataset.crowdVisible==='false');
-    const clear=await stats(page);await page.getByLabel('Clear-view preview',{exact:true}).uncheck();await page.locator('.scene-frame').scrollIntoViewIfNeeded();
-    await page.waitForFunction(n=>+document.querySelector('.scene-host').dataset.triangles>n,+clear.triangles);
+    // Previews always show the decorative crowd while the atmosphere is on.
+    await page.waitForFunction(()=>document.querySelector('.scene-host').dataset.renderMode==='preview'&&document.querySelector('.scene-host').dataset.crowdVisible==='true');
     if(engine==='chrome'&&stand==='South'){await page.locator('.scene-frame').screenshot({path:path.join(output,'matchday-standing-crowd.png')});await axe(page,'standing preview with decorative crowd');}
-    await page.getByLabel('Clear-view preview',{exact:true}).check();await page.keyboard.press('Escape');await mode(page,'overview');
+    await page.keyboard.press('Escape');await mode(page,'overview');
    }
    await page.getByRole('checkbox',{name:'Match-day atmosphere',exact:true}).uncheck();await page.locator('.scene-frame').scrollIntoViewIfNeeded();
    await page.waitForFunction(()=>document.querySelector('.scene-host').dataset.atmosphere==='off');
@@ -82,34 +103,30 @@ async function axe(page,state){
     assert.equal(await page.locator('[inert]').count(),1);await page.keyboard.press('Shift+Tab');assert.match(await page.locator(':focus').textContent(),/Back to the ground/);
     await page.keyboard.press('Tab');assert.equal(await page.locator(':focus').getAttribute('aria-label'),'Close about dialog');await axe(page,'about modal');
     await page.keyboard.press('Escape');assert.equal(await about.evaluate(e=>e===document.activeElement),true);
-    // Empty results remain accessible and offer recovery.
-    await page.getByRole('button',{name:'Change place',exact:true}).click();await page.locator('.advanced-places summary').click();
-    await page.locator('.discovery-filters').getByLabel('Stand',{exact:true}).selectOption('south');
-    await page.locator('.discovery-filters').getByLabel('Category',{exact:true}).selectOption('sideline');await page.locator('.results-empty').waitFor();await axe(page,'empty results');
-    await page.getByRole('button',{name:/Reset filters/}).click();
+    // Returning to Choose place for another scene pick remains accessible.
+    await page.getByRole('button',{name:'Change place',exact:true}).click();await page.locator('.place-panel[data-stage="2"]').waitFor();await axe(page,'choose place in scene');
     // Progressive flow at desktop and narrow widths: Preview stays reachable, targets and text stay usable.
     await page.setViewportSize({width:1440,height:900});await page.reload();await mode(page,'overview');
     await page.locator('.explorer').evaluate(e=>e.scrollIntoView());
-    await chooseStand(page,'West stand');await page.getByRole('button',{name:'Middle view'}).click();
+    await chooseStand(page,'West stand');await pickInScene(page,'west');await review(page);
     const inView=async loc=>{const b=await loc.boundingBox();return b&&b.y>=0&&b.y+b.height<=900;};
     assert.ok(await inView(page.getByRole('button',{name:'Preview this view'})),'Preview visible at 1440×900');
     assert.equal(await page.locator('.selection-dot,.sightline-note,.review-more').count(),0);
     await page.getByRole('button',{name:'Preview this view'}).click();await mode(page,'preview');
     assert.ok(await inView(page.getByRole('button',{name:'Save viewpoint'})),'Save visible in Preview at 1440×900');
-    await page.getByRole('button',{name:'Change place',exact:true}).click();await page.locator('.advanced-places summary').click();
-    await page.evaluate(()=>window.scrollBy({top:600,behavior:'instant'}));await page.waitForTimeout(150);
-    const stuck=await page.locator('.scene-frame').boundingBox();assert.ok(stuck.y>=0&&stuck.y<400,'Scene stays in view while the place rail scrolls');
+    await page.getByRole('button',{name:'Change place',exact:true}).click();await page.locator('.place-panel[data-stage="2"]').waitFor();
+    // The rail no longer outgrows the scene, so no rail content can scroll the scene away; the scene stays sticky.
+    const rail=await page.evaluate(()=>({sticky:getComputedStyle(document.querySelector('.scene-sticky')).position,panel:document.querySelector('.place-panel').getBoundingClientRect().bottom,scene:document.querySelector('.scene-sticky').getBoundingClientRect().bottom}));
+    assert.equal(rail.sticky,'sticky');assert.ok(rail.panel<=rail.scene+1,'Place rail fits beside the scene at 1440×900');
     for(const width of [320,390,768]){
      await page.setViewportSize({width,height:844});await page.reload();await mode(page,'overview');
      await auditSurface(page,`${width}px choose stand`);
      await chooseStand(page,'West stand');
-     assert.equal(await page.locator('.advanced-places').evaluate(d=>d.open),false,'Advanced collapsed by default');
      assert.equal(await page.locator('.result-pages,.place-fields,.discovery-filters').evaluateAll(els=>els.filter(e=>e.checkVisibility()).length),0,'No exact-place controls in the novice stage');
      await auditSurface(page,`${width}px choose place`);
-     await page.locator('.advanced-places summary').click();await auditSurface(page,`${width}px advanced`);await page.locator('.advanced-places summary').click();
-     await page.getByRole('button',{name:'Middle view'}).click();await page.waitForTimeout(150);
-     const preview=await page.getByRole('button',{name:'Preview this view'}).boundingBox();
-     assert.ok(preview&&preview.y>=0&&preview.y+preview.height<=844,`Preview visible after selection at ${width}px`);
+     await pickInScene(page,'west');await review(page);await page.waitForTimeout(150);
+     // A scene choice opens the preview first; returning from it must hand focus to Preview this view.
+     assert.equal(await page.getByRole('button',{name:'Preview this view'}).evaluate(e=>e===document.activeElement),true,`Preview focused after returning from the preview at ${width}px`);
      await auditSurface(page,`${width}px review`);
      // Mobile reading order: scene → stand/view choice → review → atmosphere.
      const order=await page.evaluate(()=>['.scene-frame','.place-panel','.atmosphere-controls'].map(s=>document.querySelector(s).getBoundingClientRect().top+scrollY));
@@ -121,14 +138,14 @@ async function axe(page,state){
     }
     // 200% text enlargement and a narrow viewport must reflow without horizontal scrolling.
     await page.setViewportSize({width:640,height:900});await page.reload();await mode(page,'overview');
-    await chooseStand(page,'West stand');await page.getByRole('button',{name:'Middle view'}).click();
+    await chooseStand(page,'West stand');await pickInScene(page,'west');await review(page);
     await page.setViewportSize({width:640,height:900});
     // Use actual computed font sizes rather than recursive percentage compounding.
     await page.evaluate(()=>{const items=[...document.querySelectorAll('body *:not(canvas):not(svg *)')].map(e=>[e,parseFloat(getComputedStyle(e).fontSize)]);for(const [e,size] of items)e.style.fontSize=`${size*2}px`;});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'Text resize overflow');
     await page.locator('.scene-frame').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(output,'text-200-percent.png'),fullPage:true});
    }
-   assert.deepEqual(errors,[]);report.engines.push({engine,version:browser.version(),overview,passed:true});console.log('PASS',engine,'atmosphere controls, offscreen pause, reduced motion, four-stand clear/crowd previews');
+   assert.deepEqual(errors,[]);report.engines.push({engine,version:browser.version(),overview,passed:true});console.log('PASS',engine,'atmosphere controls, offscreen pause, reduced motion, four-stand crowd previews');
    if(engine==='chrome'){
     const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});const phone=await mobile.newPage();
     await phone.goto(base);await mode(phone,'overview');await phone.locator('.scene-frame').scrollIntoViewIfNeeded();
@@ -154,7 +171,8 @@ async function axe(page,state){
     await loading.route('**/src/viewer/engine.ts*',async route=>{await gate;await route.abort();});await loading.goto(base,{waitUntil:'domcontentloaded'});
     await loading.getByRole('status').filter({hasText:'Building the ground'}).waitFor();await axe(loading,'engine loading');release();
     await loading.getByRole('button',{name:'Retry 3D'}).waitFor();await axe(loading,'engine load error');await loading.unroute('**/src/viewer/engine.ts*');
-    await chooseStand(loading,'West stand');await loading.locator('.advanced-places summary').click();await loading.getByRole('button',{name:'Select this place'}).click();assert.ok(await loading.locator('.place-id').textContent());
+    // Without the engine there is no scene to choose a place in; the stand choice must still work.
+    await chooseStand(loading,'West stand');await loading.locator('.place-panel[data-stage="2"]').waitFor();assert.equal(await loading.locator('.place-panel h3').textContent(),'West stand');
     // A failed dynamic import is cached by the browser; a fresh import attempt needs a reload.
     await loading.getByRole('button',{name:'Retry 3D'}).click();
     await mode(loading,'overview');

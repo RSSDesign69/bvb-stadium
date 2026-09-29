@@ -33,6 +33,14 @@ This document records the visual and interaction contract for reusable interface
 - The active stand uses `aria-pressed` and the brand-colored border. The stadium plan is decorative inside the already named button; the larger scene orientation map retains its descriptive accessible label.
 - On narrow screens the cards remain a two-column group inside the panel, with reduced gap rather than becoming a horizontal scroller.
 
+### Hero animation controls
+
+- **Pause animation** / **Play animation** and **Replay** form a `role="group"` named "Stadium animation" in the bottom-right corner of the hero art. They are the art's only focusable content. The canvas, poster and placeholder are `aria-hidden`, and the art ignores pointer clicks.
+- They follow the **Pause atmosphere** proportions: `44px` minimum height, `9px 14px` padding, a `1px #8b9691` square border, and `13px` labels. A translucent `#182021` fill keeps them low-emphasis over the art. The icons are decorative and the text supplies the name.
+- The pause toggle sets `aria-pressed` and swaps its visible label. Focus stays on it when toggled.
+- Below `960px` both collapse to `44px × 44px` icon buttons. Their labels stay as visually hidden accessible names, so the controls never cover the stacked diorama.
+- Reduced motion, the poster fallbacks and `?hero-t` hide the group, because nothing is animating.
+
 ## Dialog heading hierarchy
 
 The About dialog begins directly with **An independent concept.** The former **About the project** eyebrow is intentionally omitted so the dialog title occupies the first content position. The close button remains at the top right and the heading reserves sufficient inline space to avoid overlap.

@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { HeroArt } from './hero/HeroArt';
 const StadiumExplorer = lazy(() => import('./viewer/StadiumExplorer'));
 
 type StandId = 'south' | 'west' | 'north' | 'east';
@@ -17,7 +18,7 @@ export function App() {
     <div inert={showAbout || undefined}><a className="skip-link" href="#main">Skip to main content</a>
     <header className="site-header"><a className="brand" href="#main" aria-label="Stadium concept home"><img className="brand-logo" src="./bvb-09-logo.svg" alt=""/><span><strong>Signal Iduna Park</strong><small>Independent 3D concept</small></span></a><div className="header-right"><button ref={aboutTriggerRef} className="header-about" type="button" onClick={() => setShowAbout(true)}>About this concept <Arrow /></button></div></header>
     <main id="main"><div className="disclosure-bar"><strong>Independent concept / demo</strong><span>Places, views, prices, and availability are illustrative. No tickets are sold.</span></div>
-      <section className="intro" aria-labelledby="page-title"><div className="intro-copy"><h1 id="page-title">Borussia Dortmund's Stadium<br/><em>from every angle.</em></h1><p>Explore an original 3D interpretation of Signal Iduna Park. Choose a stand, find an illustrative place, and step inside the view.</p></div></section>
+      <section className="intro" aria-labelledby="page-title"><div className="intro-copy"><h1 id="page-title">Borussia Dortmund's Stadium<br/><em>from every angle.</em></h1><p>Explore an original 3D interpretation of Signal Iduna Park. Choose a stand, find an illustrative place, and step inside the view.</p></div><HeroArt/></section>
       <section className="workspace" aria-label="Stadium overview"><div className="workspace-heading"><h2>Stadium explorer</h2></div><Suspense fallback={<div className="viewer-loading" role="status">Loading stadium explorer…</div>}><StadiumExplorer stand={selectedStand} onStand={chooseStand} standRequest={standRequest}/></Suspense></section>
     </main>
     <footer className="site-footer"><a href="./credits.html">Credits & demo video ↗</a><p>Independent stadium concept. Places, views, prices, and availability are illustrative. No tickets are sold.</p></footer>

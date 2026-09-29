@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hero animation animatic (reference)</title></head>
+<body style="margin:24px auto;max-width:760px;padding:0 16px;font-family:system-ui,sans-serif;background:#fff;color:#222">
+<p style="font-size:13px;color:#666">Reference animatic for docs/hero-animation-task-list.md. Simplified stand-in geometry: timing constants and palette are the source of truth, not the drawing code.</p>
+<style>
+.an{--y:#ffd900;font-family:var(--font-sans,system-ui,sans-serif);color:var(--color-text-primary,#222)}
+.an *{box-sizing:border-box}
+.an-top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.an-seg{display:flex;border:.5px solid var(--color-border-secondary,#999);border-radius:8px;overflow:hidden}
+.an-seg button{border:0;background:transparent;color:inherit;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer}
+.an-seg button[aria-pressed=true]{background:var(--color-background-secondary,#eee);font-weight:500}
+.an-play{border:.5px solid var(--color-border-secondary,#999);background:transparent;color:inherit;border-radius:8px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer}
+.an-stage{position:relative;background:#000;border-radius:10px;overflow:hidden;aspect-ratio:600/400}
+.an-stage svg{position:absolute;inset:0;width:100%;height:100%;transition:opacity .28s}
+.an-stage .an-t{position:absolute;left:12px;top:10px;font:500 11px/1 var(--font-sans,system-ui);letter-spacing:.1em;color:#ffd900}
+.an-stage .an-slot{position:absolute;inset:0;pointer-events:none}
+.an-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.an-th{position:relative;background:#000;border:1.5px solid transparent;border-radius:8px;padding:0;cursor:pointer;overflow:hidden;aspect-ratio:600/400;filter:brightness(.55)}
+.an-th[aria-pressed=true]{border-color:#ffd900;filter:none}
+.an-th svg{width:100%;height:100%;display:block}
+.an-th span{position:absolute;left:6px;bottom:5px;font:500 10px/1 var(--font-sans,system-ui);color:#fffdf2;background:#000a;padding:3px 5px;border-radius:3px}
+.an-cap{margin-top:12px;font-size:14px;line-height:1.55}
+.an-cap b{font-weight:500}
+.an-cap small{display:block;color:var(--color-text-secondary,#666);font-size:13px;margin-top:4px}
+</style>
+<div class="an">
+<h2 class="sr-only">Three-frame animatics of two hero animation directions: an A plus C hybrid diorama, and direction C stacked slabs</h2>
+<div class="an-top">
+  <div class="an-seg" role="group" aria-label="Direction"><button id="dA" aria-pressed="true">A + C hybrid</button><button id="dC" aria-pressed="false">C · Stacked slabs</button></div>
+  <button class="an-play" id="play">Pause loop</button>
+</div>
+<div class="an-stage" id="stage"><div class="an-t" id="stT"></div></div>
+<div class="an-thumbs" id="thumbs"></div>
+<div class="an-cap" id="cap"></div>
+</div>
+<script>
+(function(){
+const c=.6,PX=3.6,PZ=5.4,NR=8,R=NR*c,Z0=PZ+R,S=12.5,W=600,H=400,MID='·';
+const clamp=v=>Math.min(1,Math.max(0,v));
+const easeO=t=>1-Math.pow(1-clamp(t),3),easeQ=t=>1-Math.pow(1-clamp(t),2);
+const P=(x,y,z)=>[(x-z)*S*.92+W/2,(x+z)*S*.46-y*S*.86+H*.585];
+const f1=v=>v.toFixed(1);
+const pts=a=>a.map(p=>f1(p[0])+','+f1(p[1])).join(' ');
+const poly=(a,f,extra='')=>`<polygon points="${pts(a)}" fill="${f}" stroke="${f}" stroke-width=".6" stroke-linejoin="round" ${extra}/>`;
+function shade(hex,k){const n=parseInt(hex.slice(1),16);const r=Math.min(255,Math.round(((n>>16)&255)*k)),g=Math.min(255,Math.round(((n>>8)&255)*k)),b=Math.min(255,Math.round((n&255)*k));return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1)}
+const keyOf=v=>{let x=0,y=0,z=0;v.forEach(p=>{x+=p[0];y+=p[1];z+=p[2]});const n=v.length;return (x+z+1.07*y)/n};
+const mk=(v,f,extra)=>({k:keyOf(v),s:poly(v.map(p=>P(p[0],p[1],p[2])),f,extra)});
+
+// concentric rounded-rectangle boundaries around the pitch, same point count each
+function bpts(k){const r=k*c,out=[],n=6;
+  const cs=[[PX,PZ,0],[-PX,PZ,Math.PI/2],[-PX,-PZ,Math.PI],[PX,-PZ,1.5*Math.PI]];
+  cs.forEach(([cx,cz,a0],ci)=>{
+    for(let i=0;i<=n;i++){const a=a0+i/n*Math.PI/2;out.push([cx+r*Math.cos(a),cz+r*Math.sin(a)]);}
+    const nx=cs[(ci+1)%4],a1=a0+Math.PI/2,fr=[cx+r*Math.cos(a1),cz+r*Math.sin(a1)],to=[nx[0]+r*Math.cos(nx[2]),nx[1]+r*Math.sin(nx[2])];
+    const len=Math.hypot(to[0]-fr[0],to[1]-fr[1]),m=Math.max(1,Math.round(len/1.1));
+    for(let i=1;i<m;i++)out.push([fr[0]+(to[0]-fr[0])*i/m,fr[1]+(to[1]-fr[1])*i/m]);
+  });return out;}
+const B=[];for(let k=0;k<=NR;k++)B.push(bpts(k));
+const NP=B[0].length;
+function seg(k,j){const a=B[k][j],b=B[k][(j+1)%NP],dx=b[0]-a[0],dz=b[1]-a[1],l=Math.hypot(dx,dz);
+  return {a,b,len:l,n:l<1e-6?[0,0]:[dz/l,-dx/l],mx:(a[0]+b[0])/2,mz:(a[1]+b[1])/2};}
+function faceCol(base,N){return shade(base,Math.max(.5,Math.min(1.08,.84+.22*(N[0]-N[1]))));}
+function isSouth(mx,mz){return mz<0&&(Math.abs(mz)-PZ)>(Math.abs(mx)-PX)-.01;}
+
+// slab band: rings a..b-1, flat between y0 and y1
+function slab(a,b,y0,y1,topFn,riserBase,riserOuterBase){
+  const it=[];
+  for(let k=a;k<b;k++)for(let j=0;j<NP;j++){const s=seg(k,j),s2=seg(k+1,j);if(s.len<1e-6&&s2.len<1e-6)continue;
+    it.push(mk([[s.a[0],y1,s.a[1]],[s.b[0],y1,s.b[1]],[s2.b[0],y1,s2.b[1]],[s2.a[0],y1,s2.a[1]]],topFn(k,j,s)));}
+  for(let j=0;j<NP;j++){
+    let s=seg(a,j);if(s.len>1e-6&&-(s.n[0]+s.n[1])>0){const N=[-s.n[0],-s.n[1]];it.push(mk([[s.a[0],y0,s.a[1]],[s.b[0],y0,s.b[1]],[s.b[0],y1,s.b[1]],[s.a[0],y1,s.a[1]]],faceCol(riserBase,N)));}
+    s=seg(b,j);if(s.len>1e-6&&(s.n[0]+s.n[1])>0){it.push(mk([[s.a[0],y0,s.a[1]],[s.b[0],y0,s.b[1]],[s.b[0],y1,s.b[1]],[s.a[0],y1,s.a[1]]],faceCol(riserOuterBase||riserBase,s.n)));}
+  }return it;}
+
+function prismSVG(x,z,w,y0,y1,top,sx,sz){const it=[];
+  it.push(mk([[x+w,y0,z],[x+w,y0,z+w],[x+w,y1,z+w],[x+w,y1,z]],sx));
+  it.push(mk([[x,y0,z+w],[x+w,y0,z+w],[x+w,y1,z+w],[x,y1,z+w]],sz));
+  it.push(mk([[x,y1,z],[x+w,y1,z],[x+w,y1,z+w],[x,y1,z+w]],top));
+  const key=x+z+1.07*(y0+y1)/2;return {k:key,s:it.map(i=>i.s).join('')};}
+const pylonPos=[];for(const sx of[-1,1])for(const sz of[-1,1]){pylonPos.push([sx*7.4,sz*9.3]);pylonPos.push([sx*8.9,sz*7.9]);}
+function pylonItems(hh){return pylonPos.map(([x,z])=>prismSVG(x-.13,z-.13,.26,0,hh,'#ffd900','#c9a800','#a88b00'));}
+
+const PLX=PX+R+.7,PLZ=PZ+R+.7;
+function plinth(sideC,grass,thick){
+  let s=poly([P(PLX,-thick,PLZ),P(PLX,-thick,-PLZ),P(PLX,0,-PLZ),P(PLX,0,PLZ)],sideC);
+  s+=poly([P(-PLX,-thick,PLZ),P(PLX,-thick,PLZ),P(PLX,0,PLZ),P(-PLX,0,PLZ)],shade(sideC,.7));
+  s+=poly([P(-PLX,0,-PLZ),P(PLX,0,-PLZ),P(PLX,0,PLZ),P(-PLX,0,PLZ)],grass);return s;}
+function pitch(y,k,yBase){let s='';const n=14,zs=2*PZ/n;
+  for(let i=0;i<n;i++){const z0=-PZ+i*zs,f=clamp((k*1.15-(i/n)*.9)/.25);if(f<=0)continue;
+    s+=poly([P(-PX,y,z0),P(PX,y,z0),P(PX,y,z0+zs),P(-PX,y,z0+zs)],i%2?'#387d47':'#317040',f<1?`opacity="${f.toFixed(2)}"`:'');}
+  if(k>=.95){const L=a=>`<polyline points="${pts(a)}" fill="none" stroke="#f1f2d5" stroke-width="1" opacity=".85"/>`;
+    s+=L([P(-PX,y,-PZ),P(PX,y,-PZ),P(PX,y,PZ),P(-PX,y,PZ),P(-PX,y,-PZ)]);s+=L([P(-PX,y,0),P(PX,y,0)]);
+    const cir=[];for(let a=0;a<=32;a++)cir.push(P(Math.cos(a/32*6.283)*1.6,y,Math.sin(a/32*6.283)*1.6));s+=L(cir);
+    for(const sg of[-1,1])s+=L([P(-2.4,y,sg*PZ),P(-2.4,y,sg*(PZ-2)),P(2.4,y,sg*(PZ-2)),P(2.4,y,sg*PZ)]);}
+  return s;}
+function ring(rho,op,w){const a=[];for(let i=0;i<=72;i++){const t=i/72*6.283;a.push(P(Math.cos(t)*rho*.86,0,Math.sin(t)*rho*1.06));}
+  return `<polyline points="${pts(a)}" fill="none" stroke="#ffd900" stroke-width="${w||2}" opacity="${op.toFixed(2)}"/>`;}
+function streaks(b,y,len,al){let o='';for(let j=0;j<NP;j+=4){const p=B[b][j],q0=P(p[0],y,p[1]),q1=P(p[0],y+len,p[1]);o+=`<line x1="${f1(q0[0])}" y1="${f1(q0[1])}" x2="${f1(q1[0])}" y2="${f1(q1[1])}" stroke="#ffd900" stroke-width="1.2" stroke-linecap="round" opacity="${al.toFixed(2)}"/>`;}return o;}
+const svgOpen=(lbl,id)=>`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${lbl}"><defs><radialGradient id="${id}" cx=".5" cy=".55" r=".55"><stop offset="0" stop-color="#34351a"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs><rect width="${W}" height="${H}" fill="url(#${id})"/>`;
+
+/* ---------- A + C hybrid ---------- */
+function tierH(k,z,T){ // height of tier ring k at plan depth z (wave sweeps from the South end)
+  if(k<0||k>=NR)return 0;
+  if(k===NR-1)return 4.2*easeQ((T-3.4)/1.2);
+  const u=(z+Z0)/(2*Z0),d=.55+1.5*u+k*.13;
+  return (.4+k*.3)*easeO((T-d)/.7);}
+function frameA(T,o){o=o||{};
+  let s=svgOpen(`Diorama stadium at ${T} seconds`,'gA'+Math.round(T*10));
+  if(o.glow)s+=ring(11.5,.35,2)+ring(13.5,.16,1.4);
+  s+=plinth('#272c29','#3c7a47',.55);
+  s+=pitch(0,clamp((T-.05)/.55));
+  const it=[];const hv=(k,p)=>tierH(k,p[1],T);
+  const P3=(p,y)=>[p[0],y,p[1]];
+  // tops
+  for(let k=0;k<NR;k++)for(let j=0;j<NP;j++){
+    const a=B[k][j],b=B[k][(j+1)%NP],a2=B[k+1][j],b2=B[k+1][(j+1)%NP];
+    if(Math.hypot(a[0]-b[0],a[1]-b[1])<1e-6&&Math.hypot(a2[0]-b2[0],a2[1]-b2[1])<1e-6)continue;
+    const ha=hv(k,a),hb=hv(k,b),ha2=hv(k,a2),hb2=hv(k,b2),avg=(ha+hb+ha2+hb2)/4;
+    const sm=isSouth((a[0]+b2[0])/2,(a[1]+b2[1])/2);
+    let col=avg<.04?'#4b514d':k===NR-1?'#465758':sm?(k%2?'#d9b20f':'#f6c900'):(k%2?'#6f7772':'#e0b912');
+    it.push(mk([P3(a,ha),P3(b,hb),P3(b2,hb2),P3(a2,ha2)],col));
+    if(o.crowd&&sm&&k>0&&k<6&&avg>.8&&((j*7+k*5)%4===0)){const cx=(a[0]+b[0]+a2[0]+b2[0])/4,cz=(a[1]+b[1]+a2[1]+b2[1])/4;const q=P(cx,avg+.02,cz);it.push({k:keyOf([P3(a,ha)])+.6,s:`<circle cx="${f1(q[0])}" cy="${f1(q[1]-1)}" r="1.5" fill="${(j+k)%3?'#fffdf2':'#151d21'}"/>`});}
+  }
+  // risers
+  for(let k=0;k<=NR;k++)for(let j=0;j<NP;j++){
+    const sg=seg(k,j);if(sg.len<1e-6)continue;
+    const a=sg.a,b=sg.b,hinA=hv(k-1,a),hinB=hv(k-1,b),houtA=hv(k,a),houtB=hv(k,b);
+    const diff=(houtA+houtB)-(hinA+hinB);if(Math.abs(diff)<.02)continue;
+    const rising=diff>0,N=rising?[-sg.n[0],-sg.n[1]]:sg.n;if(N[0]+N[1]<=0)continue;
+    const loA=Math.min(hinA,houtA),hiA=Math.max(hinA,houtA),loB=Math.min(hinB,houtB),hiB=Math.max(hinB,houtB);
+    const south=isSouth(sg.mx,sg.mz)&&k<NR-1,base=k>=NR-1?'#3f4e4f':south?'#8a7a1c':'#565e5a';
+    it.push(mk([P3(a,loA),P3(b,loB),P3(b,hiB),P3(a,hiA)],faceCol(base,N)));
+  }
+  const py=clamp((T-5.8)/.7),ph=6.8*easeO(py);
+  const pyl=py>0?pylonItems(ph):[];
+  pyl.filter(p=>p.k<3).forEach(p=>it.push(p));
+  it.sort((x,y)=>x.k-y.k);s+=it.map(i=>i.s).join('');
+  // roof
+  const rp=clamp((T-4.6)/1.2);
+  if(rp>0){const p=easeQ(rp),y=4.2+(o.lift||0)+(1-p)*3.2;
+    const rf=slab(4,NR,y,y+.14,(k,j)=>j%2?'#b9bfba':'#b0b7b2','#8d948f');rf.sort((x,y2)=>x.k-y2.k);
+    s+=`<g opacity="${clamp(p*1.8).toFixed(2)}">${rf.map(i=>i.s).join('')}</g>`+(rp<1?streaks(NR,y+.14,1.4*(1-p)+.3,.4*clamp(rp*3)):'');}
+  pyl.filter(p=>p.k>=3).sort((x,y)=>x.k-y.k).forEach(p=>s+=p.s);
+  return s+'</svg>';}
+
+/* ---------- C - stacked slabs ---------- */
+const layers=[
+ {a:0,b:3,y0:0,th:.9,start:1.1,dur:1.2,lift:0,top:k=>k%2?'#f0c800':'#ffd900',rs:'#2f3431'},
+ {a:3,b:7,y0:.9,th:1.0,start:2.3,dur:1.2,lift:.9,top:k=>k%2?'#454b47':'#ffd900',rs:'#2f3431'},
+ {a:7,b:8,y0:0,th:2.6,start:3.5,dur:1.0,lift:1.8,top:()=>'#e8e8de',rs:'#3b403c'},
+];
+function frameC(T,o){o=o||{};const br=o.breathe||0;
+  let s=svgOpen(`Stacked slab stadium at ${T} seconds`,'gC'+Math.round(T*10));
+  s+=plinth('#1d201e','#252825',.4);
+  // landing ripples on the plinth
+  const rip=t0=>{const tau=T-t0;if(tau<0||tau>.9)return'';const k=tau/.9;return ring(7.6+3.4*k,.85*(1-k),2.2);};
+  s+=rip(.3+.8);layers.forEach(L=>s+=rip(L.start+L.dur));
+  // pitch slab falls in first
+  const pp=clamp((T-.3)/.8),py=(1-easeQ(pp))*3.2,y1=.3+py,a=pp<1?` opacity="${clamp(pp*3).toFixed(2)}"`:'';
+  s+=poly([P(PX,py,-PZ),P(PX,py,PZ),P(PX,y1,PZ),P(PX,y1,-PZ)],'#1e4a2a',a)+poly([P(-PX,py,PZ),P(PX,py,PZ),P(PX,y1,PZ),P(-PX,y1,PZ)],'#163a20',a);
+  s+=pitch(y1,pp);
+  if(br>0)for(const [gx,gz] of [[-(PX+R)+.5,-(PZ+R)+.5],[(PX+R)-.5,-(PZ+R)+.5],[(PX+R)-.5,(PZ+R)-.5],[-(PX+R)+.5,(PZ+R)-.5]]){const q=P(gx,0,gz),w=P(gx,7.4,gz);s+=`<line x1="${f1(q[0])}" y1="${f1(q[1])}" x2="${f1(w[0])}" y2="${f1(w[1])}" stroke="#ffd900" stroke-width="1" stroke-dasharray="3 4" opacity=".6"/>`;}
+  let it=[];
+  layers.forEach(L=>{const p=clamp((T-L.start)/L.dur);if(p<=0)return;const off=(1-easeQ(p))*3.6+br*L.lift;
+    slab(L.a,L.b,L.y0+off,L.y0+off+L.th,(k)=>L.top(k),L.rs).forEach(i=>it.push(i));if(p<1)it.push({k:999,s:streaks(L.b,L.y0+off+L.th,1.6*(1-p)+.4,.45)});});
+  const ppy=clamp((T-5.7)/.7),pyl=ppy>0?pylonItems(6.8*easeO(ppy)):[];pyl.filter(p=>p.k<3).forEach(p=>it.push(p));
+  it.sort((x,y)=>x.k-y.k);s+=it.map(i=>i.s).join('');
+  const rp=clamp((T-4.5)/1.2);
+  if(rp>0){const p=easeQ(rp),y=3.3+p*0+ (1-p)*3.6+br*3.4;
+    const rf=slab(4,NR,y,y+.16,(k,j)=>j%2?'#e6e6dc':'#f6f6ec','#b5b5aa');rf.sort((x,y2)=>x.k-y2.k);
+    s+=`<g opacity="${clamp(p*1.8).toFixed(2)}">${rf.map(i=>i.s).join('')}</g>`+(rp<1?streaks(NR,y+.16,1.6*(1-p)+.4,.4*clamp(rp*3)):'');}
+  pyl.filter(p=>p.k>=3).sort((x,y)=>x.k-y.k).forEach(p=>s+=p.s);
+  return s+'</svg>';}
+
+const F=[
+ {A:()=>frameA(1.5),C:()=>frameC(1.5),t:'1.5s'},
+ {A:()=>frameA(4.9),C:()=>frameC(4.6),t:'4.6s'},
+ {A:()=>frameA(7.0,{lift:1.1,glow:1,crowd:1}),C:()=>frameC(7.0,{breathe:1}),t:'7.0s'}
+];
+const CAP={
+ A:[['Ground plate, striped pitch, South terrace rising first','The plinth is down and the pitch has wiped in far-to-near. The build wave sweeps from the Südtribüne (yellow) toward the viewer, so the tiers rise as one continuous ripple, not as separate blocks. This is the "built from the ground up" beat.'],
+    ['Façade complete, roof arriving','All tiers are up and the outer wall has risen. The roof is descending as a fading ghost and settles over the next second. Pylons come last.'],
+    ['Settled state and idle','Pylons have shot up, and a yellow ring pulses out from the plinth once. Idle from here: the roof lifts clear of the walls (a nod to your Roof cutaway toggle), the crowd flickers, and pointer parallax shifts the camera a few degrees.']],
+ C:[['Pitch slab landed, lower ring falling','Each slab drops from above with a quad ease-out, and a yellow ripple marks every landing. The tiers arrive as whole layers, not as a rising wave, so it reads like an architectural diagram.'],
+    ['Two tiers and façade landed, roof still ghosted','Lower tier, upper tier and façade are stacked. The roof is still high above, faint, and accelerates on approach.'],
+    ['Exploded "breathing" state','Pylons are up. Idle motion is the layers easing apart and back together over about 14 seconds, with dashed yellow guides at the corners. Pointer parallax sits on top.']]
+};
+const stage=document.getElementById('stage'),thumbs=document.getElementById('thumbs'),cap=document.getElementById('cap'),stT=document.getElementById('stT');
+const slot=document.createElement('div');slot.className='an-slot';stage.insertBefore(slot,stT);
+let dir='A',fr=0,timer=null,playing=true;const cache={};
+function get(d,f){const k=d+f;return cache[k]||(cache[k]=F[f][d]());}
+function show(){const svg=get(dir,fr);slot.style.opacity=0;slot.style.transition='opacity .15s';
+  setTimeout(()=>{slot.innerHTML=svg;slot.firstChild.style.cssText='position:absolute;inset:0;width:100%;height:100%';slot.style.opacity=1;},130);
+  stT.textContent=(dir==='A'?'A + C HYBRID':'C '+MID+' STACKED SLABS')+'  '+MID+'  FRAME '+(fr+1)+' / 3  '+MID+'  '+F[fr].t;
+  cap.innerHTML='<b>'+CAP[dir][fr][0]+'</b><small>'+CAP[dir][fr][1]+'</small>';
+  [...thumbs.children].forEach((b,i)=>b.setAttribute('aria-pressed',i===fr));}
+function buildThumbs(){thumbs.innerHTML='';F.forEach((f,i)=>{const b=document.createElement('button');b.className='an-th';b.setAttribute('aria-label','Frame '+(i+1)+' at '+f.t);b.innerHTML=get(dir,i)+'<span>'+f.t+'</span>';b.onclick=()=>{fr=i;stop();show();};thumbs.appendChild(b);});}
+function start(){stop();playing=true;timer=setInterval(()=>{fr=(fr+1)%3;show();},2800);document.getElementById('play').textContent='Pause loop';}
+function stop(){clearInterval(timer);timer=null;playing=false;document.getElementById('play').textContent='Play loop';}
+document.getElementById('play').onclick=()=>playing?stop():start();
+function setDir(d){dir=d;document.getElementById('dA').setAttribute('aria-pressed',d==='A');document.getElementById('dC').setAttribute('aria-pressed',d==='C');buildThumbs();show();}
+document.getElementById('dA').onclick=()=>setDir('A');document.getElementById('dC').onclick=()=>setDir('C');
+buildThumbs();show();start();
+})();
+</script>
+
+</body></html>

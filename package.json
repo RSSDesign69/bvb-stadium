@@ -16,7 +16,8 @@
     "test:quality": "node tests/quality.browser.cjs",
     "record:demo": "PLAYWRIGHT_BROWSERS_PATH=.cache/browsers node scripts/record-demo.cjs",
     "release": "npm run check && npm test && npm run build && python3 scripts/package_release.py",
-    "test:release": "node tests/release.browser.cjs"
+    "test:release": "node tests/release.browser.cjs",
+    "test:hero": "node tests/hero.browser.cjs"
   },
   "dependencies": {
     "react": "19.3.0",

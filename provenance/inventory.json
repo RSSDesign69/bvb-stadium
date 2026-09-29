@@ -51,7 +51,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Independently authored; external reference records contain provenance metadata only. Task 6 updates the description to the four-stage flow and saved viewpoint."
+      "notes": "Independently authored; external reference records contain provenance metadata only. Task 6 updates the description to the four-stage flow and saved viewpoint. The 2026-09-29 update documents the animated hero and npm run test:hero."
     },
     {
       "path": "docs/behavior-parity.md",
@@ -91,6 +91,49 @@
       "notes": "Independently authored; external reference records contain provenance metadata only"
     },
     {
+      "path": "docs/explorer-flow-spec.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Original four-stage architectural seat-view interaction specification for the 2026-09-26 remediation."
+    },
+    {
+      "path": "docs/hero-animation-completion.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Completion record for the animated hero stadium (Tasks 0\u20138); measurements from the working app only."
+    },
+    {
+      "path": "docs/hero-animation-task-list.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Execution-ready task list for the animated hero stadium (2026-09-28). Derived from a review of the live hero and the project's own model; no external material."
+    },
+    {
+      "path": "docs/hero-animation/animatic-reference.html",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Standalone SVG animatic of the approved hero direction (A + C hybrid, and C for comparison), authored 2026-09-28 from the project's original layout proportions and palette. Simplified stand-in geometry; no external imagery."
+    },
+    {
       "path": "docs/impeccable-remediation-task-list.md",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -102,16 +145,6 @@
       "notes": "Execution-ready remediation backlog derived from the 2026-09-26 Impeccable critique."
     },
     {
-      "path": "docs/ui-components.md",
-      "kind": "project-source-or-documentation",
-      "origin": "original",
-      "license": "UNLICENSED",
-      "source_ids": [
-        "TASK-BRIEF"
-      ],
-      "notes": "Original UI component reference documenting button proportions, typography, states, and dialog hierarchy."
-    },
-    {
       "path": "docs/portfolio-release.md",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -119,7 +152,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 replaces demo-selection wording with saved-viewpoint wording."
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 replaces demo-selection wording with saved-viewpoint wording. The 2026-09-29 update documents the hero animation, its poster and regeneration."
     },
     {
       "path": "docs/reference-observations.md",
@@ -148,16 +181,6 @@
         "TASK-BRIEF"
       ],
       "notes": "Original record of work and verification performed on 2026-09-24"
-    },
-    {
-      "path": "docs/explorer-flow-spec.md",
-      "kind": "project-source-or-documentation",
-      "origin": "original",
-      "license": "UNLICENSED",
-      "source_ids": [
-        "TASK-BRIEF"
-      ],
-      "notes": "Original four-stage architectural seat-view interaction specification for the 2026-09-26 remediation."
     },
     {
       "path": "docs/task-10-completion.md",
@@ -225,6 +248,16 @@
       "notes": "Original Tasks 8\u20139 implementation, validation, or completion record. No reference code or media imported."
     },
     {
+      "path": "docs/ui-components.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF"
+      ],
+      "notes": "Original UI component reference documenting button proportions, typography, states, and dialog hierarchy. The 2026-09-29 update adds the hero animation controls."
+    },
+    {
       "path": "docs/venue-grade-proposal.md",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -262,7 +295,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Independently authored; external reference records contain provenance metadata only"
+      "notes": "Independently authored; external reference records contain provenance metadata only. The 2026-09-29 update adds the test:hero script."
     },
     {
       "path": "provenance/README.md",
@@ -352,8 +385,8 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the walkthrough description to a locally saved viewpoint.",
-      "sha256": "5283a7e962c648fe94270d5e9e67afc3a2b362253084c6a4ea76d2d1e781af1f"
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the walkthrough description to a locally saved viewpoint. The 2026-09-29 hero-animation update disables the broken fi/fl ligatures and adds a note that the animated hero and its poster are original and derived from the project\u2019s own model.",
+      "sha256": "ecac352c1ad779b1fbc742a79d157e4f571099dc19306c4bf2a25e26fe90fef1"
     },
     {
       "path": "public/fonts/area-inktrap-bold.otf",
@@ -433,6 +466,19 @@
       "notes": "Unmodified license notice included in the user-supplied archive."
     },
     {
+      "path": "public/media/hero-stadium-poster.webp",
+      "kind": "original-render",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Hero poster rendered by scripts/render-hero-poster.cjs from the project's own hero geometry (settled still pose, 1200 x 800 WebP with alpha). Used only for session-skip, reduced motion and fallbacks.",
+      "sha256": "8563fe1a5d507b511100fac1dd6bd854fa048abd147b59143cfa0ffbf5f3ed73"
+    },
+    {
       "path": "public/media/terrace-atlas-demo.webm",
       "kind": "original-demo-recording",
       "origin": "original",
@@ -454,6 +500,17 @@
       "notes": "Independently authored; external reference records contain provenance metadata only"
     },
     {
+      "path": "scripts/hero-filmstrip.cjs",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original hero visual-review script (Task 6): scrub filmstrips and contact sheets, a real-time smoothness curve and the poster swap check, all captured from the working app into the git-ignored .cache/hero/; no external imagery."
+    },
+    {
       "path": "scripts/package_release.py",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -461,7 +518,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio."
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. The 2026-09-29 update allowlists the original hero poster."
     },
     {
       "path": "scripts/record-demo.cjs",
@@ -472,6 +529,17 @@
         "TASK-BRIEF"
       ],
       "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the recording script to the four-stage flow and saved viewpoint."
+    },
+    {
+      "path": "scripts/render-hero-poster.cjs",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original script that renders the hero poster from the app's own WebGL stage at its settled still pose; no external imagery."
     },
     {
       "path": "scripts/test.mjs",
@@ -535,6 +603,66 @@
         "AREA-FONT-TRIAL"
       ],
       "notes": "Original self-hosted font-face mapping for the user-supplied Area files."
+    },
+    {
+      "path": "src/hero/HeroArt.tsx",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original hero art slot: spoiler-free plinth placeholder (inline SVG from the hero framing), session-skip, pause/replay controls and poster fallbacks; no external imagery."
+    },
+    {
+      "path": "src/hero/framing.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original hero camera framing maths shared by the placeholder and renderer; dimensions from the project's own illustrative model."
+    },
+    {
+      "path": "src/hero/heroStadium.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "IMG-AERIAL-STADIUM",
+        "IMG-INTERIOR-PANORAMA",
+        "IMG-INTERIOR-STANDS",
+        "IMG-INTERIOR-SOUTH-VIEW",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original lightweight hero diorama, with a seeded crowd, derived from the project's own layout and model recipes; no place dataset, no external geometry."
+    },
+    {
+      "path": "src/hero/renderer.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original WebGL stage for the hero animation: shader-driven build, idle motion, pointer parallax, pause/replay cross-fades, quality guard and the ?hero-t freeze; renders only the project's own hero geometry."
+    },
+    {
+      "path": "src/hero/timeline.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original hero build and idle choreography as pure functions of time; timings from the project's own approved animatic."
     },
     {
       "path": "src/main.tsx",
@@ -708,6 +836,28 @@
         "TASK-BRIEF"
       ],
       "notes": "Original browser integration checks for Task 7 discovery and selection, extended for Task 2 remediation: novice stages, Back/Edit focus, Advanced preservation, exact selectors, empty/unavailable states and WebGL recovery. Task 5 remediation updates test assertions for saved-viewpoint feature replacing demo basket. Task 6 adds saved-viewpoint reopen/remove coverage."
+    },
+    {
+      "path": "tests/hero.browser.cjs",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original hero-animation browser checks (Task 7): phases, session-skip, pause/replay, offscreen freeze, reduced motion, WebGL and storage fallbacks, axe, layout, CLS, inertness, and CPU-throttled frame, LCP and bundle budgets against the working app only."
+    },
+    {
+      "path": "tests/hero.test.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original validation of hero geometry budgets, build metadata, framing across the idle camera envelope, timeline and idle continuity, and import isolation."
     },
     {
       "path": "tests/model.test.ts",

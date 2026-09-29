@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite. Run `npm run build` for a production build, `npm test` for model and demo-data checks, and `npm run check` for the clean-room audit. With the dev server running and Chrome installed, `npm run test:browser` and `npm run test:discovery` check interaction flows. Install the isolated Firefox test engine with `PLAYWRIGHT_BROWSERS_PATH=.cache/browsers npx playwright install firefox`, then run `npm run test:quality` for Chrome/Firefox atmosphere, accessibility, and mobile-emulation checks. Browser screenshots are written to `.cache/qa/`.
+Open the local URL printed by Vite. Run `npm run build` for a production build, `npm test` for model and demo-data checks, and `npm run check` for the clean-room audit. With the dev server running and Chrome installed, `npm run test:browser` and `npm run test:discovery` check interaction flows. Install the isolated Firefox test engine with `PLAYWRIGHT_BROWSERS_PATH=.cache/browsers npx playwright install firefox`, then run `npm run test:quality` for Chrome/Firefox atmosphere, accessibility, and mobile-emulation checks. `npm run test:hero` checks the animated hero (see below). Browser screenshots and reports are written to `.cache/qa/`.
 
 The original product name is a working name, not a claim of trademark clearance. This project has no affiliation with Borussia Dortmund, the stadium operator, or a ticket seller.
 
@@ -30,6 +30,7 @@ The original product name is a working name, not a claim of trademark clearance.
 2. Follow [the clean-room protocol](docs/clean-room.md) and [provenance instructions](provenance/README.md).
 3. See the [Tasks 3–6 completion record](docs/tasks-3-6-completion.md) and [Task 7 completion record](docs/task-7-completion.md) for model and demo-commerce limits. See [Tasks 8–9](docs/tasks-8-9-completion.md) and the [video parity checklist](docs/behavior-parity.md) for atmosphere, QA evidence, and remaining validation limits.
 4. Use the [UI component reference](docs/ui-components.md) when changing shared controls, typography, spacing, or interaction states.
+5. See the [hero animation completion record](docs/hero-animation-completion.md) for the animated hero's design, budgets and evidence.
 
 ## Verify the foundation
 
@@ -49,6 +50,16 @@ This directory is its own Git repository inside a larger workspace. Run Git comm
 “Independent stadium concept. Places, views, prices, and availability are illustrative. No tickets are sold.”
 
 Choose a stand, then one of three representative views, review the place, and choose **Preview this view**; then **Save viewpoint** to keep it for this visit. Open **Choose an exact place** for the stand, tier, category, people, and optional fictional demo-price filters, results, and block/row/seat controls. The saved viewpoint lives only in the page, is not persisted, and reserves nothing. Drag to orbit or look, use the labeled zoom/direction buttons, and press Escape to return. Roof cutaway applies only in overview. Reduced motion skips flights and stops match-day animation. Atmosphere can be paused or switched off; Clear-view preview hides decorative crowd/players while retaining physical structure. The [portfolio release guide](docs/portfolio-release.md) covers the demo video, credits, reproducible package and deployment handoff. See the separate [venue-grade and ticketing proposal](docs/venue-grade-proposal.md). No public deployment has been performed. Physical-device, manual screen-reader, Safari/WebKit, and venue-grade sightline validation are not claimed.
+
+## Hero animation
+
+The opening section shows a decorative 3D stadium that builds itself in 6.5 s: the pitch, then a wave of tiers rising from the South stand, the façade, the roof and the eight pylons. A slow idle follows: the roof lifts and settles, the camera sways, and fine pointers add a little parallax. The yellow line under "from every angle." sweeps in as the pylons land. The geometry is a lightweight diorama in `src/hero/`, derived from the explorer's own layout. It never loads the place dataset.
+
+- **Once per visit.** The full build plays on the first load in a browser session. Later loads start settled. **Replay** plays the build again.
+- **Controls.** **Pause animation** / **Play animation** (with `aria-pressed`) and **Replay** sit in the art's bottom-right corner. They are its only focusable content. Pausing during the build cross-fades to the settled pose. The choice lasts for the session.
+- **Fallbacks.** Reduced motion, Save-Data, low-end devices, missing WebGL, a lost context and a failed frame-rate guard all show a still poster (`public/media/hero-stadium-poster.webp`) instead of the live canvas. The loop stops while the hero is offscreen or the tab is hidden.
+- **Testing.** `?hero-t=<seconds>` freezes the animation at that time and draws one frame. `.hero-art` exposes `data-hero-phase` and `data-hero-frame`. With `npm run build` and `vite preview` running on 4173, `npm run test:hero` covers behaviour, fallbacks, accessibility, layout, and the CPU-throttled performance and bundle budgets.
+- **Poster.** Regenerate it after changing the hero's look with `TEST_URL=http://127.0.0.1:5173 node scripts/render-hero-poster.cjs` (dev server running), then update its SHA-256 in `provenance/inventory.json`.
 
 ## Prepare the portfolio artifact
 

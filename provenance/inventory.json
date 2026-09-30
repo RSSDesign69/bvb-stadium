@@ -2049,8 +2049,8 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the walkthrough description to a locally saved viewpoint. The 2026-09-28 re-recording updates the text alternative. The 2026-09-29 hero-animation update disables the broken fi/fl ligatures and adds a note that the animated hero and its poster are original and derived from the project\u2019s own model. Explorer fidelity Task 1 adds the \"Materials & sky\" section crediting each CC0 source (author and page) and names the Basis transcoder among the runtime licences; hash recorded in Task 12.",
-      "sha256": "04f72f6880aff7f3676b735d0b49dd893494c7dd2b3f9ad56eb08d7ec5226de1"
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the walkthrough description to a locally saved viewpoint. The 2026-09-28 re-recording updates the text alternative. The 2026-09-29 hero-animation update disables the broken fi/fl ligatures and adds a note that the animated hero and its poster are original and derived from the project\u2019s own model. Explorer fidelity Task 1 adds the \"Materials & sky\" section crediting each CC0 source (author and page) and names the Basis transcoder among the runtime licences; hash recorded in Task 12. The later 2026-09-29 re-recording updates the text alternative for the photoreal explorer and links the video as bvb-3d-stadium-demo.webm.",
+      "sha256": "378edfdda6c8c180e7b9f94d06febb1b5178fa05a7ea03d78cacd636cce3e0ce"
     },
     {
       "path": "public/fonts/area-inktrap-bold.otf",
@@ -2143,15 +2143,15 @@
       "sha256": "8563fe1a5d507b511100fac1dd6bd854fa048abd147b59143cfa0ffbf5f3ed73"
     },
     {
-      "path": "public/media/terrace-atlas-demo.webm",
+      "path": "public/media/bvb-3d-stadium-demo.webm",
       "kind": "original-demo-recording",
       "origin": "original",
       "license": "UNLICENSED",
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Re-recorded 2026-09-26 (Task 6) to show the four-stage flow and locally saved viewpoint. Re-recorded 2026-09-28 for the stand-card selector and in-scene place picking; a pointer indicator is the only overlay.",
-      "sha256": "ed79b9260e036bd33b28b210fee6d76462e66847cc4011f13758da0970e3dfdd"
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Re-recorded 2026-09-26 (Task 6) to show the four-stage flow and locally saved viewpoint. Re-recorded 2026-09-28 for the stand-card selector and in-scene place picking; a pointer indicator is the only overlay. Re-recorded 2026-09-29 for the photoreal explorer, the roof ring cutaway and stand focus from across the pitch, and renamed from terrace-atlas-demo.webm.",
+      "sha256": "a644a5009d4d3d6b87ac2c186839774662931695f8f3e53806a840d277cd483b"
     },
     {
       "path": "scripts/audit_clean_room.py",
@@ -2226,7 +2226,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the recording script to the four-stage flow and saved viewpoint. The 2026-09-28 update picks places in the scene from generated data and adds a pointer indicator."
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the recording script to the four-stage flow and saved viewpoint. The 2026-09-28 update picks places in the scene from generated data and adds a pointer indicator. The 2026-09-29 update frames stands with the app's own focusPose, from across the pitch, instead of orbiting round to them."
     },
     {
       "path": "scripts/render-hero-poster.cjs",

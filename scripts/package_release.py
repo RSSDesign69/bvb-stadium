@@ -14,7 +14,7 @@ def main():
     expected_public = {
         'credits.html',
         'THIRD_PARTY_NOTICES.txt',
-        'media/terrace-atlas-demo.webm',
+        'media/bvb-3d-stadium-demo.webm',
         'media/hero-stadium-poster.webp',
         'bvb-09-logo.svg',
         'fonts/area-inktrap-bold.otf',

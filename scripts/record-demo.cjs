@@ -17,16 +17,15 @@ async function loadSceneData() {
   } finally { await server.close(); }
 }
 
-// Mirrors StadiumEngine.focusBlock for the middle block that choosing a stand frames,
-// then the orbit (OrbitControls: theta -= 2π·dx/height·rotateSpeed) and zoom-in commands applied after it.
-const ROTATE_SPEED = .65, ZOOM_STEP = .85, MIN_DISTANCE = 150;
-function framedPose({ DEMO, STANDS, world, THREE }, stand, angle, zooms) {
+// Mirrors StadiumEngine.focusBlock for the middle block that choosing a stand frames (focusPose, from across
+// the pitch), then the zoom-in commands applied after it (StadiumEngine.command: radius ×.85, clamped to 150 m).
+const ZOOM_STEP = .85, MIN_DISTANCE = 150;
+function framedPose({ DEMO, focusPose, THREE }, stand, zooms) {
   const blocks = DEMO.blocks.filter(b => b.stand === stand), block = blocks[Math.floor(blocks.length / 2)];
-  const target = new THREE.Vector3(...world(stand, block.center * .4, STANDS[stand].inner * .32, 8));
-  const sphere = new THREE.Spherical().setFromVector3(new THREE.Vector3(...world(stand, block.center * .6, 170, 135)).sub(target));
-  sphere.theta -= angle;
+  const focus = focusPose(stand, block.center), target = new THREE.Vector3(...focus.target);
+  const sphere = new THREE.Spherical().setFromVector3(new THREE.Vector3(...focus.position).sub(target));
   for (let i = 0; i < zooms; i++) sphere.radius = Math.max(MIN_DISTANCE, sphere.radius * ZOOM_STEP);
-  return { block, position: target.clone().add(new THREE.Vector3().setFromSpherical(sphere)), target };
+  return { block, fov: focus.fov, position: target.clone().add(new THREE.Vector3().setFromSpherical(sphere)), target };
 }
 
 (async () => {
@@ -59,26 +58,19 @@ function framedPose({ DEMO, STANDS, world, THREE }, stand, angle, zooms) {
   const smoothScroll = async y => { await page.evaluate(top => window.scrollTo({ top, behavior: 'smooth' }), y); await pause(1200); };
   const standCard = name => page.locator('.stand-selector').getByRole('button', { name, exact: true });
   // Hover a generated place in the framed stand until the scene's own hover card confirms it, then click it.
-  // Choosing a stand frames it from outside, so orbit round to face its places and zoom in, as the guide says.
-  const ORBIT = Math.PI * .86, ZOOMS = 2;
-  const orbitAndZoom = async () => {
-    const box = await page.locator('.scene-host').boundingBox();
-    const y = box.y + box.height * .42, x = box.x + box.width * .22, dx = ORBIT * box.height / (2 * Math.PI * ROTATE_SPEED);
-    await moveTo(x, y); await pause(300);
-    await page.mouse.down();
-    await page.mouse.move(x + dx, y, { steps: 90 }); cursor = { x: x + dx, y };
-    await page.mouse.up();
-    await pause(900);
+  // Choosing a stand frames it from across the pitch; zoom in to bring its places closer.
+  const ZOOMS = 1;
+  const zoomIn = async () => {
     for (let i = 0; i < ZOOMS; i++) { await click(page.getByRole('button', { name: 'Zoom in', exact: true })); await pause(600); }
     await pause(1200);
   };
   const clickScenePlace = async (stand, candidates) => {
-    const { THREE, describePlace } = data, pose = framedPose(data, stand, ORBIT, ZOOMS);
+    const { THREE, describePlace } = data, pose = framedPose(data, stand, ZOOMS);
     const box = await page.locator('.scene-host').boundingBox();
-    const camera = new THREE.PerspectiveCamera(43, box.width / box.height, .08, 1200);
+    const camera = new THREE.PerspectiveCamera(pose.fov, box.width / box.height, 3, 4000);
     camera.position.copy(pose.position); camera.lookAt(pose.target); camera.updateMatrixWorld();
     for (const place of candidates(pose.block)) {
-      const v = new THREE.Vector3(place.position[0], place.position[1] + .54, place.position[2]).project(camera);
+      const v = new THREE.Vector3(place.position[0], place.position[1] + (place.kind === 'standing-area' ? .16 : .54), place.position[2]).project(camera);
       const x = box.x + (v.x + 1) * box.width / 2, y = box.y + (1 - v.y) * box.height / 2;
       await moveTo(x, y);
       const matched = await page.waitForFunction(text => document.querySelector('.hover-card')?.textContent.includes(text), describePlace(place), { timeout: 700 }).then(() => true, () => false);
@@ -104,12 +96,12 @@ function framedPose({ DEMO, STANDS, world, THREE }, stand, angle, zooms) {
     const roof = page.getByLabel('Roof cutaway');
     await click(roof); await pause();
     await click(roof); await pause(1600);
-    // 3. West stand: choose the stand, click a generated seat in the scene, then look around.
+    // 3. West stand: choose the stand, zoom in, click a generated seat in the scene, then look around.
     await click(standCard('West stand'));
     await mode('overview'); await pause();
-    await orbitAndZoom();
+    await zoomIn();
     const west = await clickScenePlace('west', block => {
-      const rows = block.sections.find(s => s.tier === 'lower').rows.slice(8, 16);
+      const rows = block.sections.find(s => s.tier === 'lower').rows.slice(14, 22);
       return rows.flatMap(row => around(row.places, Math.floor(row.places.length / 2)).slice(0, 4)).filter(p => p.availability === 'available');
     });
     await mode('preview');
@@ -120,12 +112,12 @@ function framedPose({ DEMO, STANDS, world, THREE }, stand, angle, zooms) {
     await page.keyboard.press('Escape');
     await mode('overview');
     await pause();
-    // 4. South stand: change stand, click a standing-area sample, preview it for two people and save it.
+    // 4. South stand: change stand, zoom in, click a standing-area sample, preview it for two people and save it.
     await click(page.getByRole('button', { name: 'Change stand', exact: true }).first());
     await pause(1200);
     await click(standCard('South stand'));
     await mode('overview'); await pause();
-    await orbitAndZoom();
+    await zoomIn();
     const south = await clickScenePlace('south', block => {
       const samples = block.sections[0].rows.flatMap(row => row.places);
       return around(samples, Math.floor(samples.length / 2)).filter(p => p.availability === 'available');
@@ -145,7 +137,7 @@ function framedPose({ DEMO, STANDS, world, THREE }, stand, angle, zooms) {
     if (errors.length) throw new Error(errors.join('\n'));
     await context.close();
     await fs.mkdir('public/media', { recursive: true });
-    await page.video().saveAs(path.resolve('public/media/terrace-atlas-demo.webm'));
-    console.log(`Recorded public/media/terrace-atlas-demo.webm (${west.id}, ${south.id})`);
+    await page.video().saveAs(path.resolve('public/media/bvb-3d-stadium-demo.webm'));
+    console.log(`Recorded public/media/bvb-3d-stadium-demo.webm (${west.id}, ${south.id})`);
   } finally { await browser.close(); }
 })().catch(e => { console.error(e); process.exitCode = 1; });

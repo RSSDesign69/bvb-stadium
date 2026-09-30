@@ -1,4 +1,4 @@
-# Terrace Atlas behavior specification
+# BVB 3D Stadium behavior specification
 
 Version 0.1 — 2026-09-24. This specification defines intended behavior; the application is not implemented in Task 1. Evidence IDs refer to the observation log and input manifest. Details beyond those observations are original product decisions.
 

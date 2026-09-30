@@ -1,4 +1,4 @@
-# Terrace Atlas portfolio release
+# BVB 3D Stadium portfolio release
 
 Prepared 2026-09-26 as a local static release candidate. The source is published on GitHub (`origin`: RSSDesign69/bvb-stadium, branch `main`); no public site deployment has been performed. The deployable artifact is `.cache/portfolio-release/site/`; only that directory should be uploaded to a static host at the domain root. `handoff/` and the checksum manifest are reviewer material, not runtime files. Never publish the workspace directory: it contains excluded external reference material.
 
@@ -35,7 +35,7 @@ The explorer loads CC0 material textures, leaf atlases and one daylight sky as K
 
 ## Portfolio copy
 
-“Terrace Atlas is an independent, interactive stadium concept inspired by Signal Iduna Park. Explore four distinct stands, choose representative or exact generated places, preview illustrative viewpoints and save one viewpoint locally. Built with TypeScript, React and Three.js using original procedural geometry, CC0 material scans and original match-day visuals. Places, views, prices and availability are illustrative. No tickets are sold.”
+“BVB 3D Stadium is an independent, interactive stadium concept inspired by Signal Iduna Park. Explore four distinct stands, choose representative or exact generated places, preview illustrative viewpoints and save one viewpoint locally. Built with TypeScript, React and Three.js using original procedural geometry, CC0 material scans and original match-day visuals. Places, views, prices and availability are illustrative. No tickets are sold.”
 
 Do not describe this as an official viewer, exact seat preview, live inventory system or ticket purchase experience. The app, credits page, video and README retain the independent-concept framing. A generated place count is a software dataset count, not stadium capacity. Automated synthetic sightline tests do not validate real-world views.
 

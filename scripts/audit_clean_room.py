@@ -43,7 +43,7 @@ def check_blob(label, data, excluded_hashes):
 
 def main():
     if Path(git('rev-parse', '--show-toplevel').decode().strip()).resolve() != ROOT:
-        raise ValueError('Run in an independently initialized Terrace Atlas repository')
+        raise ValueError('Run in an independently initialized BVB 3D Stadium repository')
     inputs = load('provenance/inputs.json')['inputs']
     input_ids = {entry['id'] for entry in inputs}
     excluded_hashes = {entry['sha256'] for entry in inputs

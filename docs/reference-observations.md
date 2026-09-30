@@ -20,7 +20,7 @@ The displayed event is set in a different stadium. Its oval shape, event identit
 | V08 | 00:45, 00:50, 00:54 | High interior view, changed look direction, then overview. | Upper-level sample and repeatable preview/return cycle. |
 | V09 | Throughout | Overview inset, separate camera diagram, and a details card with tier/block/row/place, price, benefits, image, and primary selection action. | Keep one synchronized orientation cue and place details; show only illustrative benefits and demo actions. |
 
-The recording shows view-percentage labels, 360-degree badges, and checkout-style language. These do not substantiate calculated visibility, panoramic imagery, payment functionality, inventory accuracy, or real benefits. Terrace Atlas will not use an unvalidated numerical view score or imply a purchase.
+The recording shows view-percentage labels, 360-degree badges, and checkout-style language. These do not substantiate calculated visibility, panoramic imagery, payment functionality, inventory accuracy, or real benefits. BVB 3D Stadium will not use an unvalidated numerical view score or imply a purchase.
 
 Not established by this video: exact selectable-place count, internal geometry generation, picking technique, keyboard behavior, touch behavior, reduced motion, screen-reader support, real-time inventory, checkout operation, mini-map click behavior, error handling, or mobile performance. These are product requirements where specified, not claims about the reference.
 

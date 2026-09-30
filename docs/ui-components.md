@@ -1,6 +1,6 @@
 # UI component reference
 
-This document records the visual and interaction contract for reusable interface controls in Terrace Atlas. Component changes should preserve the square-edged, high-contrast visual language and remain usable with keyboard, touch, and assistive technology.
+This document records the visual and interaction contract for reusable interface controls in BVB 3D Stadium. Component changes should preserve the square-edged, high-contrast visual language and remain usable with keyboard, touch, and assistive technology.
 
 ## Buttons
 

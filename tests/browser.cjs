@@ -15,16 +15,17 @@ const output=path.resolve('.cache/qa');fs.mkdirSync(output,{recursive:true});
  const changePlace=async p=>{const b=p.getByRole('button',{name:'Change place',exact:true});if(await b.count())await b.click({timeout:5000}).catch(async e=>{if(await p.locator('.place-panel').getAttribute('data-stage')!=='2')throw e;});};
  // Places are chosen in the scene: hover the available place nearest a low/middle/high sample until the
  // hover card names it, then click (or tap), which opens its preview. The camera mirrors engine.focusBlock
- // for the stand's middle block, the framing a stand choice applies.
+ // for the stand's middle block, the framing a stand choice applies. Each place is aimed at what is drawn:
+ // a seat's back, or the top of a standing area's low marker.
  const pickInScene=async(p,stand,level,{tap=false}={})=>{
   await p.locator('.scene-frame').scrollIntoViewIfNeeded();
   const candidates=await p.evaluate(async({stand,level})=>{
    const {DEMO,describePlace,samplePlace}=await import('/src/places/demo.ts');const {STANDS,world}=await import('/src/stadium/layout.ts');
    const T=await import('/node_modules/three/build/three.module.js');const box=document.querySelector('.scene-host').getBoundingClientRect();
    const blocks=DEMO.blocks.filter(b=>b.stand===stand),block=blocks[Math.floor(blocks.length/2)],sample=samplePlace(block,level);
-   const camera=new T.PerspectiveCamera(43,box.width/box.height,.08,1200);camera.position.set(...world(stand,block.center*.6,170,135));camera.lookAt(...world(stand,block.center*.4,STANDS[stand].inner*.32,8));camera.updateMatrixWorld();
+   const camera=new T.PerspectiveCamera(43,box.width/box.height,.08,1200);const focus=(await import('/src/viewer/camera.ts')).focusPose(stand,block.center);camera.position.set(...focus.position);camera.lookAt(...focus.target);camera.updateMatrixWorld();
    return DEMO.places.filter(p=>p.stand===stand&&p.availability==='available').map(p=>({p,d:Math.hypot(...p.eye.map((v,i)=>v-sample.eye[i]))})).sort((a,b)=>a.d-b.d)
-    .map(({p})=>{const v=new T.Vector3(p.position[0],p.position[1]+.54,p.position[2]).project(camera);return {id:p.id,label:`${STANDS[stand].name}${describePlace(p)}Click`,x:box.x+(v.x+1)*box.width/2,y:box.y+(1-v.y)*box.height/2};})
+    .map(({p})=>{const v=new T.Vector3(p.position[0],p.position[1]+(p.kind==='standing-area'?.16:.54),p.position[2]).project(camera);return {id:p.id,label:`${STANDS[stand].name}${describePlace(p)}Click`,x:box.x+(v.x+1)*box.width/2,y:box.y+(1-v.y)*box.height/2};})
     .filter(c=>c.x>box.left+8&&c.x<box.right-8&&c.y>box.top+8&&c.y<box.bottom-8).slice(0,30);
   },{stand,level});
   for(const c of candidates){
@@ -39,12 +40,16 @@ const output=path.resolve('.cache/qa');fs.mkdirSync(output,{recursive:true});
  await page.goto(base);await mode('overview');await frame.scrollIntoViewIfNeeded();
  await frame.screenshot({path:path.join(output,'overview-cutaway.png')});
  const stats=await page.locator('.scene-host').evaluate(el=>({...el.dataset}));
- assert.ok(Number(stats.drawCalls)<200);assert.ok(Number(stats.triangles)<650000);
+ // Main-pass budgets from docs/explorer-fidelity-task-list.md Task 11 (were < 200 and < 650k before the solid shell).
+ assert.ok(Number(stats.drawCalls)<=250);assert.ok(Number(stats.triangles)<=1200000);
  // Project a known place into the initial camera, then exercise actual pointer picking.
  const point=await page.evaluate(async()=>{
   const {DEMO}=await import('/src/places/demo.ts');const {HOME,HOME_TARGET}=await import('/src/viewer/camera.ts');
   const T=await import('/node_modules/three/build/three.module.js');const box=document.querySelector('.scene-host').getBoundingClientRect();
-  const camera=new T.PerspectiveCamera(43,box.width/box.height,.08,1200);camera.position.set(...HOME);camera.lookAt(...HOME_TARGET);camera.updateMatrixWorld();
+  // The orbit clamps HOME (polar 61.2°) to maxPolarAngle 1.05, as OrbitControls does on its first update; project
+  // from that camera (Task 10: the slimmer Task 9 seat shell no longer covers the few pixels HOME was off by).
+  const offset=new T.Vector3(...HOME).sub(new T.Vector3(...HOME_TARGET)),sph=new T.Spherical().setFromVector3(offset);sph.phi=Math.min(sph.phi,1.05);
+  const camera=new T.PerspectiveCamera(43,box.width/box.height,.08,1200);camera.position.setFromSpherical(sph).add(new T.Vector3(...HOME_TARGET));camera.lookAt(...HOME_TARGET);camera.updateMatrixWorld();
   const p=DEMO.places.find(p=>p.id==='DEMO-WEST-04-LOWER-R13-S13');const v=new T.Vector3(p.position[0],p.position[1]+.54,p.position[2]).project(camera);
   return {x:box.x+(v.x+1)*box.width/2,y:box.y+(1-v.y)*box.height/2};
  });
@@ -98,7 +103,8 @@ const output=path.resolve('.cache/qa');fs.mkdirSync(output,{recursive:true});
  await phone.locator('.scene-frame').screenshot({path:path.join(output,'mobile-standing-preview.png')});
  await phone.locator('.place-panel').screenshot({path:path.join(output,'mobile-selected-view-panel.png')});
  await phone.getByRole('button',{name:'← Back to stadium Esc',exact:true}).tap();
- const mobileStats=await phone.locator('.scene-host').evaluate(el=>({...el.dataset}));assert.ok(Number(mobileStats.triangles)<350000);
+ const mobileStats=await phone.locator('.scene-host').evaluate(el=>({...el.dataset}));// Phone main-pass budget from docs/explorer-fidelity-task-list.md Task 11 (was < 350k before the photoreal district).
+ assert.ok(Number(mobileStats.triangles)<=450000);
  console.log('PASS responsive widths and emulated touch preview/return',mobileStats);
  // Context loss must keep the chosen place in the panel and allow a fresh renderer.
  await page.setViewportSize({width:1440,height:1050});const kept=await page.locator('.place-id').textContent();

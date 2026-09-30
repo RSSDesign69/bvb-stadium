@@ -29,9 +29,13 @@ The opening section's stadium is rendered live with Three.js from `src/hero/`, a
 
 To regenerate the poster after changing the hero's geometry, palette or lighting, start the dev server, then run `TEST_URL=http://127.0.0.1:5173 node scripts/render-hero-poster.cjs`. Update the poster's SHA-256 in `provenance/inventory.json` and run `npm run release` again. `npm run test:hero` checks behaviour and fallbacks. Against this production preview it also checks the CPU-throttled frame, LCP and bundle budgets. Set `HERO_BASELINE_URL` / `HERO_BASELINE_DIST` to a pre-hero build to measure the deltas. `node scripts/hero-filmstrip.cjs` writes review contact sheets to `.cache/hero/`. Evidence is in `hero-animation-completion.md`.
 
+## Explorer textures and quality tiers
+
+The explorer loads CC0 material textures, leaf atlases and one daylight sky as KTX2 from `assets/explorer/` after its first frame (13.5 MB on desktop, 4.8 MB on phones), decoded by the Basis transcoder that the build emits as `assets/basis_transcoder-*.js` and `.wasm`. `scripts/package_release.py` allows exactly the inventoried `assets/explorer/**` files and that transcoder. When deploying, serve `.ktx2` as `image/ktx2` (or `application/octet-stream`) and `.wasm` as `application/wasm`. Every CC0 source is listed with its author and page in `credits.html` and `THIRD_PARTY_NOTICES.txt`, and traced to its licence page and processing step in `provenance/inventory.json`. Screens under 700 px use the `compact` tier and its own smaller texture set. See `explorer-fidelity-completion.md` for budgets and evidence.
+
 ## Portfolio copy
 
-“Terrace Atlas is an independent, interactive stadium concept inspired by Signal Iduna Park. Explore four distinct stands, choose representative or exact generated places, preview illustrative viewpoints and save one viewpoint locally. Built with TypeScript, React and Three.js using original procedural geometry and match-day visuals. Places, views, prices and availability are illustrative. No tickets are sold.”
+“Terrace Atlas is an independent, interactive stadium concept inspired by Signal Iduna Park. Explore four distinct stands, choose representative or exact generated places, preview illustrative viewpoints and save one viewpoint locally. Built with TypeScript, React and Three.js using original procedural geometry, CC0 material scans and original match-day visuals. Places, views, prices and availability are illustrative. No tickets are sold.”
 
 Do not describe this as an official viewer, exact seat preview, live inventory system or ticket purchase experience. The app, credits page, video and README retain the independent-concept framing. A generated place count is a software dataset count, not stadium capacity. Automated synthetic sightline tests do not validate real-world views.
 
@@ -43,6 +47,6 @@ See `task-10-completion.md` for current verification and `tasks-8-9-completion.m
 
 ## Deployment handoff
 
-Serve `site/` as static files over HTTPS at the domain root. No backend, environment secrets, accounts or analytics are required. Preserve `THIRD_PARTY_NOTICES.txt`, `credits.html` and `media/`; configure WebM as `video/webm` and WebP as `image/webp` (the hero poster). Serve index/credits with revalidation and hashed JS/CSS with long-lived caching. If deploying under a subpath, first configure Vite's base and repeat link/asset checks at that path; the present artifact targets `/`.
+Serve `site/` as static files over HTTPS at the domain root. No backend, environment secrets, accounts or analytics are required. Preserve `THIRD_PARTY_NOTICES.txt`, `credits.html` and `media/`; configure WebM as `video/webm`, WebP as `image/webp` (the hero poster), KTX2 as `image/ktx2` and WebAssembly as `application/wasm` (the explorer's textures and transcoder). Serve index/credits with revalidation and hashed JS/CSS with long-lived caching. If deploying under a subpath, first configure Vite's base and repeat link/asset checks at that path; the present artifact targets `/`.
 
 After upload, verify the visible disclosure, credits/notices/video links, WebGL rendering (the hero build and the explorer), one seated and one standing preview, return controls and the saved viewpoint on the public URL. Check that only the allowlisted site files are exposed. Keep the previous artifact for rollback. Publication status must only be updated after an actual deployment and public smoke check.

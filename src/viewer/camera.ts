@@ -1,7 +1,14 @@
-import type { Vec3 } from '../places/schema';
+import type { StandId, Vec3 } from '../places/schema';
+import { STANDS, world } from '../stadium/layout';
 export const HOME:Vec3=[235,205,270];
 export const HOME_TARGET:Vec3=[0,8,0];
 export type Pose={position:Vec3; target:Vec3; fov:number};
+// Stand focus faces the chosen block from across the bowl, 180 m away and just over 30° up (inside the orbit's
+// polar limit), so every row of the stand shows under the cutaway roof ring, as a spectator opposite would see it.
+export function focusPose(stand:StandId,along:number):Pose{
+  const depth=STANDS[stand].inner+20,elevation=31*Math.PI/180,r=180;
+  return {position:world(stand,along*.6,depth-r*Math.cos(elevation),15+r*Math.sin(elevation)),target:world(stand,along,depth,15),fov:43};
+}
 export type Flight={points:Vec3[]; destination:Pose; elapsed:number; duration:number};
 export function previewRoute(from:Vec3,eye:Vec3):Vec3[]{
   const altitude=Math.max(82,from[1]);

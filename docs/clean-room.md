@@ -23,10 +23,36 @@ At Task 1 the curated imagery pack was a sibling directory outside the Git root.
 
 1. Implement behavior from `docs/behavior-spec.md`, using independently written code.
 2. Register every new file in `provenance/inventory.json`, with origin, source IDs, and license status. Do not label third-party code or assets as original.
-3. For each imported image, texture, model, font, or dataset, record source URL, author, exact license, SHA-256, intended use, attribution, changes, and redistribution decision. For generated assets, record the generator and inputs. Current production asset inventory is empty.
+3. For each imported image, texture, model, font, or dataset, record source URL, author, exact license, SHA-256, intended use, attribution, changes, and redistribution decision. For generated assets, record the generator and inputs. Production assets are limited to the reviewed CC0 set described in "CC0 production assets" below (explorer fidelity work, 2026-09-29); each shipped file has its own inventory entry.
 4. Before installing a dependency, record its purpose, canonical upstream source, selected version, license, and distribution obligations. Commit a lockfile and record every resolved direct and transitive package. `planned` entries are not installed dependencies or license clearance.
 5. Keep verified venue facts separate from generated place and commerce data. Reference media never establishes exact coordinates, measurements, or current inventory.
 6. Run the audit before staging/committing and review the diff. Maintain this record when evidence or scope changes.
+
+## CC0 production assets
+
+Added 2026-09-29 for the explorer fidelity work (`docs/explorer-fidelity-task-list.md`, Task 1). This is the only route by which third-party images, textures, HDRIs or models enter the shipped app.
+
+**Allowed:** generic material scans, HDRIs, leaf or bark atlases and models from sources that publish an explicit CC0 1.0 dedication for the asset, such as Poly Haven and ambientCG. Examples include concrete, metal, asphalt, grass, soil, bark and an open-sky HDRI. The asset must be generic, meaning nothing about it identifies a place or a brand.
+
+**Not allowed:**
+- anything that depicts the real stadium, its signage, branding, surroundings or neighbourhood, including HDRIs or photos captured at or near it
+- anything traced, projected, sampled or reconstructed from reference imagery, including the ignored reference pack and the supplied video or screenshot
+- assets under any licence other than CC0 1.0, including CC-BY, "royalty free" and "free for personal use"
+- assets whose licence cannot be confirmed on the asset's own page, or whose source is a re-upload or aggregator rather than the original publisher
+
+**Review steps, for every asset, before and after download:**
+1. **Licence captured:** record the asset page URL and the licence statement it shows, with the date checked. Where the page states CC0 only site-wide, say so and also record the site's licence page. Record the author or authors the source names; if it names none, record the publisher.
+2. **Approval:** the product owner approves the exact files (asset, source URL, licence page, author, resolution, maps, download size) before anything is downloaded. Approval covers only the files listed.
+3. **Originals kept out of Git:** source downloads live in the git-ignored `.cache/assets-src/`, never in the repository. Record the SHA-256 of each original file, and of each archive where the source ships a ZIP.
+4. **Processing recorded:** only processed outputs are committed, under `public/assets/explorer/`, by the deterministic `scripts/process-assets.mjs`. Every shipped file gets its own `provenance/inventory.json` entry:
+   - `origin: third-party`, source URL, author, `CC0-1.0`
+   - SHA-256 of the original or originals it derives from, and of the shipped file
+   - the modifications made (resize, channel packing, recolouring, KTX2 or meshopt encoding)
+   - attribution text and the redistribution decision
+5. **Notices:** CC0 needs no attribution, but every asset is credited in `public/THIRD_PARTY_NOTICES.txt` and `public/credits.html` anyway.
+6. **Generated derivatives:** outputs baked in-repo from approved assets, such as tree impostors or twig cards, are recorded as generated. The record names the generator script and its inputs, and traces back to the CC0 originals.
+
+Build-time tools used only to process assets, such as the KTX-Software encoder, are recorded in `provenance/dependencies.json` before they are installed. They are not shipped in the app.
 
 ## Repository safeguards and limits
 

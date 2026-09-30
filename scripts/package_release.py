@@ -25,6 +25,8 @@ def main():
         'fonts/area-normal-bold.otf',
         'fonts/iFonts-License.txt',
     }
+    # Explorer CC0 textures and their manifest (Tasks 1 and 12): every shipped file has its own reviewed inventory entry.
+    expected_public |= {path[len('public/'):] for path in inventory if path.startswith('public/assets/explorer/')}
     public = ROOT / 'public'
     actual_public = {p.relative_to(public).as_posix() for p in public.rglob('*') if p.is_file()}
     if actual_public != expected_public:
@@ -40,7 +42,9 @@ def main():
         raise ValueError('Production build is missing')
     for path in files:
         name = path.relative_to(dist).as_posix()
-        allowed = name in expected_public | {'index.html'} or (path.parent == dist / 'assets' and path.suffix in {'.js', '.css'})
+        # The Basis transcoder is the copy Vite emits for three's KTX2Loader (THREE-UPSTREAM, Apache-2.0 notice).
+        transcoder = path.parent == dist / 'assets' and path.name.startswith('basis_transcoder-') and path.suffix == '.wasm'
+        allowed = name in expected_public | {'index.html'} or transcoder or (path.parent == dist / 'assets' and path.suffix in {'.js', '.css'})
         if path.is_symlink() or not allowed:
             raise ValueError(f'Unexpected distribution file: {name}')
     for name in expected_public:

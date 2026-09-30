@@ -30,8 +30,9 @@ const base = process.env.TEST_URL || 'http://127.0.0.1:5178';
       const box = document.querySelector('.scene-host').getBoundingClientRect();
       const blocks = DEMO.blocks.filter(b => b.stand === stand), block = blocks[Math.floor(blocks.length / 2)], sample = samplePlace(block, level);
       const camera = new T.PerspectiveCamera(43, box.width / box.height, .08, 1200);
-      camera.position.set(...world(stand, block.center * .6, 170, 135));
-      camera.lookAt(...world(stand, block.center * .4, STANDS[stand].inner * .32, 8));
+      const focus = (await import('/src/viewer/camera.ts')).focusPose(stand, block.center);
+      camera.position.set(...focus.position);
+      camera.lookAt(...focus.target);
       camera.updateMatrixWorld();
       return DEMO.places
         .filter(p => p.stand === stand && (!row || p.rowId === row) && (unavailable ? p.availability === 'unavailable' : demoGroup(p, people)))

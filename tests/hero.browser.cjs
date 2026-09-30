@@ -167,6 +167,8 @@ async function behaviour(browser) {
     await page.waitForFunction(() => Number(document.querySelector('.hero-art')?.dataset.heroT) > .5);
     await page.evaluate(() => document.querySelector('canvas.hero-canvas').getContext('webgl2').getExtension('WEBGL_lose_context').loseContext());
     await phaseIs(page, ['static']); await page.waitForFunction(() => !document.querySelector('canvas.hero-canvas'));
+    // The poster fades in over 0.2 s (refinements.css); read it once the fade has finished, not during its last frame.
+    await page.waitForFunction(() => getComputedStyle(document.querySelector('.hero-poster')).opacity === '1', null, { timeout: 5000 });
     const s = await page.evaluate(() => ({ quality: document.querySelector('.hero-art').dataset.heroQuality, poster: getComputedStyle(document.querySelector('.hero-poster')).opacity, controls: document.querySelectorAll('.hero-controls').length }));
     assert.deepEqual(s, { quality: 'poster', poster: '1', controls: 0 }); assert.deepEqual(errors, []);
     pass('context lost → poster', s); await context.close();

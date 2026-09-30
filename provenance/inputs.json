@@ -384,6 +384,610 @@
       "review_status": "Appeared in workspace during final checks; not used in this implementation",
       "permitted_use": "None until provenance and intended use are reviewed",
       "distribution": "external-only"
+    },
+    {
+      "id": "CC0-PH-CONCRETE-WALL-008",
+      "kind": "cc0-asset",
+      "name": "Concrete Wall 008",
+      "source_page": "https://polyhaven.com/a/concrete_wall_008",
+      "author": "Dario Barresi, Charlotte Baglioni",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Cast concrete: stand solids, soffits, plinth)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "concrete_wall_008_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_008/concrete_wall_008_diff_2k.jpg",
+          "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846"
+        },
+        {
+          "file": "concrete_wall_008_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_008/concrete_wall_008_nor_gl_2k.jpg",
+          "sha256": "58ce9b818772d37fe16e1154ea0278f3ab423ed34073357e786ef44f9ceef052"
+        },
+        {
+          "file": "concrete_wall_008_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_008/concrete_wall_008_arm_2k.jpg",
+          "sha256": "98e5e8f447e2ce92bb0349cb0c8265ca0b67c6fe6f6a1be31c4be8e986aa47c7"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-BRUSHED-CONCRETE",
+      "kind": "cc0-asset",
+      "name": "Brushed Concrete",
+      "source_page": "https://polyhaven.com/a/brushed_concrete",
+      "author": "Dario Barresi, Dimitrios Savva",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Precast risers and treads (the closest surface in seat previews, so the only 2K set))",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "brushed_concrete_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brushed_concrete/brushed_concrete_diff_2k.jpg",
+          "sha256": "5af96604b20e29862b449d86981b196b18ba5cbcb8659c451dd8976411a36130"
+        },
+        {
+          "file": "brushed_concrete_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brushed_concrete/brushed_concrete_nor_gl_2k.jpg",
+          "sha256": "3d1f1c7a5f20a5f7a15f3bc5c5f58c0fdcaf49e71e65a5f17e086b551895c00c"
+        },
+        {
+          "file": "brushed_concrete_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brushed_concrete/brushed_concrete_arm_2k.jpg",
+          "sha256": "87e7ee823a78d6d85dc98cd5d1b5a7d4e694429ef4a01f3947b7e4b8a8d284b2"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-CORRUGATED-IRON-03",
+      "kind": "cc0-asset",
+      "name": "Corrugated Iron 03",
+      "source_page": "https://polyhaven.com/a/corrugated_iron_03",
+      "author": "Charlotte Baglioni",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Outer-wall cladding panels)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "corrugated_iron_03_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/corrugated_iron_03/corrugated_iron_03_diff_2k.jpg",
+          "sha256": "7b3f4f849dd634f54548b3b552ebeae723266f782163341185c94094e2eb7991"
+        },
+        {
+          "file": "corrugated_iron_03_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/corrugated_iron_03/corrugated_iron_03_nor_gl_2k.jpg",
+          "sha256": "9f865a4de4753a9cc0987c4e665ec935c7dd28d3c6cd80c4dd2000d64c2fcfc3"
+        },
+        {
+          "file": "corrugated_iron_03_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/corrugated_iron_03/corrugated_iron_03_arm_2k.jpg",
+          "sha256": "67e732253e52fd04089ba16c9757ced090c5331144f29600fc8ffeb32aaf5f2b"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-BOX-PROFILE-METAL-SHEET",
+      "kind": "cc0-asset",
+      "name": "Box Profile Metal Sheet",
+      "source_page": "https://polyhaven.com/a/box_profile_metal_sheet",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Roof sheet (relief and roughness; base colour replaced at runtime))",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "box_profile_metal_sheet_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/box_profile_metal_sheet/box_profile_metal_sheet_diff_2k.jpg",
+          "sha256": "ac6136f370a9ec7370e2bac2e5467cabd92857693033e1a49fa67a5cafa1303b"
+        },
+        {
+          "file": "box_profile_metal_sheet_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/box_profile_metal_sheet/box_profile_metal_sheet_nor_gl_2k.jpg",
+          "sha256": "8f4f34e06aae460b0f0de2b1dd6f76ac2e1e251e5cc929907ff258bd04793e1e"
+        },
+        {
+          "file": "box_profile_metal_sheet_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/box_profile_metal_sheet/box_profile_metal_sheet_arm_2k.jpg",
+          "sha256": "ce9c722a34df21ce469a9ffa08d9d357340866885647ba5dff48d054fa724313"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-BLUE-METAL-PLATE",
+      "kind": "cc0-asset",
+      "name": "Blue Metal Plate",
+      "source_page": "https://polyhaven.com/a/blue_metal_plate",
+      "author": "Rob Tuytel",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Painted steel: pylons, trusses, mullions (base colour replaced at runtime))",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "blue_metal_plate_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_metal_plate/blue_metal_plate_diff_2k.jpg",
+          "sha256": "82855f6297ad07ea7ea4d1c501e6b56ed4c9c758653ca126bda9fd0ebba63c59"
+        },
+        {
+          "file": "blue_metal_plate_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_metal_plate/blue_metal_plate_nor_gl_2k.jpg",
+          "sha256": "4cd3069a918cf891295b369b26f47c0a0631c634d0fd1006b6b7412a8f2b3550"
+        },
+        {
+          "file": "blue_metal_plate_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_metal_plate/blue_metal_plate_arm_2k.jpg",
+          "sha256": "64991aa1059eb36d74fb5973dcc55de9153cf277e8f587a5b7939966737a04e4"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-EXTERIOR-WALL-CLADDING-03",
+      "kind": "cc0-asset",
+      "name": "Exterior Wall Cladding 03",
+      "source_page": "https://polyhaven.com/a/exterior_wall_cladding_03",
+      "author": "Charlotte Baglioni",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Service-building facades)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "exterior_wall_cladding_03_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/exterior_wall_cladding_03/exterior_wall_cladding_03_diff_2k.jpg",
+          "sha256": "a555e5cb010924dd374c455b415b15fc15b71e1755b223bbfa8b92fc76018c6f"
+        },
+        {
+          "file": "exterior_wall_cladding_03_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/exterior_wall_cladding_03/exterior_wall_cladding_03_nor_gl_2k.jpg",
+          "sha256": "029bb52cd0d7d3e50cf916d99ece23027d1bc42375f888d21d7137aaf0c5f601"
+        },
+        {
+          "file": "exterior_wall_cladding_03_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/exterior_wall_cladding_03/exterior_wall_cladding_03_arm_2k.jpg",
+          "sha256": "58dbafe19b152d0858f89964f6e2eccf16f16160d30c76cfb8139b3329362394"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-BITUMEN",
+      "kind": "cc0-asset",
+      "name": "Bitumen",
+      "source_page": "https://polyhaven.com/a/bitumen",
+      "author": "Rob Tuytel",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Service-building flat roofs)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "bitumen_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bitumen/bitumen_diff_2k.jpg",
+          "sha256": "709bf2bd8753197f90c0ea1fc3a735c1e06ffd7cb4aabdb9bd9401f9df607e31"
+        },
+        {
+          "file": "bitumen_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bitumen/bitumen_nor_gl_2k.jpg",
+          "sha256": "9b7c1c1f5d1b99eadc652b4b1553305cff3285f4621aab23de3dff7357b7ecb6"
+        },
+        {
+          "file": "bitumen_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bitumen/bitumen_arm_2k.jpg",
+          "sha256": "e231ad709b90ff3df25ab46ec4c6d1e6ddfcccaf62f2d6c19d868ba6755f5390"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-ASPHALT-02",
+      "kind": "cc0-asset",
+      "name": "Asphalt 02",
+      "source_page": "https://polyhaven.com/a/asphalt_02",
+      "author": "Rob Tuytel",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Roads and car parks)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "asphalt_02_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_diff_2k.jpg",
+          "sha256": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c"
+        },
+        {
+          "file": "asphalt_02_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_nor_gl_2k.jpg",
+          "sha256": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21"
+        },
+        {
+          "file": "asphalt_02_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_arm_2k.jpg",
+          "sha256": "ed70e88640e4ed51cf1c3e57cb20db26983599b20b867c2526439e3a2c849fea"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-CONCRETE-PAVEMENT",
+      "kind": "cc0-asset",
+      "name": "Concrete Pavement",
+      "source_page": "https://polyhaven.com/a/concrete_pavement",
+      "author": "Charlotte Baglioni",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Forecourt paving)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "concrete_pavement_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_pavement/concrete_pavement_diff_2k.jpg",
+          "sha256": "e5a1cecfe7765cc0b24a6ab0abf492bd21c9e7af64e97fc46ef6021d0645fbd3"
+        },
+        {
+          "file": "concrete_pavement_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_pavement/concrete_pavement_nor_gl_2k.jpg",
+          "sha256": "72def937e418ccc9d7736c9b1f51ae22a127fa2a53a54f4d1fe4d3cf828b781c"
+        },
+        {
+          "file": "concrete_pavement_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_pavement/concrete_pavement_arm_2k.jpg",
+          "sha256": "1ee3ab8013a6204c739b40ef9b87ccfdff32711525bccf94ee9b3c171aa731f6"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-GRAVEL-STONES",
+      "kind": "cc0-asset",
+      "name": "Gravel Stones",
+      "source_page": "https://polyhaven.com/a/gravel_stones",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Railway ballast)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "gravel_stones_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_stones/gravel_stones_diff_2k.jpg",
+          "sha256": "cacad132d39976f66451271b4eeb1e6ee11ecbff2cd3160f2b9d4323aa2b0136"
+        },
+        {
+          "file": "gravel_stones_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_stones/gravel_stones_nor_gl_2k.jpg",
+          "sha256": "13a0218f69539da3e8f9ad805213ce311a936d30c05558d8e42ebb46fde5b7eb"
+        },
+        {
+          "file": "gravel_stones_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_stones/gravel_stones_arm_2k.jpg",
+          "sha256": "58c21dcfbfcbe7aa423dced4872bb0eff2988aae303cf268e787a102eb80a3dc"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-RUBBERIZED-TRACK",
+      "kind": "cc0-asset",
+      "name": "Rubberized Track",
+      "source_page": "https://polyhaven.com/a/rubberized_track",
+      "author": "Charlotte Baglioni",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Athletics track)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "rubberized_track_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rubberized_track/rubberized_track_diff_2k.jpg",
+          "sha256": "1b7cb225ae8ae7be9cc91f48a234dcd76ed32d4f98a4ac547e0b2f299752438a"
+        },
+        {
+          "file": "rubberized_track_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rubberized_track/rubberized_track_nor_gl_2k.jpg",
+          "sha256": "0c4cccf2bd7eaf7c86f257c287c45cc3ceced63b311744c8a5ed2210560fab3f"
+        },
+        {
+          "file": "rubberized_track_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rubberized_track/rubberized_track_arm_2k.jpg",
+          "sha256": "7cbdcaf3ad9e48d2c2a7e1cc8299e0698fba06a12f78a3a3f6d8f9ae6309d86b"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-FARM-SOIL",
+      "kind": "cc0-asset",
+      "name": "Farm Soil",
+      "source_page": "https://polyhaven.com/a/farm_soil",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Allotment plots)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "farm_soil_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/farm_soil/farm_soil_diff_2k.jpg",
+          "sha256": "c86b4e3e86218fb06efb69691a7fe25a61dab82fb0967542b33fbd5cacc5ddc0"
+        },
+        {
+          "file": "farm_soil_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/farm_soil/farm_soil_nor_gl_2k.jpg",
+          "sha256": "cfbf20c26de00d3e09a1546803b4f0a71a4d78938e4f1e1eeb37c049249e1240"
+        },
+        {
+          "file": "farm_soil_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/farm_soil/farm_soil_arm_2k.jpg",
+          "sha256": "5e721aa1dfd392df9142fa6910e8ca00469b203d4116a433ba9b747a6a1dc0ad"
+        }
+      ]
+    },
+    {
+      "id": "CC0-PH-BARK-BROWN-02",
+      "kind": "cc0-asset",
+      "name": "Bark Brown 02",
+      "source_page": "https://polyhaven.com/a/bark_brown_02",
+      "author": "Rob Tuytel",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Tree trunks and branches (trees built in-repo))",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "bark_brown_02_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bark_brown_02/bark_brown_02_diff_2k.jpg",
+          "sha256": "285051e34826ace29f4ab438ad35cc1201b2aae0a6157a5f3c0bf6667bbc539e"
+        },
+        {
+          "file": "bark_brown_02_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bark_brown_02/bark_brown_02_nor_gl_2k.jpg",
+          "sha256": "aaba4529c3167a7811b4dbf5b4327d054a166c2fc8ea08ebd249a2692adace41"
+        },
+        {
+          "file": "bark_brown_02_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bark_brown_02/bark_brown_02_arm_2k.jpg",
+          "sha256": "d04abcb75755426cb9ae4f3190d5149f631ac35d100b921caeb565e44cd7365a"
+        }
+      ]
+    },
+    {
+      "id": "CC0-ACG-GRASS005",
+      "kind": "cc0-asset",
+      "name": "Grass 005",
+      "source_page": "https://ambientcg.com/view?id=Grass005",
+      "author": "ambientCG",
+      "license": "CC0-1.0",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "license_statement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Pitch turf (the mowing stripes stay a colour modulation at runtime); the source publishes no real-world size)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "Grass005_2K-JPG/Grass005_2K-JPG_Color.jpg",
+          "sha256": "2acdf15d09e790a114743f21bc0332a86e386cb77c54507323d626f67f0f2e10"
+        },
+        {
+          "file": "Grass005_2K-JPG/Grass005_2K-JPG_NormalGL.jpg",
+          "sha256": "c8406e8b784fbcd22d706fbe0c24175c327bca7e19ad8d09457fad8a05089548"
+        },
+        {
+          "file": "Grass005_2K-JPG/Grass005_2K-JPG_AmbientOcclusion.jpg",
+          "sha256": "cfb633134b164b376c9cbbd06774c6465570e3f156caa8ece080104ac00c7d09"
+        },
+        {
+          "file": "Grass005_2K-JPG/Grass005_2K-JPG_Roughness.jpg",
+          "sha256": "20c302c4cf059d6676d83528ae7cbf62ca35944e691dc6377a164ce9c31c8e67"
+        }
+      ],
+      "archive": {
+        "file": "Grass005_2K-JPG.zip",
+        "url": "https://ambientcg.com/get?file=Grass005_2K-JPG.zip",
+        "sha256": "89183d8dceabc3c23a26978f426e1662143dd2f84f1dc3586a1592d101e5234b"
+      }
+    },
+    {
+      "id": "CC0-ACG-GRASS004",
+      "kind": "cc0-asset",
+      "name": "Grass 004",
+      "source_page": "https://ambientcg.com/view?id=Grass004",
+      "author": "ambientCG",
+      "license": "CC0-1.0",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "license_statement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Surrounding park grass)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "Grass004_1K-JPG/Grass004_1K-JPG_Color.jpg",
+          "sha256": "9e1c60da44b34a9738b1256ba827541f097dc583521b1d281e61b5f4b4217bc5"
+        },
+        {
+          "file": "Grass004_1K-JPG/Grass004_1K-JPG_NormalGL.jpg",
+          "sha256": "8014a81d896a5c589b60612a769bc39eb1213e48d96f6146f485ea36e9e9610f"
+        },
+        {
+          "file": "Grass004_1K-JPG/Grass004_1K-JPG_AmbientOcclusion.jpg",
+          "sha256": "04dde15209751196f5d0fc84507e6e2fbd7876a766ba3ab158e061dd9b756b95"
+        },
+        {
+          "file": "Grass004_1K-JPG/Grass004_1K-JPG_Roughness.jpg",
+          "sha256": "706580983860f942e141acdd68c4128dd683be50fcc5d85b7c67a9a3a8c7bac0"
+        }
+      ],
+      "archive": {
+        "file": "Grass004_1K-JPG.zip",
+        "url": "https://ambientcg.com/get?file=Grass004_1K-JPG.zip",
+        "sha256": "4b63495f459db8481f4d5144e4e9069345c81cf898cc71f2216f5dd3bb344469"
+      }
+    },
+    {
+      "id": "CC0-ACG-LEAFSET016",
+      "kind": "cc0-asset",
+      "name": "Leaf Set 016",
+      "source_page": "https://ambientcg.com/view?id=LeafSet016",
+      "author": "ambientCG",
+      "license": "CC0-1.0",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "license_statement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Leaf atlas (oak) for trees built in-repo)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "LeafSet016_2K-JPG/LeafSet016_2K-JPG_Color.jpg",
+          "sha256": "3abc7e28cac20179f9b7b537ee1bd0c688da45d65014f77160ae64921d93e40e"
+        },
+        {
+          "file": "LeafSet016_2K-JPG/LeafSet016_2K-JPG_Opacity.jpg",
+          "sha256": "7e01401a45c612d28074535e904729a74f5c3d1a2e3acafc38666bf8c7ca8530"
+        }
+      ],
+      "archive": {
+        "file": "LeafSet016_2K-JPG.zip",
+        "url": "https://ambientcg.com/get?file=LeafSet016_2K-JPG.zip",
+        "sha256": "70993c9ff7a002ec78cab759fe153d37f2918463c3c320c3b963e524cee877b3"
+      }
+    },
+    {
+      "id": "CC0-ACG-LEAFSET014",
+      "kind": "cc0-asset",
+      "name": "Leaf Set 014",
+      "source_page": "https://ambientcg.com/view?id=LeafSet014",
+      "author": "ambientCG",
+      "license": "CC0-1.0",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "license_statement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Leaf atlas (hornbeam or beech type) for trees built in-repo)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "LeafSet014_2K-JPG/LeafSet014_2K-JPG_Color.jpg",
+          "sha256": "cd886f93c8e8d5ded48bd8478f0a949abf8de40367cbdbb2b105dbbaeb75da4f"
+        },
+        {
+          "file": "LeafSet014_2K-JPG/LeafSet014_2K-JPG_Opacity.jpg",
+          "sha256": "a855f0863d731adce2776a23e910819ed0fd01728b160b7e9d001cbc831fe861"
+        }
+      ],
+      "archive": {
+        "file": "LeafSet014_2K-JPG.zip",
+        "url": "https://ambientcg.com/get?file=LeafSet014_2K-JPG.zip",
+        "sha256": "8065d616032cc3a2dfa7ff40ba716e483b7fc854ae8c8f03fa95ada2cb7fccc6"
+      }
+    },
+    {
+      "id": "CC0-ACG-LEAFSET010",
+      "kind": "cc0-asset",
+      "name": "Leaf Set 010",
+      "source_page": "https://ambientcg.com/view?id=LeafSet010",
+      "author": "ambientCG",
+      "license": "CC0-1.0",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "license_statement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Leaf atlas (maple) for trees built in-repo)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "LeafSet010_2K-JPG/LeafSet010_2K-JPG_Color.jpg",
+          "sha256": "89302aef2b6507394486f730c51edf6b8ab8d1acd13e9c45183c9bd0e1ca7286"
+        },
+        {
+          "file": "LeafSet010_2K-JPG/LeafSet010_2K-JPG_Opacity.jpg",
+          "sha256": "a68b47cae243c43d1d23178a49d0b1d7e6e824120051a22c48816757f4f84ddc"
+        }
+      ],
+      "archive": {
+        "file": "LeafSet010_2K-JPG.zip",
+        "url": "https://ambientcg.com/get?file=LeafSet010_2K-JPG.zip",
+        "sha256": "abb3da99ab0c37e564f5ef80153ef703515733ece2e022c61e2773da43d4fb68"
+      }
+    },
+    {
+      "id": "CC0-PH-KLOOFENDAL-48D-PARTLY-CLOUDY-PURESKY",
+      "kind": "cc0-asset",
+      "name": "Kloofendal 48d Partly Cloudy (Pure Sky)",
+      "source_page": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+      "author": "Greg Zaal, Jarod Guest",
+      "license": "CC0-1.0",
+      "license_page": "https://polyhaven.com/license",
+      "license_statement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Licence statement captured from the asset page and the site licence page; exact files approved for download by the product owner on 2026-09-29",
+      "permitted_use": "Processed derivatives shipped in public/assets/explorer/ (Image-based lighting and the visible sky)",
+      "distribution": "cc0-processed-derivatives",
+      "files": [
+        {
+          "file": "kloofendal_48d_partly_cloudy_puresky_1k.hdr",
+          "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/kloofendal_48d_partly_cloudy_puresky_1k.hdr",
+          "sha256": "fd94c84997b8a3c353b62c2125a9b44e19509956986a126e472684432a02d798"
+        },
+        {
+          "file": "kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+          "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+          "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198"
+        }
+      ]
+    },
+    {
+      "id": "KTX-SOFTWARE",
+      "kind": "build-tool",
+      "name": "KTX-Software",
+      "version": "4.4.2",
+      "source_page": "https://github.com/KhronosGroup/KTX-Software",
+      "license": "Apache-2.0",
+      "location": "https://github.com/KhronosGroup/KTX-Software/releases/download/v4.4.2/KTX-Software-4.4.2-Darwin-arm64.pkg",
+      "sha256": "500bd8f9d63358c3f3a0d83b724c8574436a72c37dc0e4bad90ec1ca38032c3c",
+      "reviewed_on": "2026-09-29",
+      "review_status": "Signed and notarized Khronos installer, expanded into .cache/tools/ without system installation",
+      "permitted_use": "Build-time encoding of the CC0 textures; not redistributed",
+      "distribution": "not-distributed"
     }
   ]
 }

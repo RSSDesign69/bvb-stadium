@@ -20,9 +20,9 @@ const pickInScene=async(p,stand,level='middle')=>{
   const {DEMO,describePlace,samplePlace}=await import('/src/places/demo.ts');const {STANDS,world}=await import('/src/stadium/layout.ts');
   const T=await import('/node_modules/three/build/three.module.js');const box=document.querySelector('.scene-host').getBoundingClientRect();
   const blocks=DEMO.blocks.filter(b=>b.stand===stand),block=blocks[Math.floor(blocks.length/2)],sample=samplePlace(block,level);
-  const camera=new T.PerspectiveCamera(43,box.width/box.height,.08,1200);camera.position.set(...world(stand,block.center*.6,170,135));camera.lookAt(...world(stand,block.center*.4,STANDS[stand].inner*.32,8));camera.updateMatrixWorld();
+  const camera=new T.PerspectiveCamera(43,box.width/box.height,.08,1200);const focus=(await import('/src/viewer/camera.ts')).focusPose(stand,block.center);camera.position.set(...focus.position);camera.lookAt(...focus.target);camera.updateMatrixWorld();
   return DEMO.places.filter(p=>p.stand===stand&&p.availability==='available').map(p=>({p,d:Math.hypot(...p.eye.map((v,i)=>v-sample.eye[i]))})).sort((a,b)=>a.d-b.d)
-   .map(({p})=>{const v=new T.Vector3(p.position[0],p.position[1]+.54,p.position[2]).project(camera);return {id:p.id,label:`${STANDS[stand].name}${describePlace(p)}Click`,x:box.x+(v.x+1)*box.width/2,y:box.y+(1-v.y)*box.height/2};})
+   .map(({p})=>{const v=new T.Vector3(p.position[0],p.position[1]+(p.kind==='standing-area'?.16:.54),p.position[2]).project(camera);return {id:p.id,label:`${STANDS[stand].name}${describePlace(p)}Click`,x:box.x+(v.x+1)*box.width/2,y:box.y+(1-v.y)*box.height/2};})
    .filter(c=>c.x>box.left+8&&c.x<box.right-8&&c.y>box.top+8&&c.y<box.bottom-8).slice(0,30);
  },{stand,level});
  for(const c of candidates){
@@ -70,10 +70,27 @@ async function axe(page,state){
    const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(base);await mode(page,'overview');
    await page.locator('.scene-frame').scrollIntoViewIfNeeded();
    await page.waitForFunction(()=>Number(document.querySelector('.scene-host').dataset.matchTime)>.2);
-   const overview=await stats(page);assert.ok(+overview.drawCalls<200&&+overview.triangles<650000);
+   // Task 11 budgets (docs/explorer-fidelity-task-list.md; the old gates were < 200 draw calls and < 650k triangles,
+   // which the photoreal stadium, shadows and post exceed by design). Measured once the CC0 textures are in.
+   await page.waitForFunction(()=>document.querySelector('.scene-host').dataset.textures==='ready',null,{timeout:60000});
+   const overview=await stats(page);
+   assert.ok(+overview.drawCalls<=250&&+overview.drawCallsTotal<=350&&+overview.triangles<=1200000,`desktop budgets: ${overview.drawCalls} / ${overview.drawCallsTotal} draws, ${overview.triangles} triangles`);
+   // The worst total is a frame that re-renders the static shadow map: every frame of the roof ease does.
+   const shadowsBefore=+overview.shadowRenders;await page.getByLabel('Roof cutaway').uncheck();
+   const worst=await page.evaluate(()=>new Promise(resolve=>{const h=document.querySelector('.scene-host'),t0=performance.now();let most=0;const f=()=>{most=Math.max(most,+h.dataset.drawCallsTotal);if(performance.now()-t0<900)requestAnimationFrame(f);else resolve(most);};requestAnimationFrame(f);}));
+   assert.ok(+(await stats(page)).shadowRenders>shadowsBefore,'the roof ease re-renders the shadow map');assert.ok(worst<=350,`shadow-frame total ${worst} draws`);
+   await page.getByLabel('Roof cutaway').check();overview.worstTotal=worst;
    await page.getByRole('button',{name:'Pause atmosphere',exact:true}).click();
    await page.waitForFunction(()=>document.querySelector('.scene-host').dataset.atmosphere==='static');
    const stopped=(await stats(page)).matchTime;await page.waitForTimeout(250);assert.equal((await stats(page)).matchTime,stopped);
+   // Task 11: a static camera with the atmosphere paused renders nothing, and one dirty frame (a hover) renders once
+   // without re-rendering the static shadow map.
+   await page.waitForTimeout(700);const idle=await stats(page);await page.waitForTimeout(500);const still=await stats(page);
+   assert.equal(still.frames,idle.frames,'no renders while nothing changes');
+   const canvasBox=await page.locator('.scene-host canvas').boundingBox();await page.mouse.move(canvasBox.x+canvasBox.width*.2,canvasBox.y+canvasBox.height*.8);
+   await page.waitForFunction(f=>+document.querySelector('.scene-host').dataset.frames>f,+still.frames);await page.waitForTimeout(250);
+   const moved=await stats(page);assert.ok(+moved.frames-+still.frames<=2,`${+moved.frames-+still.frames} frames for one hover`);assert.equal(moved.shadowRenders,still.shadowRenders,'a dirty frame does not re-render the shadow map');
+   await page.mouse.move(0,0);
    if(engine==='chrome')await axe(page,'desktop overview with atmosphere paused');
    await page.getByRole('button',{name:'Resume atmosphere',exact:true}).click();await page.locator('.scene-frame').scrollIntoViewIfNeeded();
    await page.waitForFunction(t=>document.querySelector('.scene-host').dataset.matchTime!==t,stopped);
@@ -147,12 +164,19 @@ async function axe(page,state){
    }
    assert.deepEqual(errors,[]);report.engines.push({engine,version:browser.version(),overview,passed:true});console.log('PASS',engine,'atmosphere controls, offscreen pause, reduced motion, four-stand crowd previews');
    if(engine==='chrome'){
+    // Task 11 desktop frame time: 1440 × 900, 1× CPU, atmosphere running, p95 frame interval ≤ 20 ms.
+    const desk=await browser.newContext({viewport:{width:1440,height:900}}),dp=await desk.newPage();await dp.goto(base);await mode(dp,'overview');await dp.locator('.scene-frame').scrollIntoViewIfNeeded();
+    await dp.waitForFunction(()=>document.querySelector('.scene-host').dataset.textures==='ready'&&Number(document.querySelector('.scene-host').dataset.matchTime)>.2,null,{timeout:60000});
+    const deskTiming=await dp.evaluate(()=>new Promise(resolve=>{const intervals=[];let last=performance.now();const start=last;const tick=t=>{intervals.push(t-last);last=t;if(t-start<3000)requestAnimationFrame(tick);else{intervals.shift();intervals.sort((a,b)=>a-b);resolve({samples:intervals.length,medianMs:intervals[Math.floor(intervals.length*.5)],p95Ms:intervals[Math.floor(intervals.length*.95)]});}};requestAnimationFrame(tick);}));
+    assert.ok(deskTiming.p95Ms<=20,`desktop p95 frame interval ${deskTiming.p95Ms} ms`);report.desktopPerformance={kind:'1440×900, 1× CPU, atmosphere running',...deskTiming,...(await stats(dp))};await desk.close();
     const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});const phone=await mobile.newPage();
     await phone.goto(base);await mode(phone,'overview');await phone.locator('.scene-frame').scrollIntoViewIfNeeded();
     const cdp=await mobile.newCDPSession(phone);await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});
-    await phone.waitForTimeout(300);
+    await phone.waitForFunction(()=>document.querySelector('.scene-host').dataset.textures==='ready',null,{timeout:60000});await phone.waitForTimeout(300);
     const timing=await phone.evaluate(()=>new Promise(resolve=>{const intervals=[];let last=performance.now();const start=last;const tick=t=>{intervals.push(t-last);last=t;if(t-start<2200)requestAnimationFrame(tick);else{intervals.shift();intervals.sort((a,b)=>a-b);resolve({samples:intervals.length,medianMs:intervals[Math.floor(intervals.length*.5)],p95Ms:intervals[Math.floor(intervals.length*.95)],meanMs:intervals.reduce((a,b)=>a+b,0)/intervals.length});}};requestAnimationFrame(tick);}));
-    const mobileStats=await stats(phone);assert.ok(+mobileStats.triangles<350000&&+mobileStats.drawCalls<160);assert.ok(timing.p95Ms<100,'4× CPU slowdown p95 frame interval exceeds 100 ms');
+    const mobileStats=await stats(phone);// Task 11 phone budgets (were < 350k triangles and < 160 draw calls)
+    assert.ok(+mobileStats.triangles<=450000&&+mobileStats.drawCalls<=180&&+mobileStats.drawCallsTotal<=220,`phone budgets: ${mobileStats.drawCalls} / ${mobileStats.drawCallsTotal} draws, ${mobileStats.triangles} triangles`);
+    assert.ok(timing.p95Ms<100,'4× CPU slowdown p95 frame interval exceeds 100 ms');
     report.performance={kind:'390×844, DPR 2 (renderer capped 1.4), Chrome 4× CPU slowdown; host GPU unchanged',...timing,...mobileStats};
     await cdp.send('Emulation.setCPUThrottlingRate',{rate:1});await phone.getByRole('button',{name:'Pause atmosphere',exact:true}).tap();await axe(phone,'mobile overview');
     await phone.getByRole('checkbox',{name:'Match-day atmosphere',exact:true}).uncheck();await phone.locator('.scene-frame').scrollIntoViewIfNeeded();

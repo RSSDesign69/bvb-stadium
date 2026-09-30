@@ -154,7 +154,7 @@ export default function StadiumExplorer({stand,onStand,standRequest}:{stand:Stan
     }).catch(()=>{if(disposed)return;loadFailed.current=true;setError('The 3D viewer could not load. Retry reloads the page, or use the place explorer below.');});
     return()=>{disposed=true;engine.current?.dispose();engine.current=null;};
   },[attempt]);
-  useEffect(()=>{if(ready){engine.current?.setVisiblePlaces(resultIds);engine.current?.select(selectedId);engine.current?.setCutaway(cutaway);}},[ready]);
+  useEffect(()=>{if(ready){engine.current?.setVisiblePlaces(resultIds);engine.current?.select(selectedId);engine.current?.setCutaway(cutaway);if(import.meta.env.DEV)engine.current?.applyDevPose();}},[ready]);
   useEffect(()=>{
     engine.current?.setVisiblePlaces(resultIds);
     if(!results.length){setHoverId(null);engine.current?.command('reset');}

@@ -41,6 +41,11 @@ This document records the visual and interaction contract for reusable interface
 - Below `960px` both collapse to `44px × 44px` icon buttons. Their labels stay as visually hidden accessible names, so the controls never cover the stacked diorama.
 - Reduced motion, the poster fallbacks and `?hero-t` hide the group, because nothing is animating.
 
+### Roof cutaway toggle
+
+- The **Roof cutaway** checkbox keeps its label and copy. Checked, it pulls the roof's inner edge back to a ring (about 25 m behind the front row) instead of hiding the roof. Unchecked, the opening is the realistic 8 m.
+- The opening eases over about 600 ms and can be reversed mid-ease. Under reduced motion it snaps. It is disabled outside the overview; seat previews always show the 8 m roof.
+
 ## Dialog heading hierarchy
 
 The About dialog begins directly with **An independent concept.** The former **About the project** eyebrow is intentionally omitted so the dialog title occupies the first content position. The close button remains at the top right and the heading reserves sufficient inline space to avoid overlap.

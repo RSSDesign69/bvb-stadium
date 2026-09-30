@@ -91,6 +91,28 @@
       "notes": "Independently authored; external reference records contain provenance metadata only"
     },
     {
+      "path": "docs/explorer-fidelity-completion.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Completion record for the explorer stadium fidelity upgrade; measurements from the working app only."
+    },
+    {
+      "path": "docs/explorer-fidelity-task-list.md",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Execution-ready task list for the explorer stadium fidelity upgrade (2026-09-29). Derived from a review of the project's own hero and explorer renders; no external material."
+    },
+    {
       "path": "docs/explorer-flow-spec.md",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -363,8 +385,1650 @@
         "REACT-DOM-UPSTREAM",
         "SCHEDULER-UPSTREAM"
       ],
-      "sha256": "7169eab4abcf9f778ab44d7ff1586b8cbaa5dc32f7d903f390ec319ce0cb63e9",
-      "notes": "Unmodified MIT license texts from installed runtime packages, with original headings; redistributed as required notices."
+      "sha256": "bce36782a5ea201f9f011af8a887b1bca6ad7d3146b2acdf25145ebc8446b2a5",
+      "notes": "Unmodified MIT license texts from installed runtime packages, with original headings; redistributed as required notices. Explorer fidelity Tasks 1 and 12 add a CC0 1.0 acknowledgement listing every CC0 texture and sky source (author, page) and the Basis Universal transcoder block with the full Apache License 2.0 text; the transcoder ships as the build-emitted copy from three."
+    },
+    {
+      "path": "public/assets/explorer/desktop/asphalt-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-ASPHALT-02",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/asphalt_02",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "b3afa1b5cc0b266c0eed648fd9a3d9ea8acd4a36f2a7f787427f114a9af3e4ec",
+      "original_sha256": {
+        "asphalt_02_diff_2k.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Asphalt 02\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/asphalt_02), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/asphalt-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-ASPHALT-02",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/asphalt_02",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "d83f5f075798390203e917fc8b01ec974c71e66290d8cee847edbdff2a5c0d6c",
+      "original_sha256": {
+        "asphalt_02_arm_2k.jpg": "ed70e88640e4ed51cf1c3e57cb20db26983599b20b867c2526439e3a2c849fea"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Asphalt 02\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/asphalt_02), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/ballast-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-GRAVEL-STONES",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/gravel_stones",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "7a7d05ca4ba4150b186f1a20c8e7fb6302c63d8c88809e1cb8c6101f5f0b5270",
+      "original_sha256": {
+        "gravel_stones_diff_2k.jpg": "cacad132d39976f66451271b4eeb1e6ee11ecbff2cd3160f2b9d4323aa2b0136"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Gravel Stones\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/gravel_stones), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/ballast-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-GRAVEL-STONES",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/gravel_stones",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "2038067fabbf17afc5a75482d7cf4ed20afd3af8ce429be0a1d67fd389437ff5",
+      "original_sha256": {
+        "gravel_stones_arm_2k.jpg": "58c21dcfbfcbe7aa423dced4872bb0eff2988aae303cf268e787a102eb80a3dc"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Gravel Stones\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/gravel_stones), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/bark-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BARK-BROWN-02",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/bark_brown_02",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "fa241db3c6002636165a52b8ef04e13d3a5f8ecc8ea1e455b42af0bc2dbec0ee",
+      "original_sha256": {
+        "bark_brown_02_diff_2k.jpg": "285051e34826ace29f4ab438ad35cc1201b2aae0a6157a5f3c0bf6667bbc539e"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Bark Brown 02\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/bark_brown_02), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/bark-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BARK-BROWN-02",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/bark_brown_02",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "14f08d58718c82d5b19dd54219ea4f543d3ee91c6c629eb918a4823a1cf6aa14",
+      "original_sha256": {
+        "bark_brown_02_nor_gl_2k.jpg": "aaba4529c3167a7811b4dbf5b4327d054a166c2fc8ea08ebd249a2692adace41"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Bark Brown 02\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/bark_brown_02), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/bark-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BARK-BROWN-02",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/bark_brown_02",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "b717951957cc3d2afe0594d4ba147dc667fdec0d2a61b159b41fc3dda6e14c33",
+      "original_sha256": {
+        "bark_brown_02_arm_2k.jpg": "d04abcb75755426cb9ae4f3190d5149f631ac35d100b921caeb565e44cd7365a"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Bark Brown 02\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/bark_brown_02), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/buildingFacade-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-EXTERIOR-WALL-CLADDING-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/exterior_wall_cladding_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "98fd89526c04a0eaa9adfeefcaf1fb12210cb213f0da8afda5d8db38e1668481",
+      "original_sha256": {
+        "exterior_wall_cladding_03_diff_2k.jpg": "a555e5cb010924dd374c455b415b15fc15b71e1755b223bbfa8b92fc76018c6f"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Exterior Wall Cladding 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/exterior_wall_cladding_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/buildingFacade-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-EXTERIOR-WALL-CLADDING-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/exterior_wall_cladding_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "15822657a6f56e2bdcfe95f07d4f8cef243aff7552f5f5160d38e2df157c93d2",
+      "original_sha256": {
+        "exterior_wall_cladding_03_nor_gl_2k.jpg": "029bb52cd0d7d3e50cf916d99ece23027d1bc42375f888d21d7137aaf0c5f601"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Exterior Wall Cladding 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/exterior_wall_cladding_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/buildingFacade-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-EXTERIOR-WALL-CLADDING-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/exterior_wall_cladding_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "850ef257bcd6ce53d0f615b3d8d58558d6278995bbccd24770ba3350d98aa4fb",
+      "original_sha256": {
+        "exterior_wall_cladding_03_arm_2k.jpg": "58dbafe19b152d0858f89964f6e2eccf16f16160d30c76cfb8139b3329362394"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Exterior Wall Cladding 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/exterior_wall_cladding_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/cladding-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CORRUGATED-IRON-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/corrugated_iron_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "8abddcd9ec95ecb793ec6e79362e34de773f983aaacdfe4ae2e8c598488a0a7e",
+      "original_sha256": {
+        "corrugated_iron_03_diff_2k.jpg": "7b3f4f849dd634f54548b3b552ebeae723266f782163341185c94094e2eb7991"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Corrugated Iron 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/corrugated_iron_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/cladding-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CORRUGATED-IRON-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/corrugated_iron_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "5754886fb3c9b482ac52acfe0a4dfdd78679999e78a795a77172525ac79a8684",
+      "original_sha256": {
+        "corrugated_iron_03_nor_gl_2k.jpg": "9f865a4de4753a9cc0987c4e665ec935c7dd28d3c6cd80c4dd2000d64c2fcfc3"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Corrugated Iron 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/corrugated_iron_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/cladding-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CORRUGATED-IRON-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/corrugated_iron_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "8323d13853c46251db75b4bae6c7c467f46fbaef4b7980cdef5a3033e035c7e9",
+      "original_sha256": {
+        "corrugated_iron_03_arm_2k.jpg": "67e732253e52fd04089ba16c9757ced090c5331144f29600fc8ffeb32aaf5f2b"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Corrugated Iron 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/corrugated_iron_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/concrete-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-WALL-008",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_wall_008",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "561242813e6d98c4b615a59b41c97ca41a4d99b0cc27ae091d77fb3e9ddb7621",
+      "original_sha256": {
+        "concrete_wall_008_diff_2k.jpg": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Wall 008\" by Dario Barresi, Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_wall_008), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/concrete-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-WALL-008",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_wall_008",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "e3b59de42b57fc4c1e86ab8822ba9729d0dfbb6d51e35625693b4b1b4d76f00b",
+      "original_sha256": {
+        "concrete_wall_008_nor_gl_2k.jpg": "58ce9b818772d37fe16e1154ea0278f3ab423ed34073357e786ef44f9ceef052"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Wall 008\" by Dario Barresi, Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_wall_008), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/concrete-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-WALL-008",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_wall_008",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "f93e8dfe8e116ce7bbc332df72c080b7916f6ff2ee0f9be4391b93e48b64a451",
+      "original_sha256": {
+        "concrete_wall_008_arm_2k.jpg": "98e5e8f447e2ce92bb0349cb0c8265ca0b67c6fe6f6a1be31c4be8e986aa47c7"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Wall 008\" by Dario Barresi, Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_wall_008), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/flatRoof-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BITUMEN",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/bitumen",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "99faf875ea7f271a4a156e4e1866ac81f83b24486597a4414e6fc59c660698d0",
+      "original_sha256": {
+        "bitumen_diff_2k.jpg": "709bf2bd8753197f90c0ea1fc3a735c1e06ffd7cb4aabdb9bd9401f9df607e31"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Bitumen\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/bitumen), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/flatRoof-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BITUMEN",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/bitumen",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "9fc2aa158b1179082a9ef02fe5e62155e865747f91c94b362272f410d948b5fe",
+      "original_sha256": {
+        "bitumen_arm_2k.jpg": "e231ad709b90ff3df25ab46ec4c6d1e6ddfcccaf62f2d6c19d868ba6755f5390"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Bitumen\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/bitumen), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/grass-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS004",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass004",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "14551115978a435b2ab59c6a05c85c902bbf40ae6a9357925be882c4692055c6",
+      "original_sha256": {
+        "Grass004_1K-JPG/Grass004_1K-JPG_Color.jpg": "9e1c60da44b34a9738b1256ba827541f097dc583521b1d281e61b5f4b4217bc5"
+      },
+      "modifications": "Colour map: 1024\u00b2 (source size), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 004\" from ambientCG (https://ambientcg.com/view?id=Grass004), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/grass-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS004",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass004",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "5b7e8369f99fb6f6848b1efcc3cd53b9f9e0dbe5aff11ba151be9f2e79cdfeeb",
+      "original_sha256": {
+        "Grass004_1K-JPG/Grass004_1K-JPG_AmbientOcclusion.jpg": "04dde15209751196f5d0fc84507e6e2fbd7876a766ba3ab158e061dd9b756b95",
+        "Grass004_1K-JPG/Grass004_1K-JPG_Roughness.jpg": "706580983860f942e141acdd68c4128dd683be50fcc5d85b7c67a9a3a8c7bac0"
+      },
+      "modifications": "AmbientOcclusion \u2192 R and Roughness \u2192 G packed with metalness 0 in B (glTF ORM); 1024\u00b2 (source size), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 004\" from ambientCG (https://ambientcg.com/view?id=Grass004), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/leaves-hornbeam.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-LEAFSET014",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=LeafSet014",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "8f8676e39206acf304d9f048e6b8c92296b965d2a76e7ba6f8fb88730c58eb44",
+      "original_sha256": {
+        "LeafSet014_2K-JPG/LeafSet014_2K-JPG_Color.jpg": "cd886f93c8e8d5ded48bd8478f0a949abf8de40367cbdbb2b105dbbaeb75da4f",
+        "LeafSet014_2K-JPG/LeafSet014_2K-JPG_Opacity.jpg": "a855f0863d731adce2776a23e910819ed0fd01728b160b7e9d001cbc831fe861"
+      },
+      "modifications": "Colour and Opacity packed as RGBA; colour dilated from opaque texels into transparent ones; resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), clamped mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Leaf Set 014\" from ambientCG (https://ambientcg.com/view?id=LeafSet014), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/leaves-maple.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-LEAFSET010",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=LeafSet010",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "e7f82b01be5bf1bcae8f48269c836786053dc2437d771893cb75441538820a19",
+      "original_sha256": {
+        "LeafSet010_2K-JPG/LeafSet010_2K-JPG_Color.jpg": "89302aef2b6507394486f730c51edf6b8ab8d1acd13e9c45183c9bd0e1ca7286",
+        "LeafSet010_2K-JPG/LeafSet010_2K-JPG_Opacity.jpg": "a68b47cae243c43d1d23178a49d0b1d7e6e824120051a22c48816757f4f84ddc"
+      },
+      "modifications": "Colour and Opacity packed as RGBA; colour dilated from opaque texels into transparent ones; resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), clamped mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Leaf Set 010\" from ambientCG (https://ambientcg.com/view?id=LeafSet010), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/leaves-oak.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-LEAFSET016",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=LeafSet016",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "0a72ab8b089626e15ff0653535b092c891300606b961aa404babdccfe82e6737",
+      "original_sha256": {
+        "LeafSet016_2K-JPG/LeafSet016_2K-JPG_Color.jpg": "3abc7e28cac20179f9b7b537ee1bd0c688da45d65014f77160ae64921d93e40e",
+        "LeafSet016_2K-JPG/LeafSet016_2K-JPG_Opacity.jpg": "7e01401a45c612d28074535e904729a74f5c3d1a2e3acafc38666bf8c7ca8530"
+      },
+      "modifications": "Colour and Opacity packed as RGBA; colour dilated from opaque texels into transparent ones; resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), clamped mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Leaf Set 016\" from ambientCG (https://ambientcg.com/view?id=LeafSet016), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/paintedSteel-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BLUE-METAL-PLATE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/blue_metal_plate",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "54b3cbf57db81ffd656e04e3f2e0517bf4e9073e3e449e1c5a4d2eacf8ac4475",
+      "original_sha256": {
+        "blue_metal_plate_diff_2k.jpg": "82855f6297ad07ea7ea4d1c501e6b56ed4c9c758653ca126bda9fd0ebba63c59"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Blue Metal Plate\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/blue_metal_plate), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/paintedSteel-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BLUE-METAL-PLATE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/blue_metal_plate",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "2a9ed0ef963e8766f24eeedf353798fbf37d72c25428945ce964e126ee3f832e",
+      "original_sha256": {
+        "blue_metal_plate_nor_gl_2k.jpg": "4cd3069a918cf891295b369b26f47c0a0631c634d0fd1006b6b7412a8f2b3550"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Blue Metal Plate\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/blue_metal_plate), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/paintedSteel-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BLUE-METAL-PLATE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/blue_metal_plate",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "1d7d89b18276792fbe3a57655350748c7f7d388f50f5ab82e46e7b8839a45765",
+      "original_sha256": {
+        "blue_metal_plate_arm_2k.jpg": "64991aa1059eb36d74fb5973dcc55de9153cf277e8f587a5b7939966737a04e4"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Blue Metal Plate\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/blue_metal_plate), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/paving-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-PAVEMENT",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_pavement",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "f27ac1eccf2b46b26570f5a4abdbc2617d37934ee985dc0c4e4eab4fa00c604c",
+      "original_sha256": {
+        "concrete_pavement_diff_2k.jpg": "e5a1cecfe7765cc0b24a6ab0abf492bd21c9e7af64e97fc46ef6021d0645fbd3"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Pavement\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_pavement), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/paving-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-PAVEMENT",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_pavement",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "227bbf7f8d128183fd3ba45909fb914e9de367e345bc020eb447ea4fc25122e7",
+      "original_sha256": {
+        "concrete_pavement_arm_2k.jpg": "1ee3ab8013a6204c739b40ef9b87ccfdff32711525bccf94ee9b3c171aa731f6"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Pavement\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_pavement), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/precast-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BRUSHED-CONCRETE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Dimitrios Savva",
+      "source_url": "https://polyhaven.com/a/brushed_concrete",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "a0dcb4e7b02384d9cbe032292ab762237bf370ec372ef829ea125451e970259a",
+      "original_sha256": {
+        "brushed_concrete_diff_2k.jpg": "5af96604b20e29862b449d86981b196b18ba5cbcb8659c451dd8976411a36130"
+      },
+      "modifications": "Colour map: 2048\u00b2 (source size), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Brushed Concrete\" by Dario Barresi, Dimitrios Savva, Poly Haven (https://polyhaven.com/a/brushed_concrete), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/precast-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BRUSHED-CONCRETE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Dimitrios Savva",
+      "source_url": "https://polyhaven.com/a/brushed_concrete",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "33cc2482b83a57dc04f67a6de58672d62422673352a70120873086011fa023c2",
+      "original_sha256": {
+        "brushed_concrete_nor_gl_2k.jpg": "3d1f1c7a5f20a5f7a15f3bc5c5f58c0fdcaf49e71e65a5f17e086b551895c00c"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Brushed Concrete\" by Dario Barresi, Dimitrios Savva, Poly Haven (https://polyhaven.com/a/brushed_concrete), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/precast-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BRUSHED-CONCRETE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Dimitrios Savva",
+      "source_url": "https://polyhaven.com/a/brushed_concrete",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "9e0dd870be96784f80864c3a7fb5fa7892c7a80ab2d630caaa2997129b35007b",
+      "original_sha256": {
+        "brushed_concrete_arm_2k.jpg": "87e7ee823a78d6d85dc98cd5d1b5a7d4e694429ef4a01f3947b7e4b8a8d284b2"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): 2048\u00b2 (source size), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Brushed Concrete\" by Dario Barresi, Dimitrios Savva, Poly Haven (https://polyhaven.com/a/brushed_concrete), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/roofSheet-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BOX-PROFILE-METAL-SHEET",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/box_profile_metal_sheet",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "4ae392da2c7b059cb0ac9f265603ee4cb4f4900f236058598b46af7f70994345",
+      "original_sha256": {
+        "box_profile_metal_sheet_diff_2k.jpg": "ac6136f370a9ec7370e2bac2e5467cabd92857693033e1a49fa67a5cafa1303b"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Box Profile Metal Sheet\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/box_profile_metal_sheet), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/roofSheet-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BOX-PROFILE-METAL-SHEET",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/box_profile_metal_sheet",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "e2f3462a9339e3fedef778acb4aaa250148bee3c1b8a8d3686d9f08989bce1b8",
+      "original_sha256": {
+        "box_profile_metal_sheet_nor_gl_2k.jpg": "8f4f34e06aae460b0f0de2b1dd6f76ac2e1e251e5cc929907ff258bd04793e1e"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Box Profile Metal Sheet\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/box_profile_metal_sheet), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/roofSheet-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BOX-PROFILE-METAL-SHEET",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/box_profile_metal_sheet",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "72c39ff61ce3a6fe8f125af622034724a684fab3cc309f15e8d6bf1f7025725b",
+      "original_sha256": {
+        "box_profile_metal_sheet_arm_2k.jpg": "ce9c722a34df21ce469a9ffa08d9d357340866885647ba5dff48d054fa724313"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Box Profile Metal Sheet\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/box_profile_metal_sheet), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/sky.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-KLOOFENDAL-48D-PARTLY-CLOUDY-PURESKY",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Greg Zaal, Jarod Guest",
+      "source_url": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "136ed3a7f4a95d9b22774012250b77878a55e7f0383824bb76979a6dee0f7d05",
+      "original_sha256": {
+        "kloofendal_48d_partly_cloudy_puresky_2k.hdr": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198"
+      },
+      "modifications": "Radiance RGBE (2k) decoded; texels within 3\u00b0 of the sun brighter than 1.5\u00d7 the brightest other sky texel clamped (sun direction and energy recorded in index.json); repacked as E5B9G9R9 float with rows bottom-up, zstd 20 (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Kloofendal 48d Partly Cloudy (Pure Sky)\" by Greg Zaal, Jarod Guest, Poly Haven (https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/soil-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-FARM-SOIL",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/farm_soil",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "401999cdde36fd04dc136d3035a0b0d7bd6711957daa3026e4337a5b3c37ed51",
+      "original_sha256": {
+        "farm_soil_diff_2k.jpg": "c86b4e3e86218fb06efb69691a7fe25a61dab82fb0967542b33fbd5cacc5ddc0"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Farm Soil\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/farm_soil), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/soil-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-FARM-SOIL",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/farm_soil",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "53406d5d83e6132cbcb2882a753dbc87a5f55a8165a0fc6fcf2d7ebf88693041",
+      "original_sha256": {
+        "farm_soil_arm_2k.jpg": "5e721aa1dfd392df9142fa6910e8ca00469b203d4116a433ba9b747a6a1dc0ad"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Farm Soil\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/farm_soil), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/track-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-RUBBERIZED-TRACK",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/rubberized_track",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "458a16bc117a1e349a9d732adcf0f7ee0716b28a4a37425e7542e885d9adda09",
+      "original_sha256": {
+        "rubberized_track_diff_2k.jpg": "1b7cb225ae8ae7be9cc91f48a234dcd76ed32d4f98a4ac547e0b2f299752438a"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Rubberized Track\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/rubberized_track), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/track-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-RUBBERIZED-TRACK",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/rubberized_track",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "103d01b198c8bd2cb95ff0631920b72754982e841ab2b39d9fea71cdb38ba179",
+      "original_sha256": {
+        "rubberized_track_arm_2k.jpg": "7cbdcaf3ad9e48d2c2a7e1cc8299e0698fba06a12f78a3a3f6d8f9ae6309d86b"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Rubberized Track\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/rubberized_track), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/turf-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS005",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass005",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "abda1807f45b6a0fc684996929e7145b418cd3f016d75c9e3cf7f2c0a88f3b2f",
+      "original_sha256": {
+        "Grass005_2K-JPG/Grass005_2K-JPG_Color.jpg": "2acdf15d09e790a114743f21bc0332a86e386cb77c54507323d626f67f0f2e10"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 005\" from ambientCG (https://ambientcg.com/view?id=Grass005), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/turf-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS005",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass005",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "b6b814cafcfcf095d03cd4667f9a351c7590d6ce68ce407835b8bdab2428c9f3",
+      "original_sha256": {
+        "Grass005_2K-JPG/Grass005_2K-JPG_NormalGL.jpg": "c8406e8b784fbcd22d706fbe0c24175c327bca7e19ad8d09457fad8a05089548"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 005\" from ambientCG (https://ambientcg.com/view?id=Grass005), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/desktop/turf-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS005",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass005",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "b260d8db684c2486380d580f3981bcc820a46f0c7dbc83508012323ef033efaf",
+      "original_sha256": {
+        "Grass005_2K-JPG/Grass005_2K-JPG_AmbientOcclusion.jpg": "cfb633134b164b376c9cbbd06774c6465570e3f156caa8ece080104ac00c7d09",
+        "Grass005_2K-JPG/Grass005_2K-JPG_Roughness.jpg": "20c302c4cf059d6676d83528ae7cbf62ca35944e691dc6377a164ce9c31c8e67"
+      },
+      "modifications": "AmbientOcclusion \u2192 R and Roughness \u2192 G packed with metalness 0 in B (glTF ORM); resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 005\" from ambientCG (https://ambientcg.com/view?id=Grass005), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/index.json",
+      "kind": "generated-metadata",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "sha256": "b8361ba76c4dd7f7a1526394b06a2f948b62c6e48cd9bcb075a40d964c8e3768",
+      "notes": "Generated by scripts/process-assets.mjs: shipped file list per quality tier, real-world tile sizes, byte and GPU-memory totals, and the sky sun analysis. Describes the CC0 derivatives; contains no third-party content."
+    },
+    {
+      "path": "public/assets/explorer/phone/asphalt-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-ASPHALT-02",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/asphalt_02",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "8b63193744d5cb3690f3e42a5413195aaa8a999e865a4fcfef4bd2e10af88402",
+      "original_sha256": {
+        "asphalt_02_diff_2k.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Asphalt 02\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/asphalt_02), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/asphalt-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-ASPHALT-02",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/asphalt_02",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "023b188cec6c76e67393c769108a2cb771a1905b105e45668d0d5107b72f4dd2",
+      "original_sha256": {
+        "asphalt_02_arm_2k.jpg": "ed70e88640e4ed51cf1c3e57cb20db26983599b20b867c2526439e3a2c849fea"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Asphalt 02\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/asphalt_02), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/ballast-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-GRAVEL-STONES",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/gravel_stones",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "9d744e5f2d73dfa305688674cf52b74a5e4595fe91037a79d1fbd2449c15277b",
+      "original_sha256": {
+        "gravel_stones_diff_2k.jpg": "cacad132d39976f66451271b4eeb1e6ee11ecbff2cd3160f2b9d4323aa2b0136"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Gravel Stones\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/gravel_stones), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/ballast-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-GRAVEL-STONES",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/gravel_stones",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "a6e4d04f2507fbdea5f1c948d788499769b11badf4a3075a6736ab2ab7f9eb53",
+      "original_sha256": {
+        "gravel_stones_arm_2k.jpg": "58c21dcfbfcbe7aa423dced4872bb0eff2988aae303cf268e787a102eb80a3dc"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Gravel Stones\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/gravel_stones), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/bark-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BARK-BROWN-02",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/bark_brown_02",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "0bb19b7b17819850d07fe3997263feaedcceb1cf71ca09e3c285736f16075236",
+      "original_sha256": {
+        "bark_brown_02_diff_2k.jpg": "285051e34826ace29f4ab438ad35cc1201b2aae0a6157a5f3c0bf6667bbc539e"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 256\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Bark Brown 02\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/bark_brown_02), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/bark-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BARK-BROWN-02",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/bark_brown_02",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "e6d794525d9a93fdfff51393b550eff58c5b18212cb45046c426668a65d5af19",
+      "original_sha256": {
+        "bark_brown_02_arm_2k.jpg": "d04abcb75755426cb9ae4f3190d5149f631ac35d100b921caeb565e44cd7365a"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 256\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Bark Brown 02\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/bark_brown_02), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/buildingFacade-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-EXTERIOR-WALL-CLADDING-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/exterior_wall_cladding_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "07012a8aca7d006c09a72338b1320e7eba90bb2bb50931e2b69a778d7e73dfbe",
+      "original_sha256": {
+        "exterior_wall_cladding_03_diff_2k.jpg": "a555e5cb010924dd374c455b415b15fc15b71e1755b223bbfa8b92fc76018c6f"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Exterior Wall Cladding 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/exterior_wall_cladding_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/buildingFacade-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-EXTERIOR-WALL-CLADDING-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/exterior_wall_cladding_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "97f4b599768362acc86d321102de7cdde0325ecfa4ea91e966a198f42bacc227",
+      "original_sha256": {
+        "exterior_wall_cladding_03_arm_2k.jpg": "58dbafe19b152d0858f89964f6e2eccf16f16160d30c76cfb8139b3329362394"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Exterior Wall Cladding 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/exterior_wall_cladding_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/cladding-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CORRUGATED-IRON-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/corrugated_iron_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "5f07aab186885fef554ed95afe2af58822a6ed6542de5012dba27905cc58e154",
+      "original_sha256": {
+        "corrugated_iron_03_diff_2k.jpg": "7b3f4f849dd634f54548b3b552ebeae723266f782163341185c94094e2eb7991"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Corrugated Iron 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/corrugated_iron_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/cladding-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CORRUGATED-IRON-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/corrugated_iron_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "9dc61e1ac7b9b3e76d925445de4984578caaaf0c57eceaed46ca9cc65205b91e",
+      "original_sha256": {
+        "corrugated_iron_03_nor_gl_2k.jpg": "9f865a4de4753a9cc0987c4e665ec935c7dd28d3c6cd80c4dd2000d64c2fcfc3"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Corrugated Iron 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/corrugated_iron_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/cladding-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CORRUGATED-IRON-03",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/corrugated_iron_03",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "e19d8f72d3fb0a649eac38e97ec3846d39c81ea46b21ee4ddddd5a758486ca1e",
+      "original_sha256": {
+        "corrugated_iron_03_arm_2k.jpg": "67e732253e52fd04089ba16c9757ced090c5331144f29600fc8ffeb32aaf5f2b"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Corrugated Iron 03\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/corrugated_iron_03), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/concrete-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-WALL-008",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_wall_008",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "561242813e6d98c4b615a59b41c97ca41a4d99b0cc27ae091d77fb3e9ddb7621",
+      "original_sha256": {
+        "concrete_wall_008_diff_2k.jpg": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Wall 008\" by Dario Barresi, Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_wall_008), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/concrete-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-WALL-008",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_wall_008",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "a3ae82abd17bfa076da96bd16d97426a2b88aac7cfc68b5fa60ff90f7bd57812",
+      "original_sha256": {
+        "concrete_wall_008_nor_gl_2k.jpg": "58ce9b818772d37fe16e1154ea0278f3ab423ed34073357e786ef44f9ceef052"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Wall 008\" by Dario Barresi, Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_wall_008), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/concrete-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-WALL-008",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_wall_008",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "f93e8dfe8e116ce7bbc332df72c080b7916f6ff2ee0f9be4391b93e48b64a451",
+      "original_sha256": {
+        "concrete_wall_008_arm_2k.jpg": "98e5e8f447e2ce92bb0349cb0c8265ca0b67c6fe6f6a1be31c4be8e986aa47c7"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Wall 008\" by Dario Barresi, Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_wall_008), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/flatRoof-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BITUMEN",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/bitumen",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "748347111d068dde3bb8c5ef0f24312b543497b058433f2712647a64ad381619",
+      "original_sha256": {
+        "bitumen_diff_2k.jpg": "709bf2bd8753197f90c0ea1fc3a735c1e06ffd7cb4aabdb9bd9401f9df607e31"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Bitumen\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/bitumen), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/flatRoof-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BITUMEN",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/bitumen",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "5e7cd04fde725d9a81897ac466c400108b9054f978cea1d3ea8a91f1b90b6627",
+      "original_sha256": {
+        "bitumen_arm_2k.jpg": "e231ad709b90ff3df25ab46ec4c6d1e6ddfcccaf62f2d6c19d868ba6755f5390"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Bitumen\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/bitumen), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/grass-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS004",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass004",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "c551323d593cf85fa73a4efda19d8ce9458872043661a76a4d08cff74ecf4ee5",
+      "original_sha256": {
+        "Grass004_1K-JPG/Grass004_1K-JPG_Color.jpg": "9e1c60da44b34a9738b1256ba827541f097dc583521b1d281e61b5f4b4217bc5"
+      },
+      "modifications": "Colour map: resampled 1024\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 004\" from ambientCG (https://ambientcg.com/view?id=Grass004), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/grass-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS004",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass004",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "995022b2822b38f46b51e845fca4a46067e3af92851ee517ac1723797cedf18b",
+      "original_sha256": {
+        "Grass004_1K-JPG/Grass004_1K-JPG_AmbientOcclusion.jpg": "04dde15209751196f5d0fc84507e6e2fbd7876a766ba3ab158e061dd9b756b95",
+        "Grass004_1K-JPG/Grass004_1K-JPG_Roughness.jpg": "706580983860f942e141acdd68c4128dd683be50fcc5d85b7c67a9a3a8c7bac0"
+      },
+      "modifications": "AmbientOcclusion \u2192 R and Roughness \u2192 G packed with metalness 0 in B (glTF ORM); resampled 1024\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 004\" from ambientCG (https://ambientcg.com/view?id=Grass004), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/leaves-hornbeam.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-LEAFSET014",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=LeafSet014",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "92ed8a99a3312a14f8bbf2d1a779115fe7cdc8a62d23020b51c19a73be68ec86",
+      "original_sha256": {
+        "LeafSet014_2K-JPG/LeafSet014_2K-JPG_Color.jpg": "cd886f93c8e8d5ded48bd8478f0a949abf8de40367cbdbb2b105dbbaeb75da4f",
+        "LeafSet014_2K-JPG/LeafSet014_2K-JPG_Opacity.jpg": "a855f0863d731adce2776a23e910819ed0fd01728b160b7e9d001cbc831fe861"
+      },
+      "modifications": "Colour and Opacity packed as RGBA; colour dilated from opaque texels into transparent ones; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), clamped mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Leaf Set 014\" from ambientCG (https://ambientcg.com/view?id=LeafSet014), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/leaves-maple.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-LEAFSET010",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=LeafSet010",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "eb5d9eef986a2ce3a22e04110e60bc14a7cee8f798ab3626d163eaa345ae806c",
+      "original_sha256": {
+        "LeafSet010_2K-JPG/LeafSet010_2K-JPG_Color.jpg": "89302aef2b6507394486f730c51edf6b8ab8d1acd13e9c45183c9bd0e1ca7286",
+        "LeafSet010_2K-JPG/LeafSet010_2K-JPG_Opacity.jpg": "a68b47cae243c43d1d23178a49d0b1d7e6e824120051a22c48816757f4f84ddc"
+      },
+      "modifications": "Colour and Opacity packed as RGBA; colour dilated from opaque texels into transparent ones; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), clamped mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Leaf Set 010\" from ambientCG (https://ambientcg.com/view?id=LeafSet010), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/leaves-oak.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-LEAFSET016",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=LeafSet016",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "ce03709214b7a803b98c318a291c10f8bd4e0f3136b5c0152e0f94cc55a57bbf",
+      "original_sha256": {
+        "LeafSet016_2K-JPG/LeafSet016_2K-JPG_Color.jpg": "3abc7e28cac20179f9b7b537ee1bd0c688da45d65014f77160ae64921d93e40e",
+        "LeafSet016_2K-JPG/LeafSet016_2K-JPG_Opacity.jpg": "7e01401a45c612d28074535e904729a74f5c3d1a2e3acafc38666bf8c7ca8530"
+      },
+      "modifications": "Colour and Opacity packed as RGBA; colour dilated from opaque texels into transparent ones; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), clamped mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Leaf Set 016\" from ambientCG (https://ambientcg.com/view?id=LeafSet016), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/paintedSteel-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BLUE-METAL-PLATE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/blue_metal_plate",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "91b9dbf03d38bcac77b8943bdcbb948a098e837526c6eab78d05f93a3367a855",
+      "original_sha256": {
+        "blue_metal_plate_diff_2k.jpg": "82855f6297ad07ea7ea4d1c501e6b56ed4c9c758653ca126bda9fd0ebba63c59"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Blue Metal Plate\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/blue_metal_plate), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/paintedSteel-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BLUE-METAL-PLATE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Rob Tuytel",
+      "source_url": "https://polyhaven.com/a/blue_metal_plate",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "0fc9fcd081e5f2b7b382e486ee96647f56a4f1d187401fdf8215a3134af90816",
+      "original_sha256": {
+        "blue_metal_plate_arm_2k.jpg": "64991aa1059eb36d74fb5973dcc55de9153cf277e8f587a5b7939966737a04e4"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Blue Metal Plate\" by Rob Tuytel, Poly Haven (https://polyhaven.com/a/blue_metal_plate), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/paving-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-PAVEMENT",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_pavement",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "e094716391fc31c78d2dad3c06d62ede691d5cb772fbd4ab2d8a28c7780fb1f3",
+      "original_sha256": {
+        "concrete_pavement_diff_2k.jpg": "e5a1cecfe7765cc0b24a6ab0abf492bd21c9e7af64e97fc46ef6021d0645fbd3"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Pavement\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_pavement), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/paving-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-CONCRETE-PAVEMENT",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/concrete_pavement",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "fed66da581bbdea159080bb124c34304d40c41e43982fb86ce7e0af048325f54",
+      "original_sha256": {
+        "concrete_pavement_arm_2k.jpg": "1ee3ab8013a6204c739b40ef9b87ccfdff32711525bccf94ee9b3c171aa731f6"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Concrete Pavement\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/concrete_pavement), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/precast-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BRUSHED-CONCRETE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Dimitrios Savva",
+      "source_url": "https://polyhaven.com/a/brushed_concrete",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "caf4b2bee9f7e6b6b22cd45872828c9769b3356f18a5284821d48be4e19bd4ec",
+      "original_sha256": {
+        "brushed_concrete_diff_2k.jpg": "5af96604b20e29862b449d86981b196b18ba5cbcb8659c451dd8976411a36130"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Brushed Concrete\" by Dario Barresi, Dimitrios Savva, Poly Haven (https://polyhaven.com/a/brushed_concrete), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/precast-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BRUSHED-CONCRETE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Dimitrios Savva",
+      "source_url": "https://polyhaven.com/a/brushed_concrete",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "b0a0f8201cc70c0ca4a56e76ed905783955bc9fb5ba98d722305202fd8940194",
+      "original_sha256": {
+        "brushed_concrete_nor_gl_2k.jpg": "3d1f1c7a5f20a5f7a15f3bc5c5f58c0fdcaf49e71e65a5f17e086b551895c00c"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Brushed Concrete\" by Dario Barresi, Dimitrios Savva, Poly Haven (https://polyhaven.com/a/brushed_concrete), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/precast-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BRUSHED-CONCRETE",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Dario Barresi, Dimitrios Savva",
+      "source_url": "https://polyhaven.com/a/brushed_concrete",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "71b67f3a8d7baddf1198208d012e1d8a5ac76a533d6a8313065c53e5990fd348",
+      "original_sha256": {
+        "brushed_concrete_arm_2k.jpg": "87e7ee823a78d6d85dc98cd5d1b5a7d4e694429ef4a01f3947b7e4b8a8d284b2"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Brushed Concrete\" by Dario Barresi, Dimitrios Savva, Poly Haven (https://polyhaven.com/a/brushed_concrete), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/roofSheet-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BOX-PROFILE-METAL-SHEET",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/box_profile_metal_sheet",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "7fe4071dc1f34afa163e45c4a4e97bc4335326be1d43233d9cf8e21dd245b617",
+      "original_sha256": {
+        "box_profile_metal_sheet_diff_2k.jpg": "ac6136f370a9ec7370e2bac2e5467cabd92857693033e1a49fa67a5cafa1303b"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Box Profile Metal Sheet\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/box_profile_metal_sheet), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/roofSheet-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BOX-PROFILE-METAL-SHEET",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/box_profile_metal_sheet",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "19b09fe580fae944e11ae8300abdc0540e2e54d1d77fd93eb6d6864cdda61d7f",
+      "original_sha256": {
+        "box_profile_metal_sheet_nor_gl_2k.jpg": "8f4f34e06aae460b0f0de2b1dd6f76ac2e1e251e5cc929907ff258bd04793e1e"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Box Profile Metal Sheet\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/box_profile_metal_sheet), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/roofSheet-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-BOX-PROFILE-METAL-SHEET",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/box_profile_metal_sheet",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "278e982b56dfeabfef9716e42419c699c2dbda1bad917d05c0f0e715c57e8675",
+      "original_sha256": {
+        "box_profile_metal_sheet_arm_2k.jpg": "ce9c722a34df21ce469a9ffa08d9d357340866885647ba5dff48d054fa724313"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Box Profile Metal Sheet\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/box_profile_metal_sheet), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/sky.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-KLOOFENDAL-48D-PARTLY-CLOUDY-PURESKY",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Greg Zaal, Jarod Guest",
+      "source_url": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "0fbb71766d13df4aedd7ee061925181b1021d8064ca36eead0549841e449a3e9",
+      "original_sha256": {
+        "kloofendal_48d_partly_cloudy_puresky_1k.hdr": "fd94c84997b8a3c353b62c2125a9b44e19509956986a126e472684432a02d798"
+      },
+      "modifications": "Radiance RGBE (1k) decoded; texels within 3\u00b0 of the sun brighter than 1.5\u00d7 the brightest other sky texel clamped (sun direction and energy recorded in index.json); repacked as E5B9G9R9 float with rows bottom-up, zstd 20 (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Kloofendal 48d Partly Cloudy (Pure Sky)\" by Greg Zaal, Jarod Guest, Poly Haven (https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/soil-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-FARM-SOIL",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/farm_soil",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "5581b57ffb7febea9408d9ac64d9ded2e8b518c2574fce884bb6221038a6da3e",
+      "original_sha256": {
+        "farm_soil_diff_2k.jpg": "c86b4e3e86218fb06efb69691a7fe25a61dab82fb0967542b33fbd5cacc5ddc0"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Farm Soil\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/farm_soil), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/soil-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-FARM-SOIL",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Amal Kumar",
+      "source_url": "https://polyhaven.com/a/farm_soil",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "444f74a3b13c018d6d74c0322a9c7471884481a7056a1ff99946f333f282c574",
+      "original_sha256": {
+        "farm_soil_arm_2k.jpg": "5e721aa1dfd392df9142fa6910e8ca00469b203d4116a433ba9b747a6a1dc0ad"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Farm Soil\" by Amal Kumar, Poly Haven (https://polyhaven.com/a/farm_soil), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/track-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-RUBBERIZED-TRACK",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/rubberized_track",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "ace4725c780439235137bdfabf776cf3c88a3289a5d184023b9ed81deef43038",
+      "original_sha256": {
+        "rubberized_track_diff_2k.jpg": "1b7cb225ae8ae7be9cc91f48a234dcd76ed32d4f98a4ac547e0b2f299752438a"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Rubberized Track\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/rubberized_track), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/track-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-PH-RUBBERIZED-TRACK",
+        "KTX-SOFTWARE"
+      ],
+      "author": "Charlotte Baglioni",
+      "source_url": "https://polyhaven.com/a/rubberized_track",
+      "license_page": "https://polyhaven.com/license",
+      "sha256": "047a4dca0e57b90f9bb986b62a9ce4baf412b57e299ef3945fb02249e8a64cc6",
+      "original_sha256": {
+        "rubberized_track_arm_2k.jpg": "7cbdcaf3ad9e48d2c2a7e1cc8299e0698fba06a12f78a3a3f6d8f9ae6309d86b"
+      },
+      "modifications": "ARM map (R occlusion, G roughness, B metalness): resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Rubberized Track\" by Charlotte Baglioni, Poly Haven (https://polyhaven.com/a/rubberized_track), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/turf-color.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS005",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass005",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "abda1807f45b6a0fc684996929e7145b418cd3f016d75c9e3cf7f2c0a88f3b2f",
+      "original_sha256": {
+        "Grass005_2K-JPG/Grass005_2K-JPG_Color.jpg": "2acdf15d09e790a114743f21bc0332a86e386cb77c54507323d626f67f0f2e10"
+      },
+      "modifications": "Colour map: resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ sRGB (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 005\" from ambientCG (https://ambientcg.com/view?id=Grass005), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/turf-normal.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS005",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass005",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "b6b814cafcfcf095d03cd4667f9a351c7590d6ce68ce407835b8bdab2428c9f3",
+      "original_sha256": {
+        "Grass005_2K-JPG/Grass005_2K-JPG_NormalGL.jpg": "c8406e8b784fbcd22d706fbe0c24175c327bca7e19ad8d09457fad8a05089548"
+      },
+      "modifications": "OpenGL (+Y) normal map renormalised; resampled 2048\u00b2 \u2192 512\u00b2 (lanczos4), wrap-around mipmaps, UASTC with RDO (lambda 0.5) and zstd 20, linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 005\" from ambientCG (https://ambientcg.com/view?id=Grass005), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
+    },
+    {
+      "path": "public/assets/explorer/phone/turf-orm.ktx2",
+      "kind": "texture-asset",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "source_ids": [
+        "CC0-ACG-GRASS005",
+        "KTX-SOFTWARE"
+      ],
+      "author": "ambientCG",
+      "source_url": "https://ambientcg.com/view?id=Grass005",
+      "license_page": "https://docs.ambientcg.com/license/",
+      "sha256": "b260d8db684c2486380d580f3981bcc820a46f0c7dbc83508012323ef033efaf",
+      "original_sha256": {
+        "Grass005_2K-JPG/Grass005_2K-JPG_AmbientOcclusion.jpg": "cfb633134b164b376c9cbbd06774c6465570e3f156caa8ece080104ac00c7d09",
+        "Grass005_2K-JPG/Grass005_2K-JPG_Roughness.jpg": "20c302c4cf059d6676d83528ae7cbf62ca35944e691dc6377a164ce9c31c8e67"
+      },
+      "modifications": "AmbientOcclusion \u2192 R and Roughness \u2192 G packed with metalness 0 in B (glTF ORM); resampled 2048\u00b2 \u2192 1024\u00b2 (lanczos4), wrap-around mipmaps, ETC1S/BasisLZ linear (KTX-Software 4.4.2 via scripts/process-assets.mjs).",
+      "attribution": "\"Grass 005\" from ambientCG (https://ambientcg.com/view?id=Grass005), CC0 1.0. No attribution required; credited in public/credits.html.",
+      "redistribution": "Permitted: CC0 1.0 public-domain dedication. Shipped as a processed derivative; the originals stay out of the repository."
     },
     {
       "path": "public/bvb-09-logo.svg",
@@ -385,8 +2049,8 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the walkthrough description to a locally saved viewpoint. The 2026-09-28 re-recording updates the text alternative. The 2026-09-29 hero-animation update disables the broken fi/fl ligatures and adds a note that the animated hero and its poster are original and derived from the project\u2019s own model.",
-      "sha256": "1aab0d2ddee9498d20d86b70ce4cd27ce82ee522b87d202a55b56a402d3d19e2"
+      "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. Task 6 updates the walkthrough description to a locally saved viewpoint. The 2026-09-28 re-recording updates the text alternative. The 2026-09-29 hero-animation update disables the broken fi/fl ligatures and adds a note that the animated hero and its poster are original and derived from the project\u2019s own model. Explorer fidelity Task 1 adds the \"Materials & sky\" section crediting each CC0 source (author and page) and names the Basis transcoder among the runtime licences; hash recorded in Task 12.",
+      "sha256": "04f72f6880aff7f3676b735d0b49dd893494c7dd2b3f9ad56eb08d7ec5226de1"
     },
     {
       "path": "public/fonts/area-inktrap-bold.otf",
@@ -500,6 +2164,28 @@
       "notes": "Independently authored; external reference records contain provenance metadata only"
     },
     {
+      "path": "scripts/explorer-assets.json",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Approved CC0 source manifest for explorer fidelity Task 1: asset pages, licence statements checked on 2026-09-29, authors, original-file SHA-256 values and per-tier output resolutions. Metadata only; no third-party content."
+    },
+    {
+      "path": "scripts/explorer-captures.cjs",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original explorer visual-review harness (explorer fidelity Task 0): named-pose captures, contact sheets, run-to-run diffs and a frame-interval baseline, all captured from the working app into the git-ignored .cache/explorer/; no external imagery."
+    },
+    {
       "path": "scripts/hero-filmstrip.cjs",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -519,6 +2205,18 @@
         "TASK-BRIEF"
       ],
       "notes": "Original Task 10 release preparation; recording uses only the working app, without external footage or audio. The 2026-09-29 update allowlists the original hero poster."
+    },
+    {
+      "path": "scripts/process-assets.mjs",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "KTX-SOFTWARE"
+      ],
+      "notes": "Original deterministic asset pipeline (explorer fidelity Task 1). Verifies the CC0 originals, packs channels, encodes KTX2 with KTX-Software, analyses and clamps the sky's sun, checks budgets, and syncs the provenance entries for public/assets/explorer/. Node standard library only."
     },
     {
       "path": "scripts/record-demo.cjs",
@@ -563,14 +2261,27 @@
       "notes": "Original Task 2 shell"
     },
     {
+      "path": "src/atmosphere/figures.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original low-poly spectator and player figures (explorer fidelity Task 9, approved by the product owner 2026-09-29): tapered primitives with vertex shading for trousers and hair, and muted clothing and skin palettes. Anonymous: no faces, kits or likenesses; nothing traced or imported."
+    },
+    {
       "path": "src/atmosphere/matchday.ts",
       "kind": "project-source-or-documentation",
       "origin": "original",
       "license": "UNLICENSED",
       "source_ids": [
-        "TASK-BRIEF"
+        "TASK-BRIEF",
+        "THREE-UPSTREAM"
       ],
-      "notes": "Original Tasks 8\u20139 implementation, validation, or completion record. No reference code or media imported."
+      "notes": "Original Tasks 8\u20139 implementation, validation, or completion record. No reference code or media imported. Explorer fidelity Task 9 (approved by the product owner): close figures on the high tier use the anonymous people shapes of src/atmosphere/figures.ts, re-bucketed by camera distance; boxes stay on compact and far away."
     },
     {
       "path": "src/atmosphere/settings.ts",
@@ -717,6 +2428,30 @@
       "notes": "Original UI refinements implementing the intentional-design review and Task 2 progressive-discovery disclosure and representative-view controls. Task 6 removes dead demo-basket selectors and styles the saved-viewpoint card."
     },
     {
+      "path": "src/stadium/buildings.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original district geometry (explorer fidelity Task 8): procedural service buildings, allotment sheds with gable roofs, bevelled car proxies, and a two-track railway with sleepers and overhead-line masts, on the existing layout's footprints."
+    },
+    {
+      "path": "src/stadium/ground.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original ground system (explorer fidelity Task 8): the district painter's tint, material masks and paint-mark decal mesh, and one ground shader that blends the CC0 ground sets by mask and continues into procedural fields and hedgerows to a 3 km horizon."
+    },
+    {
       "path": "src/stadium/layout.ts",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -731,6 +2466,18 @@
       "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative."
     },
     {
+      "path": "src/stadium/materials.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original explorer material system (explorer fidelity Task 5): an onBeforeCompile patch that maps the CC0 texture sets by world position (triplanar with a whiteout normal blend, or a ring coordinate around the stadium outline), normalises detail by each map's mean so the palette holds, adds low-frequency macro variation and an analytic bowl sky-visibility term; plus the stadium's material library. The CC0 textures themselves are separate inventory entries."
+    },
+    {
       "path": "src/stadium/model.ts",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -742,7 +2489,41 @@
         "IMG-INTERIOR-STANDS",
         "IMG-INTERIOR-SOUTH-VIEW"
       ],
-      "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative. Task 2 remediation adds stand identity to structural instances for canvas discovery without altering geometry."
+      "notes": "Original implementation or validation for Tasks 3\u20136. Geometry and data are illustrative. Task 2 remediation adds stand identity to structural instances for canvas discovery without altering geometry. Explorer fidelity Tasks 2\u20134 replace the fa\u00e7ade boxes, row slabs, square roof and old pylons with the solid shell, stands and roof ring (shell.ts, stands.ts, roof.ts) and add standOfHit for shell and roof picks."
+    },
+    {
+      "path": "src/stadium/roof.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original roof ring and ring cutaway (explorer fidelity Task 4): rounded-ring slab with edge band, soffit and translucent strip at two openings sharing one topology (morph target), plus trusses, light bars and pylon stays that follow the inner edge."
+    },
+    {
+      "path": "src/stadium/shell.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original outer shell (explorer fidelity Task 2): continuous rounded-rectangle wall, base course, coping, louvre band, glazing rows, transoms and mullion layout, following the project's own hero outline constants (src/hero/framing.ts, read-only)."
+    },
+    {
+      "path": "src/stadium/stands.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Original solid-stand cross-sections (explorer fidelity Task 3) derived from the project's own layout.ts rows: treads, risers, concourse, glazing, soffit, vomitory tunnels and stairs, corner sweeps and decorative corner seat rows."
     },
     {
       "path": "src/stadium/surroundings.ts",
@@ -755,6 +2536,30 @@
         "IMG-AERIAL-ROOF-ANGLE"
       ],
       "notes": "Original procedural, illustrative terrain and geometry informed by user-supplied aerial views and existing exterior research. No reference image pixels or third-party media are bundled."
+    },
+    {
+      "path": "src/stadium/sweep.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original profile-sweep mesher (explorer fidelity Tasks 2\u20134): closed cross-sections extruded along straight runs and quarter arcs, with per-material groups and per-triangle stand tags. Uses three's public API only."
+    },
+    {
+      "path": "src/stadium/trees.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original trees (explorer fidelity Task 8): oak, hornbeam and maple built in-repo from the CC0 bark and leaf sets; foliage clumps and impostor atlases (albedo and world normal) baked on the GPU at runtime, with dithered level-of-detail crossfade and shadow-only proxies. No baked files ship."
     },
     {
       "path": "src/styles.css",
@@ -781,6 +2586,18 @@
       "notes": "Original implementation or validation for Tasks 3\u20136. Task 2 remediation implements the four-stage flow, representative choices, persistent Advanced disclosure and unified selection/navigation. Task 5 remediation replaces transactional language (demo basket) with saved-viewpoint feature, demotes price/availability from novice path, consolidates disclaimers. Geometry and data are illustrative. Task 6 makes Save viewpoint the stage-4 primary action, consolidates saved/remove controls, and lets View saved viewpoint relax hiding filters."
     },
     {
+      "path": "src/viewer/assets.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original loader for the explorer's processed CC0 textures and sky (explorer fidelity Task 5): one shared KTX2Loader (Basis transcoder served from public/, THREE-UPSTREAM) and a ref-counted, delayed-release cache so remounts and Retry reuse loaded textures."
+    },
+    {
       "path": "src/viewer/camera.ts",
       "kind": "project-source-or-documentation",
       "origin": "original",
@@ -804,7 +2621,54 @@
         "REF-SCREENSHOT",
         "THREE-UPSTREAM"
       ],
-      "notes": "Original implementation or validation for Tasks 3\u20136. Task 2 remediation adds structural stand-click events alongside existing place picks. Geometry and data are illustrative."
+      "notes": "Original implementation or validation for Tasks 3\u20136. Task 2 remediation adds structural stand-click events alongside existing place picks. Geometry and data are illustrative. Explorer fidelity Tasks 5\u20136 route rendering through viewer/pipeline.ts (IBL, static sun shadows, post-processing, quality tiers), load the CC0 textures after the first frame, and expose data-textures, data-quality, data-quality-step, data-draw-calls-total and data-shadow-renders (Task 6 of the explorer fidelity work)."
+    },
+    {
+      "path": "src/viewer/pipeline.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original explorer daylight pipeline (explorer fidelity Task 6): sky dome baked into a PMREM environment with a ground-bounce lower hemisphere, sun DirectionalLight aligned with the CC0 sky's measured sun, static sun shadow map, EffectComposer chain (RenderPass, GTAO from scene depth, optional bloom, OutputPass with Khronos PBR Neutral tone mapping, SMAA), per-pass draw counters and the adaptive quality guard."
+    },
+    {
+      "path": "src/viewer/poses.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF"
+      ],
+      "notes": "Dev-only capture poses for ?explorer-pose= (explorer fidelity Task 0); camera values derived from the project's own layout and hero framing."
+    },
+    {
+      "path": "src/viewer/post.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original explorer post-processing chain (explorer fidelity Task 6), loaded as its own chunk: RenderPass, GTAO fed with the scene pass's depth at half resolution, optional bloom, OutputPass and SMAA, built from three's addons."
+    },
+    {
+      "path": "src/viewer/quality.ts",
+      "kind": "project-source-or-documentation",
+      "origin": "original",
+      "license": "UNLICENSED",
+      "source_ids": [
+        "TASK-BRIEF",
+        "DESIGN-BRIEF",
+        "THREE-UPSTREAM"
+      ],
+      "notes": "Original explorer quality tiers (explorer fidelity Task 6): high and compact settings, the ?quality= override and the adaptive guard's step-down order."
     },
     {
       "path": "src/vite-env.d.ts",
@@ -846,7 +2710,7 @@
         "TASK-BRIEF",
         "DESIGN-BRIEF"
       ],
-      "notes": "Original hero-animation browser checks (Task 7): phases, session-skip, pause/replay, offscreen freeze, reduced motion, WebGL and storage fallbacks, axe, layout, CLS, inertness, and CPU-throttled frame, LCP and bundle budgets against the working app only."
+      "notes": "Original hero-animation browser checks (Task 7): phases, session-skip, pause/replay, offscreen freeze, reduced motion, WebGL and storage fallbacks, axe, layout, CLS, inertness, and CPU-throttled frame, LCP and bundle budgets against the working app only. 2026-09-29 (explorer fidelity, approved by the product owner): the context-loss check waits for the poster's 0.2 s fade to finish before reading its opacity."
     },
     {
       "path": "tests/hero.test.ts",
@@ -867,7 +2731,7 @@
       "source_ids": [
         "TASK-BRIEF"
       ],
-      "notes": "Original implementation or validation for Tasks 3\u20136. Task 2 remediation adds structural stand-picking regression coverage. Geometry and data are illustrative."
+      "notes": "Original implementation or validation for Tasks 3\u20136. Task 2 remediation adds structural stand-picking regression coverage. Geometry and data are illustrative. Explorer fidelity Tasks 2\u20134 add outer-wall, corner, roof-occlusion and tread-height checks."
     },
     {
       "path": "tests/quality.browser.cjs",

@@ -1,0 +1,853 @@
+{
+ "schemaVersion": 1,
+ "note": "Approved CC0 sources for the explorer (docs/explorer-fidelity-task-list.md, Task 1). The product owner approved exactly these downloads on 2026-09-29. Originals live in the git-ignored .cache/assets-src/ and are checked against these SHA-256 values; scripts/process-assets.mjs writes public/assets/explorer/. Tier values are output edge lengths in pixels (0 = not shipped).",
+ "approvedOn": "2026-09-29",
+ "tool": {
+  "name": "KTX-Software",
+  "version": "4.4.2",
+  "package": "https://github.com/KhronosGroup/KTX-Software/releases/download/v4.4.2/KTX-Software-4.4.2-Darwin-arm64.pkg",
+  "sha256": "500bd8f9d63358c3f3a0d83b724c8574436a72c37dc0e4bad90ec1ca38032c3c"
+ },
+ "materials": [
+  {
+   "role": "concrete",
+   "name": "Concrete Wall 008",
+   "source": "polyhaven",
+   "id": "concrete_wall_008",
+   "page": "https://polyhaven.com/a/concrete_wall_008",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Dario Barresi",
+    "Charlotte Baglioni"
+   ],
+   "tileMeters": 2.71,
+   "use": "Cast concrete: stand solids, soffits, plinth",
+   "files": {
+    "color": {
+     "file": "concrete_wall_008_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_008/concrete_wall_008_diff_2k.jpg",
+     "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846"
+    },
+    "normal": {
+     "file": "concrete_wall_008_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_008/concrete_wall_008_nor_gl_2k.jpg",
+     "sha256": "58ce9b818772d37fe16e1154ea0278f3ab423ed34073357e786ef44f9ceef052"
+    },
+    "orm": {
+     "file": "concrete_wall_008_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_008/concrete_wall_008_arm_2k.jpg",
+     "sha256": "98e5e8f447e2ce92bb0349cb0c8265ca0b67c6fe6f6a1be31c4be8e986aa47c7"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 1024
+    },
+    "phone": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 512
+    }
+   }
+  },
+  {
+   "role": "precast",
+   "name": "Brushed Concrete",
+   "source": "polyhaven",
+   "id": "brushed_concrete",
+   "page": "https://polyhaven.com/a/brushed_concrete",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Dario Barresi",
+    "Dimitrios Savva"
+   ],
+   "tileMeters": 2.5,
+   "use": "Precast risers and treads (the closest surface in seat previews, so the only 2K set)",
+   "files": {
+    "color": {
+     "file": "brushed_concrete_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brushed_concrete/brushed_concrete_diff_2k.jpg",
+     "sha256": "5af96604b20e29862b449d86981b196b18ba5cbcb8659c451dd8976411a36130"
+    },
+    "normal": {
+     "file": "brushed_concrete_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brushed_concrete/brushed_concrete_nor_gl_2k.jpg",
+     "sha256": "3d1f1c7a5f20a5f7a15f3bc5c5f58c0fdcaf49e71e65a5f17e086b551895c00c"
+    },
+    "orm": {
+     "file": "brushed_concrete_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brushed_concrete/brushed_concrete_arm_2k.jpg",
+     "sha256": "87e7ee823a78d6d85dc98cd5d1b5a7d4e694429ef4a01f3947b7e4b8a8d284b2"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 2048,
+     "orm": 2048,
+     "normal": 1024
+    },
+    "phone": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 512
+    }
+   }
+  },
+  {
+   "role": "cladding",
+   "name": "Corrugated Iron 03",
+   "source": "polyhaven",
+   "id": "corrugated_iron_03",
+   "page": "https://polyhaven.com/a/corrugated_iron_03",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Charlotte Baglioni"
+   ],
+   "tileMeters": 2.0,
+   "use": "Outer-wall cladding panels",
+   "files": {
+    "color": {
+     "file": "corrugated_iron_03_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/corrugated_iron_03/corrugated_iron_03_diff_2k.jpg",
+     "sha256": "7b3f4f849dd634f54548b3b552ebeae723266f782163341185c94094e2eb7991"
+    },
+    "normal": {
+     "file": "corrugated_iron_03_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/corrugated_iron_03/corrugated_iron_03_nor_gl_2k.jpg",
+     "sha256": "9f865a4de4753a9cc0987c4e665ec935c7dd28d3c6cd80c4dd2000d64c2fcfc3"
+    },
+    "orm": {
+     "file": "corrugated_iron_03_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/corrugated_iron_03/corrugated_iron_03_arm_2k.jpg",
+     "sha256": "67e732253e52fd04089ba16c9757ced090c5331144f29600fc8ffeb32aaf5f2b"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 1024
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 512
+    }
+   }
+  },
+  {
+   "role": "roofSheet",
+   "name": "Box Profile Metal Sheet",
+   "source": "polyhaven",
+   "id": "box_profile_metal_sheet",
+   "page": "https://polyhaven.com/a/box_profile_metal_sheet",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Amal Kumar"
+   ],
+   "tileMeters": 2.0,
+   "use": "Roof sheet (relief and roughness; base colour replaced at runtime)",
+   "files": {
+    "color": {
+     "file": "box_profile_metal_sheet_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/box_profile_metal_sheet/box_profile_metal_sheet_diff_2k.jpg",
+     "sha256": "ac6136f370a9ec7370e2bac2e5467cabd92857693033e1a49fa67a5cafa1303b"
+    },
+    "normal": {
+     "file": "box_profile_metal_sheet_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/box_profile_metal_sheet/box_profile_metal_sheet_nor_gl_2k.jpg",
+     "sha256": "8f4f34e06aae460b0f0de2b1dd6f76ac2e1e251e5cc929907ff258bd04793e1e"
+    },
+    "orm": {
+     "file": "box_profile_metal_sheet_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/box_profile_metal_sheet/box_profile_metal_sheet_arm_2k.jpg",
+     "sha256": "ce9c722a34df21ce469a9ffa08d9d357340866885647ba5dff48d054fa724313"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 1024
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 512
+    }
+   }
+  },
+  {
+   "role": "paintedSteel",
+   "name": "Blue Metal Plate",
+   "source": "polyhaven",
+   "id": "blue_metal_plate",
+   "page": "https://polyhaven.com/a/blue_metal_plate",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "tileMeters": 2.5,
+   "use": "Painted steel: pylons, trusses, mullions (base colour replaced at runtime)",
+   "files": {
+    "color": {
+     "file": "blue_metal_plate_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_metal_plate/blue_metal_plate_diff_2k.jpg",
+     "sha256": "82855f6297ad07ea7ea4d1c501e6b56ed4c9c758653ca126bda9fd0ebba63c59"
+    },
+    "normal": {
+     "file": "blue_metal_plate_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_metal_plate/blue_metal_plate_nor_gl_2k.jpg",
+     "sha256": "4cd3069a918cf891295b369b26f47c0a0631c634d0fd1006b6b7412a8f2b3550"
+    },
+    "orm": {
+     "file": "blue_metal_plate_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_metal_plate/blue_metal_plate_arm_2k.jpg",
+     "sha256": "64991aa1059eb36d74fb5973dcc55de9153cf277e8f587a5b7939966737a04e4"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 512
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 0
+    }
+   }
+  },
+  {
+   "role": "buildingFacade",
+   "name": "Exterior Wall Cladding 03",
+   "source": "polyhaven",
+   "id": "exterior_wall_cladding_03",
+   "page": "https://polyhaven.com/a/exterior_wall_cladding_03",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Charlotte Baglioni"
+   ],
+   "tileMeters": 1.96,
+   "use": "Service-building facades",
+   "files": {
+    "color": {
+     "file": "exterior_wall_cladding_03_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/exterior_wall_cladding_03/exterior_wall_cladding_03_diff_2k.jpg",
+     "sha256": "a555e5cb010924dd374c455b415b15fc15b71e1755b223bbfa8b92fc76018c6f"
+    },
+    "normal": {
+     "file": "exterior_wall_cladding_03_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/exterior_wall_cladding_03/exterior_wall_cladding_03_nor_gl_2k.jpg",
+     "sha256": "029bb52cd0d7d3e50cf916d99ece23027d1bc42375f888d21d7137aaf0c5f601"
+    },
+    "orm": {
+     "file": "exterior_wall_cladding_03_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/exterior_wall_cladding_03/exterior_wall_cladding_03_arm_2k.jpg",
+     "sha256": "58dbafe19b152d0858f89964f6e2eccf16f16160d30c76cfb8139b3329362394"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 512
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 0
+    }
+   }
+  },
+  {
+   "role": "flatRoof",
+   "name": "Bitumen",
+   "source": "polyhaven",
+   "id": "bitumen",
+   "page": "https://polyhaven.com/a/bitumen",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "tileMeters": 20.0,
+   "use": "Service-building flat roofs",
+   "files": {
+    "color": {
+     "file": "bitumen_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bitumen/bitumen_diff_2k.jpg",
+     "sha256": "709bf2bd8753197f90c0ea1fc3a735c1e06ffd7cb4aabdb9bd9401f9df607e31"
+    },
+    "normal": {
+     "file": "bitumen_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bitumen/bitumen_nor_gl_2k.jpg",
+     "sha256": "9b7c1c1f5d1b99eadc652b4b1553305cff3285f4621aab23de3dff7357b7ecb6"
+    },
+    "orm": {
+     "file": "bitumen_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bitumen/bitumen_arm_2k.jpg",
+     "sha256": "e231ad709b90ff3df25ab46ec4c6d1e6ddfcccaf62f2d6c19d868ba6755f5390"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 0
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 0
+    }
+   }
+  },
+  {
+   "role": "asphalt",
+   "name": "Asphalt 02",
+   "source": "polyhaven",
+   "id": "asphalt_02",
+   "page": "https://polyhaven.com/a/asphalt_02",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "tileMeters": 3.0,
+   "use": "Roads and car parks",
+   "files": {
+    "color": {
+     "file": "asphalt_02_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_diff_2k.jpg",
+     "sha256": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c"
+    },
+    "normal": {
+     "file": "asphalt_02_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_nor_gl_2k.jpg",
+     "sha256": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21"
+    },
+    "orm": {
+     "file": "asphalt_02_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_arm_2k.jpg",
+     "sha256": "ed70e88640e4ed51cf1c3e57cb20db26983599b20b867c2526439e3a2c849fea"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 0
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 0
+    }
+   }
+  },
+  {
+   "role": "paving",
+   "name": "Concrete Pavement",
+   "source": "polyhaven",
+   "id": "concrete_pavement",
+   "page": "https://polyhaven.com/a/concrete_pavement",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Charlotte Baglioni"
+   ],
+   "tileMeters": 1.8,
+   "use": "Forecourt paving",
+   "files": {
+    "color": {
+     "file": "concrete_pavement_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_pavement/concrete_pavement_diff_2k.jpg",
+     "sha256": "e5a1cecfe7765cc0b24a6ab0abf492bd21c9e7af64e97fc46ef6021d0645fbd3"
+    },
+    "normal": {
+     "file": "concrete_pavement_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_pavement/concrete_pavement_nor_gl_2k.jpg",
+     "sha256": "72def937e418ccc9d7736c9b1f51ae22a127fa2a53a54f4d1fe4d3cf828b781c"
+    },
+    "orm": {
+     "file": "concrete_pavement_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_pavement/concrete_pavement_arm_2k.jpg",
+     "sha256": "1ee3ab8013a6204c739b40ef9b87ccfdff32711525bccf94ee9b3c171aa731f6"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 0
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 0
+    }
+   }
+  },
+  {
+   "role": "ballast",
+   "name": "Gravel Stones",
+   "source": "polyhaven",
+   "id": "gravel_stones",
+   "page": "https://polyhaven.com/a/gravel_stones",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Amal Kumar"
+   ],
+   "tileMeters": 2.0,
+   "use": "Railway ballast",
+   "files": {
+    "color": {
+     "file": "gravel_stones_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_stones/gravel_stones_diff_2k.jpg",
+     "sha256": "cacad132d39976f66451271b4eeb1e6ee11ecbff2cd3160f2b9d4323aa2b0136"
+    },
+    "normal": {
+     "file": "gravel_stones_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_stones/gravel_stones_nor_gl_2k.jpg",
+     "sha256": "13a0218f69539da3e8f9ad805213ce311a936d30c05558d8e42ebb46fde5b7eb"
+    },
+    "orm": {
+     "file": "gravel_stones_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_stones/gravel_stones_arm_2k.jpg",
+     "sha256": "58c21dcfbfcbe7aa423dced4872bb0eff2988aae303cf268e787a102eb80a3dc"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 0
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 0
+    }
+   }
+  },
+  {
+   "role": "track",
+   "name": "Rubberized Track",
+   "source": "polyhaven",
+   "id": "rubberized_track",
+   "page": "https://polyhaven.com/a/rubberized_track",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Charlotte Baglioni"
+   ],
+   "tileMeters": 2.0,
+   "use": "Athletics track",
+   "files": {
+    "color": {
+     "file": "rubberized_track_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rubberized_track/rubberized_track_diff_2k.jpg",
+     "sha256": "1b7cb225ae8ae7be9cc91f48a234dcd76ed32d4f98a4ac547e0b2f299752438a"
+    },
+    "normal": {
+     "file": "rubberized_track_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rubberized_track/rubberized_track_nor_gl_2k.jpg",
+     "sha256": "0c4cccf2bd7eaf7c86f257c287c45cc3ceced63b311744c8a5ed2210560fab3f"
+    },
+    "orm": {
+     "file": "rubberized_track_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rubberized_track/rubberized_track_arm_2k.jpg",
+     "sha256": "7cbdcaf3ad9e48d2c2a7e1cc8299e0698fba06a12f78a3a3f6d8f9ae6309d86b"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 0
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 0
+    }
+   }
+  },
+  {
+   "role": "soil",
+   "name": "Farm Soil",
+   "source": "polyhaven",
+   "id": "farm_soil",
+   "page": "https://polyhaven.com/a/farm_soil",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Amal Kumar"
+   ],
+   "tileMeters": 2.0,
+   "use": "Allotment plots",
+   "files": {
+    "color": {
+     "file": "farm_soil_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/farm_soil/farm_soil_diff_2k.jpg",
+     "sha256": "c86b4e3e86218fb06efb69691a7fe25a61dab82fb0967542b33fbd5cacc5ddc0"
+    },
+    "normal": {
+     "file": "farm_soil_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/farm_soil/farm_soil_nor_gl_2k.jpg",
+     "sha256": "cfbf20c26de00d3e09a1546803b4f0a71a4d78938e4f1e1eeb37c049249e1240"
+    },
+    "orm": {
+     "file": "farm_soil_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/farm_soil/farm_soil_arm_2k.jpg",
+     "sha256": "5e721aa1dfd392df9142fa6910e8ca00469b203d4116a433ba9b747a6a1dc0ad"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 0
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 0
+    }
+   }
+  },
+  {
+   "role": "bark",
+   "name": "Bark Brown 02",
+   "source": "polyhaven",
+   "id": "bark_brown_02",
+   "page": "https://polyhaven.com/a/bark_brown_02",
+   "licensePage": "https://polyhaven.com/license",
+   "license": "CC0-1.0",
+   "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "tileMeters": 1.0,
+   "use": "Tree trunks and branches (trees built in-repo)",
+   "files": {
+    "color": {
+     "file": "bark_brown_02_diff_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bark_brown_02/bark_brown_02_diff_2k.jpg",
+     "sha256": "285051e34826ace29f4ab438ad35cc1201b2aae0a6157a5f3c0bf6667bbc539e"
+    },
+    "normal": {
+     "file": "bark_brown_02_nor_gl_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bark_brown_02/bark_brown_02_nor_gl_2k.jpg",
+     "sha256": "aaba4529c3167a7811b4dbf5b4327d054a166c2fc8ea08ebd249a2692adace41"
+    },
+    "orm": {
+     "file": "bark_brown_02_arm_2k.jpg",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/bark_brown_02/bark_brown_02_arm_2k.jpg",
+     "sha256": "d04abcb75755426cb9ae4f3190d5149f631ac35d100b921caeb565e44cd7365a"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 512,
+     "orm": 512,
+     "normal": 512
+    },
+    "phone": {
+     "color": 256,
+     "orm": 256,
+     "normal": 0
+    }
+   }
+  },
+  {
+   "role": "turf",
+   "name": "Grass 005",
+   "source": "ambientcg",
+   "id": "Grass005",
+   "page": "https://ambientcg.com/view?id=Grass005",
+   "licensePage": "https://docs.ambientcg.com/license/",
+   "license": "CC0-1.0",
+   "licenseStatement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "ambientCG"
+   ],
+   "tileMeters": null,
+   "use": "Pitch turf (the mowing stripes stay a colour modulation at runtime); the source publishes no real-world size",
+   "archive": {
+    "file": "Grass005_2K-JPG.zip",
+    "url": "https://ambientcg.com/get?file=Grass005_2K-JPG.zip",
+    "sha256": "89183d8dceabc3c23a26978f426e1662143dd2f84f1dc3586a1592d101e5234b"
+   },
+   "files": {
+    "color": {
+     "file": "Grass005_2K-JPG/Grass005_2K-JPG_Color.jpg",
+     "sha256": "2acdf15d09e790a114743f21bc0332a86e386cb77c54507323d626f67f0f2e10"
+    },
+    "normal": {
+     "file": "Grass005_2K-JPG/Grass005_2K-JPG_NormalGL.jpg",
+     "sha256": "c8406e8b784fbcd22d706fbe0c24175c327bca7e19ad8d09457fad8a05089548"
+    },
+    "ao": {
+     "file": "Grass005_2K-JPG/Grass005_2K-JPG_AmbientOcclusion.jpg",
+     "sha256": "cfb633134b164b376c9cbbd06774c6465570e3f156caa8ece080104ac00c7d09"
+    },
+    "roughness": {
+     "file": "Grass005_2K-JPG/Grass005_2K-JPG_Roughness.jpg",
+     "sha256": "20c302c4cf059d6676d83528ae7cbf62ca35944e691dc6377a164ce9c31c8e67"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 512
+    },
+    "phone": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 512
+    }
+   }
+  },
+  {
+   "role": "grass",
+   "name": "Grass 004",
+   "source": "ambientcg",
+   "id": "Grass004",
+   "page": "https://ambientcg.com/view?id=Grass004",
+   "licensePage": "https://docs.ambientcg.com/license/",
+   "license": "CC0-1.0",
+   "licenseStatement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "ambientCG"
+   ],
+   "tileMeters": 1.4,
+   "use": "Surrounding park grass",
+   "archive": {
+    "file": "Grass004_1K-JPG.zip",
+    "url": "https://ambientcg.com/get?file=Grass004_1K-JPG.zip",
+    "sha256": "4b63495f459db8481f4d5144e4e9069345c81cf898cc71f2216f5dd3bb344469"
+   },
+   "files": {
+    "color": {
+     "file": "Grass004_1K-JPG/Grass004_1K-JPG_Color.jpg",
+     "sha256": "9e1c60da44b34a9738b1256ba827541f097dc583521b1d281e61b5f4b4217bc5"
+    },
+    "normal": {
+     "file": "Grass004_1K-JPG/Grass004_1K-JPG_NormalGL.jpg",
+     "sha256": "8014a81d896a5c589b60612a769bc39eb1213e48d96f6146f485ea36e9e9610f"
+    },
+    "ao": {
+     "file": "Grass004_1K-JPG/Grass004_1K-JPG_AmbientOcclusion.jpg",
+     "sha256": "04dde15209751196f5d0fc84507e6e2fbd7876a766ba3ab158e061dd9b756b95"
+    },
+    "roughness": {
+     "file": "Grass004_1K-JPG/Grass004_1K-JPG_Roughness.jpg",
+     "sha256": "706580983860f942e141acdd68c4128dd683be50fcc5d85b7c67a9a3a8c7bac0"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "color": 1024,
+     "orm": 1024,
+     "normal": 0
+    },
+    "phone": {
+     "color": 512,
+     "orm": 512,
+     "normal": 0
+    }
+   }
+  }
+ ],
+ "atlases": [
+  {
+   "role": "leaves-oak",
+   "name": "Leaf Set 016",
+   "source": "ambientcg",
+   "id": "LeafSet016",
+   "page": "https://ambientcg.com/view?id=LeafSet016",
+   "licensePage": "https://docs.ambientcg.com/license/",
+   "license": "CC0-1.0",
+   "licenseStatement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "ambientCG"
+   ],
+   "tileMeters": null,
+   "use": "Leaf atlas (oak) for trees built in-repo",
+   "archive": {
+    "file": "LeafSet016_2K-JPG.zip",
+    "url": "https://ambientcg.com/get?file=LeafSet016_2K-JPG.zip",
+    "sha256": "70993c9ff7a002ec78cab759fe153d37f2918463c3c320c3b963e524cee877b3"
+   },
+   "files": {
+    "color": {
+     "file": "LeafSet016_2K-JPG/LeafSet016_2K-JPG_Color.jpg",
+     "sha256": "3abc7e28cac20179f9b7b537ee1bd0c688da45d65014f77160ae64921d93e40e"
+    },
+    "opacity": {
+     "file": "LeafSet016_2K-JPG/LeafSet016_2K-JPG_Opacity.jpg",
+     "sha256": "7e01401a45c612d28074535e904729a74f5c3d1a2e3acafc38666bf8c7ca8530"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "rgba": 1024
+    },
+    "phone": {
+     "rgba": 512
+    }
+   }
+  },
+  {
+   "role": "leaves-hornbeam",
+   "name": "Leaf Set 014",
+   "source": "ambientcg",
+   "id": "LeafSet014",
+   "page": "https://ambientcg.com/view?id=LeafSet014",
+   "licensePage": "https://docs.ambientcg.com/license/",
+   "license": "CC0-1.0",
+   "licenseStatement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "ambientCG"
+   ],
+   "tileMeters": null,
+   "use": "Leaf atlas (hornbeam or beech type) for trees built in-repo",
+   "archive": {
+    "file": "LeafSet014_2K-JPG.zip",
+    "url": "https://ambientcg.com/get?file=LeafSet014_2K-JPG.zip",
+    "sha256": "8065d616032cc3a2dfa7ff40ba716e483b7fc854ae8c8f03fa95ada2cb7fccc6"
+   },
+   "files": {
+    "color": {
+     "file": "LeafSet014_2K-JPG/LeafSet014_2K-JPG_Color.jpg",
+     "sha256": "cd886f93c8e8d5ded48bd8478f0a949abf8de40367cbdbb2b105dbbaeb75da4f"
+    },
+    "opacity": {
+     "file": "LeafSet014_2K-JPG/LeafSet014_2K-JPG_Opacity.jpg",
+     "sha256": "a855f0863d731adce2776a23e910819ed0fd01728b160b7e9d001cbc831fe861"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "rgba": 1024
+    },
+    "phone": {
+     "rgba": 512
+    }
+   }
+  },
+  {
+   "role": "leaves-maple",
+   "name": "Leaf Set 010",
+   "source": "ambientcg",
+   "id": "LeafSet010",
+   "page": "https://ambientcg.com/view?id=LeafSet010",
+   "licensePage": "https://docs.ambientcg.com/license/",
+   "license": "CC0-1.0",
+   "licenseStatement": "Asset page: 'All assets are released under the Creative Commons CC0 license' (site-wide statement). docs.ambientcg.com/license: CC0 1.0 Universal applies to all asset files without exception. No per-asset author is named.",
+   "licenseChecked": "2026-09-29",
+   "authors": [
+    "ambientCG"
+   ],
+   "tileMeters": null,
+   "use": "Leaf atlas (maple) for trees built in-repo",
+   "archive": {
+    "file": "LeafSet010_2K-JPG.zip",
+    "url": "https://ambientcg.com/get?file=LeafSet010_2K-JPG.zip",
+    "sha256": "abb3da99ab0c37e564f5ef80153ef703515733ece2e022c61e2773da43d4fb68"
+   },
+   "files": {
+    "color": {
+     "file": "LeafSet010_2K-JPG/LeafSet010_2K-JPG_Color.jpg",
+     "sha256": "89302aef2b6507394486f730c51edf6b8ab8d1acd13e9c45183c9bd0e1ca7286"
+    },
+    "opacity": {
+     "file": "LeafSet010_2K-JPG/LeafSet010_2K-JPG_Opacity.jpg",
+     "sha256": "a68b47cae243c43d1d23178a49d0b1d7e6e824120051a22c48816757f4f84ddc"
+    }
+   },
+   "tiers": {
+    "desktop": {
+     "rgba": 1024
+    },
+    "phone": {
+     "rgba": 512
+    }
+   }
+  }
+ ],
+ "sky": {
+  "role": "sky",
+  "name": "Kloofendal 48d Partly Cloudy (Pure Sky)",
+  "source": "polyhaven",
+  "id": "kloofendal_48d_partly_cloudy_puresky",
+  "page": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+  "licensePage": "https://polyhaven.com/license",
+  "license": "CC0-1.0",
+  "licenseStatement": "CC0 1.0 Universal - public domain dedication, no attribution required",
+  "licenseChecked": "2026-09-29",
+  "authors": [
+   "Greg Zaal",
+   "Jarod Guest"
+  ],
+  "use": "Image-based lighting and the visible sky",
+  "files": {
+   "1k": {
+    "file": "kloofendal_48d_partly_cloudy_puresky_1k.hdr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/kloofendal_48d_partly_cloudy_puresky_1k.hdr",
+    "sha256": "fd94c84997b8a3c353b62c2125a9b44e19509956986a126e472684432a02d798"
+   },
+   "2k": {
+    "file": "kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+    "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198"
+   }
+  },
+  "tiers": {
+   "desktop": "2k",
+   "phone": "1k"
+  }
+ }
+}

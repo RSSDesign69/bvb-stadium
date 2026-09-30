@@ -23,3 +23,12 @@ export function rowFloor(t: TierLayout, row: number) { return t.floor + row*t.ri
 export function rowDepth(stand: StandId,t: TierLayout,row: number) { return STANDS[stand].inner+t.offset+row*t.depth; }
 // The inner rows leave an opening at the centre of each block for a vomitory.
 export function inTunnel(row: number, alongInBlock: number) { return row < 5 && Math.abs(alongInBlock)<1.35; }
+// The stand whose footprint holds (x, z): past its inner line and within its length. Corners and the pitch
+// return null. Shell and roof hits have no per-instance tag, so they choose a stand through this.
+export function standAt(x: number, z: number): StandId | null {
+  for (const id of STAND_ORDER) {
+    const { out, tangent, length, inner } = STANDS[id];
+    if (x*out[0]+z*out[2] >= inner-.5 && Math.abs(x*tangent[0]+z*tangent[2]) <= length/2) return id;
+  }
+  return null;
+}

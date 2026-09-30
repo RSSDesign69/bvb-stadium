@@ -905,6 +905,15 @@
       "license": "UNLICENSED",
       "verified": false,
       "notes": "Procedural meshes and CanvasTexture graphics; fictional score/clock, anonymous aqua/coral teams, decorative occupancy. System Arial fallback only; no font/media files bundled."
+    },
+    {
+      "kind": "explorer textures and sky (CC0 derivatives)",
+      "generator": "scripts/process-assets.mjs",
+      "sources": "scripts/explorer-assets.json; provenance/inputs.json records CC0-PH-* and CC0-ACG-*",
+      "origin": "third-party",
+      "license": "CC0-1.0",
+      "external_textures": true,
+      "notes": "Processed KTX2 derivatives of approved CC0 material scans, leaf atlases and one sky HDRI in public/assets/explorer/. Originals are kept outside the repository in the git-ignored .cache/assets-src/. Each shipped file has an inventory entry with the originals' and its own SHA-256."
     }
   ],
   "planned": [],
@@ -929,6 +938,17 @@
       "name": "Pillow",
       "location": "Codex bundled Python runtime",
       "purpose": "Temporary reference contact sheets outside repository",
+      "redistributed": false
+    },
+    {
+      "name": "KTX-Software (ktx, toktx)",
+      "version": "4.4.2",
+      "purpose": "Build-time only: encodes the approved CC0 textures and HDRI into KTX2 (ETC1S, UASTC, UASTC HDR) in scripts/process-assets.mjs. Not an npm package, not bundled, not redistributed.",
+      "upstream": "https://github.com/KhronosGroup/KTX-Software",
+      "distribution": "https://github.com/KhronosGroup/KTX-Software/releases/download/v4.4.2/KTX-Software-4.4.2-Darwin-arm64.pkg",
+      "license": "Apache-2.0",
+      "location": ".cache/tools/ktx-4.4.2/ (installer expanded with pkgutil --expand-full; not installed system-wide)",
+      "approved": "2026-09-29 by the product owner (explorer fidelity Task 1 download approval, item 20)",
       "redistributed": false
     }
   ]

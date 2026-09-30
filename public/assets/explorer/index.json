@@ -1,0 +1,317 @@
+{
+ "schemaVersion": 1,
+ "generator": "scripts/process-assets.mjs",
+ "sources": "scripts/explorer-assets.json",
+ "tool": "KTX-Software 4.4.2",
+ "tiers": {
+  "desktop": {
+   "files": 42,
+   "bytes": 13474703,
+   "gpuBytesEstimate": 67807915
+  },
+  "phone": {
+   "files": 39,
+   "bytes": 4762181,
+   "gpuBytesEstimate": 21146283
+  }
+ },
+ "materials": {
+  "concrete": {
+   "source": "polyhaven:concrete_wall_008",
+   "tileMeters": 2.71,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/concrete-color.ktx2",
+     "orm": "assets/explorer/desktop/concrete-orm.ktx2",
+     "normal": "assets/explorer/desktop/concrete-normal.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/concrete-color.ktx2",
+     "orm": "assets/explorer/phone/concrete-orm.ktx2",
+     "normal": "assets/explorer/phone/concrete-normal.ktx2"
+    }
+   }
+  },
+  "precast": {
+   "source": "polyhaven:brushed_concrete",
+   "tileMeters": 2.5,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/precast-color.ktx2",
+     "orm": "assets/explorer/desktop/precast-orm.ktx2",
+     "normal": "assets/explorer/desktop/precast-normal.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/precast-color.ktx2",
+     "orm": "assets/explorer/phone/precast-orm.ktx2",
+     "normal": "assets/explorer/phone/precast-normal.ktx2"
+    }
+   }
+  },
+  "cladding": {
+   "source": "polyhaven:corrugated_iron_03",
+   "tileMeters": 2,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/cladding-color.ktx2",
+     "orm": "assets/explorer/desktop/cladding-orm.ktx2",
+     "normal": "assets/explorer/desktop/cladding-normal.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/cladding-color.ktx2",
+     "orm": "assets/explorer/phone/cladding-orm.ktx2",
+     "normal": "assets/explorer/phone/cladding-normal.ktx2"
+    }
+   }
+  },
+  "roofSheet": {
+   "source": "polyhaven:box_profile_metal_sheet",
+   "tileMeters": 2,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/roofSheet-color.ktx2",
+     "orm": "assets/explorer/desktop/roofSheet-orm.ktx2",
+     "normal": "assets/explorer/desktop/roofSheet-normal.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/roofSheet-color.ktx2",
+     "orm": "assets/explorer/phone/roofSheet-orm.ktx2",
+     "normal": "assets/explorer/phone/roofSheet-normal.ktx2"
+    }
+   }
+  },
+  "paintedSteel": {
+   "source": "polyhaven:blue_metal_plate",
+   "tileMeters": 2.5,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/paintedSteel-color.ktx2",
+     "orm": "assets/explorer/desktop/paintedSteel-orm.ktx2",
+     "normal": "assets/explorer/desktop/paintedSteel-normal.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/paintedSteel-color.ktx2",
+     "orm": "assets/explorer/phone/paintedSteel-orm.ktx2"
+    }
+   }
+  },
+  "buildingFacade": {
+   "source": "polyhaven:exterior_wall_cladding_03",
+   "tileMeters": 1.96,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/buildingFacade-color.ktx2",
+     "orm": "assets/explorer/desktop/buildingFacade-orm.ktx2",
+     "normal": "assets/explorer/desktop/buildingFacade-normal.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/buildingFacade-color.ktx2",
+     "orm": "assets/explorer/phone/buildingFacade-orm.ktx2"
+    }
+   }
+  },
+  "flatRoof": {
+   "source": "polyhaven:bitumen",
+   "tileMeters": 20,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/flatRoof-color.ktx2",
+     "orm": "assets/explorer/desktop/flatRoof-orm.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/flatRoof-color.ktx2",
+     "orm": "assets/explorer/phone/flatRoof-orm.ktx2"
+    }
+   }
+  },
+  "asphalt": {
+   "source": "polyhaven:asphalt_02",
+   "tileMeters": 3,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/asphalt-color.ktx2",
+     "orm": "assets/explorer/desktop/asphalt-orm.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/asphalt-color.ktx2",
+     "orm": "assets/explorer/phone/asphalt-orm.ktx2"
+    }
+   }
+  },
+  "paving": {
+   "source": "polyhaven:concrete_pavement",
+   "tileMeters": 1.8,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/paving-color.ktx2",
+     "orm": "assets/explorer/desktop/paving-orm.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/paving-color.ktx2",
+     "orm": "assets/explorer/phone/paving-orm.ktx2"
+    }
+   }
+  },
+  "ballast": {
+   "source": "polyhaven:gravel_stones",
+   "tileMeters": 2,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/ballast-color.ktx2",
+     "orm": "assets/explorer/desktop/ballast-orm.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/ballast-color.ktx2",
+     "orm": "assets/explorer/phone/ballast-orm.ktx2"
+    }
+   }
+  },
+  "track": {
+   "source": "polyhaven:rubberized_track",
+   "tileMeters": 2,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/track-color.ktx2",
+     "orm": "assets/explorer/desktop/track-orm.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/track-color.ktx2",
+     "orm": "assets/explorer/phone/track-orm.ktx2"
+    }
+   }
+  },
+  "soil": {
+   "source": "polyhaven:farm_soil",
+   "tileMeters": 2,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/soil-color.ktx2",
+     "orm": "assets/explorer/desktop/soil-orm.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/soil-color.ktx2",
+     "orm": "assets/explorer/phone/soil-orm.ktx2"
+    }
+   }
+  },
+  "bark": {
+   "source": "polyhaven:bark_brown_02",
+   "tileMeters": 1,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/bark-color.ktx2",
+     "orm": "assets/explorer/desktop/bark-orm.ktx2",
+     "normal": "assets/explorer/desktop/bark-normal.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/bark-color.ktx2",
+     "orm": "assets/explorer/phone/bark-orm.ktx2"
+    }
+   }
+  },
+  "turf": {
+   "source": "ambientcg:Grass005",
+   "tileMeters": null,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/turf-color.ktx2",
+     "orm": "assets/explorer/desktop/turf-orm.ktx2",
+     "normal": "assets/explorer/desktop/turf-normal.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/turf-color.ktx2",
+     "orm": "assets/explorer/phone/turf-orm.ktx2",
+     "normal": "assets/explorer/phone/turf-normal.ktx2"
+    }
+   }
+  },
+  "grass": {
+   "source": "ambientcg:Grass004",
+   "tileMeters": 1.4,
+   "tiers": {
+    "desktop": {
+     "color": "assets/explorer/desktop/grass-color.ktx2",
+     "orm": "assets/explorer/desktop/grass-orm.ktx2"
+    },
+    "phone": {
+     "color": "assets/explorer/phone/grass-color.ktx2",
+     "orm": "assets/explorer/phone/grass-orm.ktx2"
+    }
+   }
+  }
+ },
+ "atlases": {
+  "leaves-oak": {
+   "source": "ambientcg:LeafSet016",
+   "tiers": {
+    "desktop": "assets/explorer/desktop/leaves-oak.ktx2",
+    "phone": "assets/explorer/phone/leaves-oak.ktx2"
+   }
+  },
+  "leaves-hornbeam": {
+   "source": "ambientcg:LeafSet014",
+   "tiers": {
+    "desktop": "assets/explorer/desktop/leaves-hornbeam.ktx2",
+    "phone": "assets/explorer/phone/leaves-hornbeam.ktx2"
+   }
+  },
+  "leaves-maple": {
+   "source": "ambientcg:LeafSet010",
+   "tiers": {
+    "desktop": "assets/explorer/desktop/leaves-maple.ktx2",
+    "phone": "assets/explorer/phone/leaves-maple.ktx2"
+   }
+  }
+ },
+ "sky": {
+  "source": "polyhaven:kloofendal_48d_partly_cloudy_puresky",
+  "format": "E5B9G9R9_UFLOAT_PACK32, zstd, rows bottom-up (t = 0 at the nadir), sun disc clamped",
+  "clampFactor": 1.5,
+  "tiers": {
+   "desktop": {
+    "file": "assets/explorer/desktop/sky.ktx2",
+    "width": 2048,
+    "height": 1024,
+    "sun": {
+     "direction": [
+      0.55439,
+      0.74168,
+      0.37758
+     ],
+     "elevationDeg": 47.87,
+     "azimuthDeg": 124.26,
+     "sunIrradianceRGB": [
+      4.4227,
+      4.4592,
+      4.0573
+     ],
+     "skyIrradianceUp": 1.5078,
+     "peakLuminance": 72558.8,
+     "clampLuminance": 14.535
+    }
+   },
+   "phone": {
+    "file": "assets/explorer/phone/sky.ktx2",
+    "width": 1024,
+    "height": 512,
+    "sun": {
+     "direction": [
+      0.55445,
+      0.74162,
+      0.37762
+     ],
+     "elevationDeg": 47.87,
+     "azimuthDeg": 124.26,
+     "sunIrradianceRGB": [
+      4.427,
+      4.4599,
+      4.0623
+     ],
+     "skyIrradianceUp": 1.5062,
+     "peakLuminance": 60449.8,
+     "clampLuminance": 14.012
+    }
+   }
+  }
+ }
+}
